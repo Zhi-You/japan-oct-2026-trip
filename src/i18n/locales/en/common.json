@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "overview": "Overview",
+    "itinerary": "Itinerary",
+    "bookings": "Book Ahead",
+    "pokemon": "Pokemon & TCG",
+    "food": "Food Map",
+    "tips": "Season & Tips",
+    "planner": "Planner"
+  },
+  "board": {
+    "viewMode": "View",
+    "customizeMode": "Customize",
+    "viewSubtitle": "Your timeline — drag-reordered cards and custom entries appear here",
+    "customizeSubtitle": "Drag cards to reorder · Add activities & meals · Attach notes per card",
+    "addActivity": "Activity",
+    "addMeal": "Meal",
+    "dragHandle": "Drag to reorder",
+    "delete": "Delete card",
+    "deleteCard": "Delete {{title}}",
+    "deleteConfirmTitle": "Delete this card?",
+    "deleteConfirmMessage": "Remove \"{{title}}\" from this day's timeline? This cannot be undone.",
+    "emptyDay": "No cards yet — add an activity or meal above",
+    "reset": "Reset timeline",
+    "resetConfirm": "Reset all days to the original itinerary? Your custom cards, order, and notes will be lost.",
+    "noMeals": "No meals on the timeline yet",
+    "notes": {
+      "toggle": "Toggle notes",
+      "label": "Notes",
+      "placeholder": "Add comments for your group..."
+    }
+  },
+  "hero": {
+    "badge": "October 2026 · Tokyo",
+    "cta": "View Itinerary",
+    "ctaBookings": "Booking Checklist"
+  },
+  "overview": {
+    "title": "Trip at a Glance",
+    "dates": "Dates",
+    "travellers": "Travellers",
+    "base": "Home Base",
+    "transport": "Getting Around"
+  },
+  "labels": {
+    "intensity": "Pace",
+    "intensityLight": "Light",
+    "intensityModerate": "Moderate",
+    "intensityFull": "Full day",
+    "timeSlot": "Best time",
+    "duration": "Duration",
+    "highlights": "Highlights",
+    "tips": "Traveller tips",
+    "ticket": "Tickets",
+    "photoNote": "Photo note",
+    "paceNote": "Pace tip",
+    "food": "Meals today",
+    "transport": "Transport",
+    "dayTips": "Day notes",
+    "pokemonCenter": "Pokemon Center",
+    "area": "Area",
+    "category": "Category",
+    "deadline": "Deadline",
+    "urgencyCritical": "Book now",
+    "urgencyHigh": "Book soon",
+    "urgencyMedium": "Recommended",
+    "ticketAdvanceRequired": "Advance booking required",
+    "ticketAdvanceRecommended": "Advance booking recommended",
+    "ticketWalkIn": "Walk-in OK",
+    "ticketLottery": "Lottery / limited",
+    "ticketFree": "Free entry",
+    "backup": "Backup plans",
+    "extras": "Optional add-ons",
+    "season": "October in Tokyo",
+    "opensAt": "Opens"
+  },
+  "footer": {
+    "note": "Itinerary optimised for Ueno base · Public transport only · i18n-ready architecture",
+    "built": "Built for your group of 4"
+  }
+}

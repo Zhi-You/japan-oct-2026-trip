@@ -1,0 +1,44 @@
+import type { ItineraryData } from '../types/itinerary';
+
+interface TipsSectionProps {
+  backupPlans: ItineraryData['backupPlans'];
+  extras: ItineraryData['recommendedExtras'];
+}
+
+export function TipsSection({ backupPlans, extras }: TipsSectionProps) {
+  return (
+    <section id="tips" className="mx-auto max-w-5xl px-6 py-16">
+      <h2 className="font-serif text-3xl font-bold text-ink">Backup Plans &amp; Extras</h2>
+
+      <div className="mt-8 grid gap-8 md:grid-cols-2">
+        <div>
+          <h3 className="font-serif text-xl font-semibold text-vermillion">🔄 Contingencies</h3>
+          <div className="mt-4 space-y-3">
+            {backupPlans.map((bp, i) => (
+              <div key={i} className="rounded-lg border border-washi-dark bg-white p-4">
+                <p className="text-sm font-semibold text-ink">{bp.scenario}</p>
+                <p className="mt-1 text-sm text-ink-light">{bp.action}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="font-serif text-xl font-semibold text-indigo">✨ Optional Add-ons</h3>
+          <p className="mt-1 text-xs text-ink-light/60">From your saved list — lower priority</p>
+          <div className="mt-4 space-y-3">
+            {extras.map((place) => (
+              <div key={place.id} className="rounded-lg border border-washi-dark bg-white p-4">
+                <p className="font-semibold text-ink">{place.name}</p>
+                <p className="text-xs text-ink-light/60">
+                  {place.area} · {place.duration}
+                </p>
+                <p className="mt-2 text-sm text-ink-light">{place.summary}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

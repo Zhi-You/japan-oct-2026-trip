@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans JP", system-ui, sans-serif;
+  --font-serif: "Noto Serif JP", Georgia, serif;
+  --color-ink: #1a1a2e;
+  --color-ink-light: #2d2d44;
+  --color-vermillion: #c62828;
+  --color-vermillion-light: #ef5350;
+  --color-gold: #b8860b;
+  --color-gold-light: #d4a843;
+  --color-washi: #f5f0e6;
+  --color-washi-dark: #e8dfd0;
+  --color-indigo: #283593;
+  --color-sakura: #ffcdd2;
+  --color-matcha: #558b2f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-washi);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-vermillion) 25%, transparent);
+}
+
+.washi-pattern {
+  background-color: var(--color-washi);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4c4a8' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.seigaiha-border {
+  border-image: repeating-linear-gradient(
+      135deg,
+      var(--color-indigo) 0 2px,
+      transparent 2px 8px
+    )
+    1;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out forwards;
+}
