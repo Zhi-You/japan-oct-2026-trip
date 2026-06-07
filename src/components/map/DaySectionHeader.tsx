@@ -55,32 +55,11 @@ export function DaySectionHeader({
   );
 }
 
-export function DaySectionFooter({
-  day,
-  showPokemon = true,
-}: {
-  day: DayPlan;
-  showPokemon?: boolean;
-}) {
+export function DaySectionFooter({ day }: { day: DayPlan }) {
   const { t } = useTranslation();
 
   return (
     <>
-      {showPokemon && day.pokemonCenter && (
-        <div className="mt-4 flex items-start gap-3 rounded-lg border border-indigo/20 bg-indigo/5 p-4">
-          <span className="text-2xl">⚡</span>
-          <div>
-            <p className="text-xs font-semibold uppercase text-indigo">
-              {t('labels.pokemonCenter')}
-            </p>
-            <p className="font-medium text-ink">{day.pokemonCenter.name}</p>
-            <p className="text-xs text-ink-light">
-              {t('labels.opensAt')} {day.pokemonCenter.openTime} — {day.pokemonCenter.note}
-            </p>
-          </div>
-        </div>
-      )}
-
       {day.transport.length > 0 && (
         <div className="mt-6 rounded-lg bg-ink/5 p-4">
           <p className="text-xs font-semibold uppercase text-ink-light">

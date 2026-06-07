@@ -24,6 +24,7 @@
     "reset": "Reset timeline",
     "resetConfirm": "Reset all days to the original itinerary? Your custom cards, order, and notes will be lost.",
     "noMeals": "No meals on the timeline yet",
+    "schedule": "Time & duration",
     "notes": {
       "toggle": "Toggle notes",
       "label": "Notes",

@@ -25,9 +25,10 @@ function FitBounds({ positions }: { positions: [number, number][] }) {
 
 function createNumberedIcon(order: number, isPokemon = false): L.DivIcon {
   const bg = isPokemon ? '#283593' : '#c62828';
+  const label = isPokemon ? '⚡' : String(order);
   return L.divIcon({
     className: 'day-map-marker',
-    html: `<div class="day-map-marker-pin" style="background:${bg}">${isPokemon ? '⚡' : order}</div>`,
+    html: `<div class="day-map-marker-pin" style="background:${bg}">${label}</div>`,
     iconSize: [30, 30],
     iconAnchor: [15, 15],
     popupAnchor: [0, -16],
@@ -35,8 +36,11 @@ function createNumberedIcon(order: number, isPokemon = false): L.DivIcon {
 }
 
 export function DayMap({ pins, className = '' }: DayMapProps) {
-  const plotPins = pins.filter((p) => p.order > 0);
-  const positions: [number, number][] = plotPins.map((p) => [p.coordinates.lat, p.coordinates.lng]);
+  const plotPins = pins;
+  const positions: [number, number][] = plotPins.map((p) => [
+    p.coordinates.lat,
+    p.coordinates.lng,
+  ]);
   const routePositions = positions.length > 1 ? positions : [];
 
   const defaultCenter: [number, number] = positions[0] ?? [35.6762, 139.6503];
@@ -67,7 +71,7 @@ export function DayMap({ pins, className = '' }: DayMapProps) {
           <Marker
             key={pin.id}
             position={[pin.coordinates.lat, pin.coordinates.lng]}
-            icon={createNumberedIcon(pin.order, pin.order === 0)}
+            icon={createNumberedIcon(pin.order, pin.isPokemonCenter)}
           >
             <Popup>
               <div className="text-sm">

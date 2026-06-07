@@ -11,6 +11,7 @@ import type { DayPlan } from '../types/itinerary';
 import type {
   BoardState,
   CardNote,
+  CardSchedule,
   CustomActivity,
   CustomMeal,
   TimelineCard,
@@ -21,7 +22,11 @@ import {
 } from '../types/board';
 import { loadBoardState, saveBoardState } from '../utils/boardStorage';
 import { generateCardId } from '../utils/ids';
-import { initializeBoardState, mergeBoardWithDefaults } from '../utils/initializeBoard';
+import {
+  initializeBoardState,
+  mergeBoardWithDefaults,
+  repairBoardState,
+} from '../utils/initializeBoard';
 
 type InsertPosition = { dayId: string; index: number };
 
@@ -33,6 +38,7 @@ interface BoardContextValue {
   insertCustomMeal: (position: InsertPosition) => string;
   updateCustomActivity: (dayId: string, cardId: string, data: CustomActivity) => void;
   updateCustomMeal: (dayId: string, cardId: string, data: CustomMeal) => void;
+  updateCardSchedule: (dayId: string, cardId: string, schedule: CardSchedule) => void;
   deleteCard: (dayId: string, cardId: string) => void;
   setCardNote: (dayId: string, cardId: string, text: string) => void;
   toggleCardNote: (dayId: string, cardId: string) => void;
@@ -52,8 +58,8 @@ export function BoardProvider({ days, children }: BoardProviderProps) {
 
   const [board, setBoard] = useState<BoardState>(() => {
     const saved = loadBoardState();
-    if (saved) return mergeBoardWithDefaults(saved, days);
-    return defaultBoard;
+    const base = saved ? mergeBoardWithDefaults(saved, days) : defaultBoard;
+    return repairBoardState(base, days);
   });
 
   useEffect(() => {
@@ -194,6 +200,31 @@ export function BoardProvider({ days, children }: BoardProviderProps) {
     [],
   );
 
+  const updateCardSchedule = useCallback(
+    (dayId: string, cardId: string, schedule: CardSchedule) => {
+      setBoard((prev) => {
+        const dayBoard = prev.days[dayId];
+        const card = dayBoard?.cards[cardId];
+        if (!card) return prev;
+
+        return {
+          ...prev,
+          days: {
+            ...prev.days,
+            [dayId]: {
+              ...dayBoard,
+              cards: {
+                ...dayBoard.cards,
+                [cardId]: { ...card, schedule },
+              },
+            },
+          },
+        };
+      });
+    },
+    [],
+  );
+
   const deleteCard = useCallback((dayId: string, cardId: string) => {
     setBoard((prev) => {
       const dayBoard = prev.days[dayId];
@@ -269,7 +300,7 @@ export function BoardProvider({ days, children }: BoardProviderProps) {
   );
 
   const resetBoard = useCallback(() => {
-    setBoard(initializeBoardState(days));
+    setBoard(repairBoardState(initializeBoardState(days), days));
   }, [days]);
 
   const value: BoardContextValue = {
@@ -280,6 +311,7 @@ export function BoardProvider({ days, children }: BoardProviderProps) {
     insertCustomMeal,
     updateCustomActivity,
     updateCustomMeal,
+    updateCardSchedule,
     deleteCard,
     setCardNote,
     toggleCardNote,

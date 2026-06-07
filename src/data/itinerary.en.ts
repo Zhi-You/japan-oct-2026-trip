@@ -184,6 +184,15 @@ const itineraryEn: ItineraryData = {
       ],
       food: [
         {
+          name: 'Uogashi Nihon-Ichi Ueno Okachimachi',
+          area: 'Ueno',
+          cuisine: 'Standing sushi / sashimi',
+          priceRange: '¥800–1,500',
+          rating: '4.3★',
+          meal: 'lunch',
+          note: 'Affordable sashimi option near Ameyoko — order piece-by-piece at the counter (¥100–300 per piece). Quick, no reservation needed. Alternative to a sit-down lunch if you arrive hungry before exploring.',
+        },
+        {
           name: 'Gyukatsu Motomura Ueno',
           area: 'Ueno',
           cuisine: 'Beef cutlet (gyukatsu)',
@@ -375,6 +384,15 @@ const itineraryEn: ItineraryData = {
           note: 'From your saved list. Fresh tuna specialist — lunch sets are excellent value.',
         },
         {
+          name: 'Magurobito Asakusa',
+          area: 'Asakusa',
+          cuisine: 'Tuna / sashimi bowls',
+          priceRange: '¥1,000–2,000',
+          rating: '4.4★',
+          meal: 'lunch',
+          note: 'Budget-friendly alternative to Maguro-to-Shari — generous tuna bowls and sashimi sets without the longest queues. Good backup if Maguro-to-Shari is packed.',
+        },
+        {
           name: 'Ichiran Asakusa',
           area: 'Asakusa',
           cuisine: 'Tonkotsu ramen (solo booths)',
@@ -505,6 +523,15 @@ const itineraryEn: ItineraryData = {
           note: 'Famous meat croquettes — eat while walking the shotengai.',
         },
         {
+          name: 'Uogashi Nihon-Ichi Ueno Okachimachi',
+          area: 'Ueno',
+          cuisine: 'Standing sushi / sashimi',
+          priceRange: '¥800–1,500',
+          rating: '4.3★',
+          meal: 'lunch',
+          note: 'Light sashimi lunch after the museum — same affordable standing-sushi chain as Day 1 if you skipped it earlier.',
+        },
+        {
           name: 'Ueno area izakaya or café',
           area: 'Ueno',
           cuisine: 'Japanese casual',
@@ -616,6 +643,15 @@ const itineraryEn: ItineraryData = {
           rating: '4.1★',
           meal: 'lunch',
           note: 'From your saved list. Thick Milanese-style slices — quick lunch between Meiji and Shibuya.',
+        },
+        {
+          name: 'Sushi no Midori Shibuya',
+          area: 'Shibuya',
+          cuisine: 'Sashimi / sushi sets',
+          priceRange: '¥1,500–2,500',
+          rating: '4.3★',
+          meal: 'lunch',
+          note: 'Famous budget sushi — generous lunch sets with sashimi. Expect 30–60 min queue at peak; go before noon or late afternoon. Great value alternative to Spontini if you prefer Japanese.',
         },
         {
           name: 'Ramen Afro Beats Shinjuku',
@@ -830,6 +866,15 @@ const itineraryEn: ItineraryData = {
           rating: '4.2★',
           meal: 'lunch',
           note: 'From saved list. Famous rich chicken broth soba — expect 30–60 min queue. Split: 2 queue, 2 explore Ginza.',
+        },
+        {
+          name: 'Sushizanmai Tsukiji Outer Market',
+          area: 'Tsukiji',
+          cuisine: 'Sashimi / sushi',
+          priceRange: '¥1,500–3,000',
+          rating: '4.2★',
+          meal: 'lunch',
+          note: 'Tsukiji Outer Market is ~15 min from Ginza — fresh sashimi breakfast/lunch sets at counter seats. Arrive before 11:00 to avoid the worst crowds. Perfect pre-Akihabara lunch.',
         },
         {
           name: 'Kanda Tamagoken Akihabara',

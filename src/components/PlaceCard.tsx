@@ -1,13 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import type { Place } from '../types/itinerary';
+import type { CardSchedule } from '../types/board';
 import { TicketBadge } from './Badges';
+import { ScheduleDisplay } from './board/ScheduleEditor';
 
 interface PlaceCardProps {
   place: Place;
   index: number;
+  schedule: CardSchedule;
 }
 
-export function PlaceCard({ place, index }: PlaceCardProps) {
+export function PlaceCard({ place, index, schedule }: PlaceCardProps) {
   const { t } = useTranslation();
 
   return (
@@ -22,10 +25,7 @@ export function PlaceCard({ place, index }: PlaceCardProps) {
             {place.area} · {place.category}
           </p>
         </div>
-        <div className="text-right text-xs text-ink-light/70">
-          <p className="font-medium text-indigo">{place.timeSlot}</p>
-          <p>{place.duration}</p>
-        </div>
+        <ScheduleDisplay schedule={schedule} />
       </div>
 
       <p className="mt-3 text-sm leading-relaxed text-ink-light">{place.summary}</p>

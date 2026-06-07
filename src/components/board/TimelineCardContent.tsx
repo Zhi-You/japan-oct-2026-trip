@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import type { TimelineCard } from '../../types/board';
+import { getEffectiveSchedule } from '../../utils/cardSchedule';
 import { PlaceCard } from '../PlaceCard';
+import { ScheduleDisplay } from './ScheduleEditor';
 import { CustomActivityDisplay, CustomActivityEditor } from './CustomActivityForm';
 import { CustomMealDisplay, CustomMealEditor } from './CustomMealForm';
 
@@ -16,18 +18,50 @@ function MealCardView({ meal }: { meal: NonNullable<TimelineCard['meal']> }) {
   return (
     <div>
       <div className="flex items-start justify-between gap-2">
-        <p className="font-semibold text-ink">{meal.name}</p>
+        <div>
+          <p className="font-semibold text-ink">{meal.name}</p>
+          <p className="mt-1 text-xs text-ink-light/70">
+            {meal.area} · {meal.cuisine} · {meal.priceRange}
+            {meal.rating && ` · ${meal.rating}`}
+          </p>
+        </div>
         <span className="shrink-0 rounded bg-washi px-2 py-0.5 text-xs capitalize text-ink-light">
           {meal.meal}
         </span>
       </div>
-      <p className="mt-1 text-xs text-ink-light/70">
-        {meal.area} · {meal.cuisine} · {meal.priceRange}
-        {meal.rating && ` · ${meal.rating}`}
-      </p>
       {meal.note && (
         <p className="mt-2 text-xs leading-relaxed text-ink-light">{meal.note}</p>
       )}
+    </div>
+  );
+}
+
+function PokemonCenterCardView({
+  data,
+  schedule,
+}: {
+  data: NonNullable<TimelineCard['pokemonCenter']>;
+  schedule: ReturnType<typeof getEffectiveSchedule>;
+}) {
+  const { t } = useTranslation();
+
+  return (
+    <div className="flex items-start gap-3">
+      <span className="text-2xl">⚡</span>
+      <div className="min-w-0 flex-1">
+        <div className="flex flex-wrap items-start justify-between gap-2">
+          <div>
+            <p className="text-xs font-semibold uppercase text-indigo">
+              {t('labels.pokemonCenter')}
+            </p>
+            <p className="font-serif text-lg font-semibold text-ink">{data.name}</p>
+          </div>
+          <ScheduleDisplay schedule={schedule} />
+        </div>
+        <p className="mt-2 text-xs text-ink-light">
+          {t('labels.opensAt')} {data.openTime} — {data.note}
+        </p>
+      </div>
     </div>
   );
 }
@@ -40,9 +74,18 @@ export function TimelineCardContent({
   onUpdateMeal,
 }: TimelineCardContentProps) {
   const { t } = useTranslation();
+  const schedule = getEffectiveSchedule(card);
+
+  if (card.kind === 'pokemon-center' && card.pokemonCenter) {
+    return (
+      <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-5 shadow-sm">
+        <PokemonCenterCardView data={card.pokemonCenter} schedule={schedule} />
+      </div>
+    );
+  }
 
   if (card.kind === 'place' && card.place) {
-    return <PlaceCard place={card.place} index={index} />;
+    return <PlaceCard place={card.place} index={index} schedule={schedule} />;
   }
 
   if (card.kind === 'meal' && card.meal) {
@@ -84,6 +127,7 @@ export function TimelineCardContent({
 }
 
 export function getCardTitle(card: TimelineCard): string {
+  if (card.kind === 'pokemon-center' && card.pokemonCenter) return card.pokemonCenter.name;
   if (card.kind === 'place' && card.place) return card.place.name;
   if (card.kind === 'meal' && card.meal) return card.meal.name;
   if (card.kind === 'custom-activity' && card.customActivity)
@@ -91,4 +135,9 @@ export function getCardTitle(card: TimelineCard): string {
   if (card.kind === 'custom-meal' && card.customMeal)
     return card.customMeal.name || 'Untitled meal';
   return 'Card';
+}
+
+/** Only activities use the When / duration editor — not meals. */
+export function cardSupportsScheduleEdit(card: TimelineCard): boolean {
+  return card.kind === 'place' || card.kind === 'pokemon-center';
 }

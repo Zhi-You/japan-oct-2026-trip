@@ -35,16 +35,26 @@ export function CollapsedActivityList({
           >
             <span
               className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${
-                item.hasCoordinates ? 'bg-vermillion' : 'bg-ink-light/40'
+                item.isPokemonCenter
+                  ? 'bg-indigo'
+                  : item.hasCoordinates
+                    ? 'bg-vermillion'
+                    : 'bg-ink-light/40'
               }`}
             >
-              {item.order}
+              {item.isPokemonCenter ? '⚡' : item.order}
             </span>
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-semibold text-ink">{item.title}</p>
               <p className="truncate text-xs text-ink-light/70">{item.locationLabel}</p>
-              <p className="mt-0.5 text-xs font-medium capitalize text-indigo">
+              <p className="mt-0.5 text-xs capitalize text-indigo">
                 {item.timeLabel}
+                {!item.isMeal && item.durationLabel ? (
+                  <>
+                    <span className="text-ink-light/50"> · </span>
+                    {item.durationLabel}
+                  </>
+                ) : null}
               </p>
               {!item.hasCoordinates && (
                 <p className="mt-0.5 text-[10px] text-gold">{t('map.noCoordinates')}</p>

@@ -17,6 +17,11 @@ export interface DurationRange {
   unit: DurationUnit;
 }
 
+export interface CardSchedule {
+  timeSlot: TimeSlot;
+  duration: DurationRange;
+}
+
 export interface CustomActivity {
   title: string;
   location?: string;
@@ -33,7 +38,7 @@ export interface CustomMeal {
   meal: 'breakfast' | 'lunch' | 'dinner';
 }
 
-export type CardKind = 'place' | 'meal' | 'custom-activity' | 'custom-meal';
+export type CardKind = 'place' | 'meal' | 'custom-activity' | 'custom-meal' | 'pokemon-center';
 
 export interface TimelineCard {
   id: string;
@@ -42,6 +47,13 @@ export interface TimelineCard {
   meal?: FoodStop;
   customActivity?: CustomActivity;
   customMeal?: CustomMeal;
+  pokemonCenter?: {
+    name: string;
+    openTime: string;
+    note: string;
+  };
+  /** Overrides default time/duration for place and pokemon-center cards only. */
+  schedule?: CardSchedule;
 }
 
 export interface CardNote {

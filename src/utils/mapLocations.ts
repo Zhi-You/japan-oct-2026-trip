@@ -1,6 +1,5 @@
 import type { TimelineCard } from '../types/board';
-import { formatDuration } from '../types/board';
-import type { DayPlan } from '../types/itinerary';
+import { getCardDurationLabel, getCardTimeLabel } from './cardSchedule';
 import {
   PLACE_COORDINATES,
   POKEMON_CENTER_COORDINATES,
@@ -16,6 +15,7 @@ export interface MapPin {
   locationLabel: string;
   timeLabel: string;
   coordinates: Coordinates;
+  isPokemonCenter?: boolean;
 }
 
 function resolveCustomLocation(location?: string): Coordinates | null {
@@ -24,6 +24,10 @@ function resolveCustomLocation(location?: string): Coordinates | null {
 }
 
 function resolveCardCoordinates(card: TimelineCard): Coordinates | null {
+  if (card.kind === 'pokemon-center' && card.pokemonCenter) {
+    return POKEMON_CENTER_COORDINATES[card.pokemonCenter.name] ?? null;
+  }
+
   if (card.kind === 'place' && card.place) {
     return PLACE_COORDINATES[card.place.id] ?? resolveAreaCoordinates(card.place.area);
   }
@@ -48,16 +52,12 @@ function resolveCardCoordinates(card: TimelineCard): Coordinates | null {
   return null;
 }
 
-function getCardTimeLabel(card: TimelineCard): string {
-  if (card.kind === 'place' && card.place) return card.place.timeSlot;
-  if (card.kind === 'meal' && card.meal) return card.meal.meal;
-  if (card.kind === 'custom-activity' && card.customActivity)
-    return card.customActivity.timeSlot;
-  if (card.kind === 'custom-meal' && card.customMeal) return card.customMeal.meal;
-  return '—';
-}
-
 function getCardLocationLabel(card: TimelineCard): string {
+  if (card.kind === 'pokemon-center' && card.pokemonCenter) {
+    return card.pokemonCenter.name
+      .replace(/^Pokemon Center /i, '')
+      .replace(/^Pokemon Store /i, '');
+  }
   if (card.kind === 'place' && card.place) return card.place.area;
   if (card.kind === 'meal' && card.meal) return card.meal.area;
   if (card.kind === 'custom-activity' && card.customActivity)
@@ -68,6 +68,7 @@ function getCardLocationLabel(card: TimelineCard): string {
 }
 
 function getCardTitle(card: TimelineCard): string {
+  if (card.kind === 'pokemon-center' && card.pokemonCenter) return card.pokemonCenter.name;
   if (card.kind === 'place' && card.place) return card.place.name;
   if (card.kind === 'meal' && card.meal) return card.meal.name;
   if (card.kind === 'custom-activity' && card.customActivity)
@@ -91,6 +92,7 @@ export function extractMapPins(cards: TimelineCard[]): MapPin[] {
       locationLabel: getCardLocationLabel(card),
       timeLabel: getCardTimeLabel(card),
       coordinates,
+      isPokemonCenter: card.kind === 'pokemon-center',
     });
   });
 
@@ -103,39 +105,27 @@ export interface CollapsedActivityItem {
   title: string;
   locationLabel: string;
   timeLabel: string;
+  durationLabel: string;
+  isMeal?: boolean;
+  isPokemonCenter?: boolean;
   hasCoordinates: boolean;
 }
 
 export function extractCollapsedActivities(cards: TimelineCard[]): CollapsedActivityItem[] {
-  return cards.map((card, index) => ({
-    id: card.id,
-    order: index + 1,
-    title: getCardTitle(card),
-    locationLabel: getCardLocationLabel(card),
-    timeLabel: getCardTimeLabel(card),
-    hasCoordinates: resolveCardCoordinates(card) !== null,
-  }));
+  return cards.map((card, index) => {
+    const durationLabel = getCardDurationLabel(card);
+    return {
+      id: card.id,
+      order: index + 1,
+      title: getCardTitle(card),
+      locationLabel: getCardLocationLabel(card),
+      timeLabel: getCardTimeLabel(card),
+      durationLabel,
+      isMeal: card.kind === 'meal' || card.kind === 'custom-meal',
+      isPokemonCenter: card.kind === 'pokemon-center',
+      hasCoordinates: resolveCardCoordinates(card) !== null,
+    };
+  });
 }
 
-/** Optional Pokemon Center pin from day metadata. */
-export function extractPokemonCenterPin(day: DayPlan): MapPin | null {
-  if (!day.pokemonCenter) return null;
-  const coordinates = POKEMON_CENTER_COORDINATES[day.pokemonCenter.name];
-  if (!coordinates) return null;
-
-  return {
-    id: `${day.id}-pokemon-center`,
-    order: 0,
-    title: day.pokemonCenter.name,
-    locationLabel: day.pokemonCenter.name,
-    timeLabel: day.pokemonCenter.openTime,
-    coordinates,
-  };
-}
-
-export function getCardDurationLabel(card: TimelineCard): string | null {
-  if (card.kind === 'place' && card.place) return card.place.duration;
-  if (card.kind === 'custom-activity' && card.customActivity)
-    return formatDuration(card.customActivity.duration);
-  return null;
-}
+export { getCardTitle, getCardTimeLabel, getCardDurationLabel };

@@ -131,7 +131,7 @@ export function DayBoardCustomizer({ day }: DayBoardCustomizerProps) {
         </>
       )}
 
-      <DaySectionFooter day={day} showPokemon={!mapOpen} />
+      <DaySectionFooter day={day} />
 
       <DeleteConfirmModal
         isOpen={pendingDelete !== null}

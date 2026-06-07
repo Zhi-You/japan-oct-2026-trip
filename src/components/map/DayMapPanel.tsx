@@ -2,11 +2,7 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { TimelineCard } from '../../types/board';
 import type { DayPlan } from '../../types/itinerary';
-import {
-  extractCollapsedActivities,
-  extractMapPins,
-  extractPokemonCenterPin,
-} from '../../utils/mapLocations';
+import { extractCollapsedActivities, extractMapPins } from '../../utils/mapLocations';
 import { CollapsedActivityList } from './CollapsedActivityList';
 import { DayMap } from './DayMap';
 
@@ -15,16 +11,11 @@ interface DayMapPanelProps {
   cards: TimelineCard[];
 }
 
-export function DayMapPanel({ day, cards }: DayMapPanelProps) {
+export function DayMapPanel({ day: _day, cards }: DayMapPanelProps) {
   const { t } = useTranslation();
   const [activeId, setActiveId] = useState<string | null>(null);
 
-  const pins = useMemo(() => {
-    const activityPins = extractMapPins(cards);
-    const pcPin = extractPokemonCenterPin(day);
-    return pcPin ? [pcPin, ...activityPins] : activityPins;
-  }, [cards, day]);
-
+  const pins = useMemo(() => extractMapPins(cards), [cards]);
   const collapsedItems = useMemo(() => extractCollapsedActivities(cards), [cards]);
   const mappableCount = collapsedItems.filter((i) => i.hasCoordinates).length;
 

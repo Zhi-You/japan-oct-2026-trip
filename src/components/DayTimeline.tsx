@@ -56,7 +56,7 @@ export function DayTimeline({ days }: DayTimelineProps) {
                   </div>
                 )}
 
-                <DaySectionFooter day={day} showPokemon={!mapOpen} />
+                <DaySectionFooter day={day} />
               </div>
             </div>
           );

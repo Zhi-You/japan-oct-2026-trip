@@ -48,7 +48,7 @@ export const AREA_COORDINATES: Record<string, Coordinates> = {
   Kawaguchiko: { lat: 35.5029, lng: 138.7683 },
   'Fuji Five Lakes': { lat: 35.5029, lng: 138.7683 },
   Nikko: { lat: 36.7577, lng: 139.5995 },
-  Airport: { lat: 35.7647, lng: 140.3864 },
+  Tsukiji: { lat: 35.6654, lng: 139.7707 },
 };
 
 /** Named restaurants / venues from the saved food list. */
@@ -65,6 +65,10 @@ export const VENUE_COORDINATES: Record<string, Coordinates> = {
   'Age.3 GINZA': { lat: 35.6715, lng: 139.7645 },
   'Ginza Kagari — Soba': { lat: 35.6695, lng: 139.7632 },
   'Kanda Tamagoken Akihabara': { lat: 35.6975, lng: 139.7718 },
+  'Uogashi Nihon-Ichi Ueno Okachimachi': { lat: 35.7076, lng: 139.7742 },
+  'Sushi no Midori Shibuya': { lat: 35.6598, lng: 139.6988 },
+  'Sushizanmai Tsukiji Outer Market': { lat: 35.6654, lng: 139.7707 },
+  'Magurobito Asakusa': { lat: 35.7126, lng: 139.7968 },
 };
 
 /** Pokemon Center locations (optional day metadata pins). */

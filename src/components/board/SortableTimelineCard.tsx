@@ -3,8 +3,14 @@ import { CSS } from '@dnd-kit/utilities';
 import { useTranslation } from 'react-i18next';
 import type { TimelineCard } from '../../types/board';
 import { useBoard } from '../../context/BoardContext';
+import { getEffectiveSchedule } from '../../utils/cardSchedule';
 import { CardNotesPanel } from './CardNotesPanel';
-import { TimelineCardContent, getCardTitle } from './TimelineCardContent';
+import { ScheduleEditor } from './ScheduleEditor';
+import {
+  TimelineCardContent,
+  cardSupportsScheduleEdit,
+  getCardTitle,
+} from './TimelineCardContent';
 
 interface SortableTimelineCardProps {
   card: TimelineCard;
@@ -20,7 +26,7 @@ export function SortableTimelineCard({
   onDelete,
 }: SortableTimelineCardProps) {
   const { t } = useTranslation();
-  const { updateCustomActivity, updateCustomMeal } = useBoard();
+  const { updateCustomActivity, updateCustomMeal, updateCardSchedule } = useBoard();
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: card.id,
   });
@@ -30,6 +36,9 @@ export function SortableTimelineCard({
     transition,
     opacity: isDragging ? 0.5 : 1,
   };
+
+  const schedule = getEffectiveSchedule(card);
+  const showScheduleEditor = cardSupportsScheduleEdit(card);
 
   return (
     <div ref={setNodeRef} style={style} className="relative">
@@ -44,7 +53,14 @@ export function SortableTimelineCard({
           ⠿
         </button>
 
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1 space-y-3">
+          {showScheduleEditor && (
+            <ScheduleEditor
+              compact
+              schedule={card.schedule ?? schedule}
+              onChange={(next) => updateCardSchedule(dayId, card.id, next)}
+            />
+          )}
           <TimelineCardContent
             card={card}
             index={index}
