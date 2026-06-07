@@ -1,0 +1,55 @@
+import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import type { TimelineCard } from '../../types/board';
+import type { DayPlan } from '../../types/itinerary';
+import {
+  extractCollapsedActivities,
+  extractMapPins,
+  extractPokemonCenterPin,
+} from '../../utils/mapLocations';
+import { CollapsedActivityList } from './CollapsedActivityList';
+import { DayMap } from './DayMap';
+
+interface DayMapPanelProps {
+  day: DayPlan;
+  cards: TimelineCard[];
+}
+
+export function DayMapPanel({ day, cards }: DayMapPanelProps) {
+  const { t } = useTranslation();
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  const pins = useMemo(() => {
+    const activityPins = extractMapPins(cards);
+    const pcPin = extractPokemonCenterPin(day);
+    return pcPin ? [pcPin, ...activityPins] : activityPins;
+  }, [cards, day]);
+
+  const collapsedItems = useMemo(() => extractCollapsedActivities(cards), [cards]);
+  const mappableCount = collapsedItems.filter((i) => i.hasCoordinates).length;
+
+  return (
+    <div className="mt-6">
+      <p className="mb-3 text-xs text-ink-light/70">
+        {t('map.legend', { mapped: mappableCount, total: collapsedItems.length })}
+      </p>
+
+      <div className="grid gap-4 lg:grid-cols-[minmax(240px,320px)_1fr]">
+        <div className="rounded-xl border border-washi-dark bg-washi/30 p-3 lg:max-h-[480px] lg:overflow-y-auto">
+          <h4 className="mb-2 px-1 text-xs font-semibold uppercase tracking-wide text-indigo">
+            {t('map.activityOrder')}
+          </h4>
+          <CollapsedActivityList
+            items={collapsedItems}
+            activeId={activeId}
+            onSelect={setActiveId}
+          />
+        </div>
+
+        <DayMap pins={pins} />
+      </div>
+
+      <p className="mt-2 text-[11px] text-ink-light/50">{t('map.routeNote')}</p>
+    </div>
+  );
+}

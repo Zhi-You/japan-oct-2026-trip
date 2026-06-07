@@ -30,6 +30,15 @@
       "placeholder": "Add comments for your group..."
     }
   },
+  "map": {
+    "showMap": "Show map",
+    "hideMap": "Hide map",
+    "activityOrder": "Today's order",
+    "noActivities": "No activities to show",
+    "noCoordinates": "No map location — add an area name",
+    "legend": "{{mapped}} of {{total}} stops plotted · dashed line shows visit order",
+    "routeNote": "Route line is approximate (straight paths, not transit routes). Powered by OpenStreetMap."
+  },
   "hero": {
     "badge": "October 2026 · Tokyo",
     "cta": "View Itinerary",

@@ -33,6 +33,18 @@ The **Itinerary** section has a **View / Customize** toggle:
 
 Changes persist in `localStorage` automatically. Use **Reset timeline** in Customize mode to restore the original itinerary.
 
+## Day map
+
+Each day has a **Show map / Hide map** button (View and Customize modes):
+
+- Plots numbered pins for that day's timeline stops (OpenStreetMap via Leaflet — no API key)
+- Dashed line shows visit order; click pins for details
+- Side panel lists a **collapsed activity order** (number, title, location, time) while the map is open
+- Custom cards plot when their location matches a known Tokyo area; otherwise they appear in the list with a warning
+- Pokemon Center for the day appears as a ⚡ pin when configured
+
+Pre-geocoded coordinates live in `src/data/locationCoordinates.ts` — extend this file to add new venues.
+
 
 ```
 src/
