@@ -29,6 +29,13 @@ export const PLACE_COORDINATES: Record<string, Coordinates> = {
   departure: { lat: 35.7138, lng: 139.7773 },
 };
 
+/** Airport coordinates for flight timeline cards. */
+export const AIRPORT_COORDINATES: Record<string, Coordinates> = {
+  HND: { lat: 35.5494, lng: 139.7798 },
+  NRT: { lat: 35.772, lng: 140.3929 },
+  SIN: { lat: 1.3644, lng: 103.9915 },
+};
+
 /** Area / neighbourhood centres for meals and custom locations. */
 export const AREA_COORDINATES: Record<string, Coordinates> = {
   Ueno: { lat: 35.7138, lng: 139.7773 },

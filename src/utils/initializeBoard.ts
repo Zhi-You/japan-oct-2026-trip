@@ -1,5 +1,6 @@
 import type { DayPlan } from '../types/itinerary';
 import type { BoardState, DayBoard, TimelineCard } from '../types/board';
+import { createFlightTimelineCard, mergeFlightTimelineCards } from './flightBoard';
 
 function createPokemonCenterCard(day: DayPlan): TimelineCard | null {
   if (!day.pokemonCenter) return null;
@@ -11,16 +12,19 @@ function createPokemonCenterCard(day: DayPlan): TimelineCard | null {
   };
 }
 
-/** Ensure Pokemon Center card exists and stays first; strip invalid meal schedules. */
+/** Ensure Pokemon Center card exists; strip invalid meal schedules. */
 export function repairDayBoard(day: DayPlan, dayBoard: DayBoard): void {
   if (day.pokemonCenter) {
     const pcId = `${day.id}-pokemon-center`;
     if (!dayBoard.cards[pcId]) {
       dayBoard.cards[pcId] = createPokemonCenterCard(day)!;
+      if (!dayBoard.cardIds.includes(pcId)) {
+        dayBoard.cardIds.push(pcId);
+      }
     }
-    dayBoard.cardIds = dayBoard.cardIds.filter((id) => id !== pcId);
-    dayBoard.cardIds.unshift(pcId);
   }
+
+  mergeFlightTimelineCards(day, dayBoard);
 
   for (const id of Object.keys(dayBoard.cards)) {
     const card = dayBoard.cards[id];
@@ -58,21 +62,37 @@ export function initializeDayBoard(day: DayPlan): DayBoard {
   const cards: Record<string, TimelineCard> = {};
   const cardIds: string[] = [];
 
-  const pcCard = createPokemonCenterCard(day);
-  if (pcCard) {
-    cards[pcCard.id] = pcCard;
-    cardIds.push(pcCard.id);
-  }
+  const flightCards = (day.flightTimeline ?? []).map((item) => createFlightTimelineCard(item));
 
-  for (const place of day.places) {
-    cards[place.id] = { id: place.id, kind: 'place', place };
-    cardIds.push(place.id);
+  const pushCard = (card: TimelineCard) => {
+    cards[card.id] = card;
+    cardIds.push(card.id);
+  };
+
+  const addFlightCards = () => {
+    for (const card of flightCards) pushCard(card);
+  };
+
+  const addPlaceCards = () => {
+    for (const place of day.places) {
+      pushCard({ id: place.id, kind: 'place', place });
+    }
+  };
+
+  const pcCard = createPokemonCenterCard(day);
+
+  if (day.flightTimelineAfterPlaces) {
+    addPlaceCards();
+    addFlightCards();
+  } else {
+    addFlightCards();
+    if (pcCard) pushCard(pcCard);
+    addPlaceCards();
   }
 
   day.food.forEach((meal, index) => {
     const id = `${day.id}-meal-${index}`;
-    cards[id] = { id, kind: 'meal', meal };
-    cardIds.push(id);
+    pushCard({ id, kind: 'meal', meal });
   });
 
   return { dayId: day.id, cardIds, cards, notes: {} };
@@ -123,6 +143,8 @@ export function mergeBoardWithDefaults(
         }
       }
     });
+
+    mergeFlightTimelineCards(day, defaultDay);
   }
 
   return repairBoardState(merged, defaultDays);

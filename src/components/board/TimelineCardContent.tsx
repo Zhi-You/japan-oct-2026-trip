@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import type { TimelineCard } from '../../types/board';
 import { getEffectiveSchedule } from '../../utils/cardSchedule';
 import { PlaceCard } from '../PlaceCard';
+import { AirportProcessCard, FlightSegmentCard } from './FlightCard';
 import { ScheduleDisplay } from './ScheduleEditor';
 import { CustomActivityDisplay, CustomActivityEditor } from './CustomActivityForm';
 import { CustomMealDisplay, CustomMealEditor } from './CustomMealForm';
@@ -76,6 +77,16 @@ export function TimelineCardContent({
   const { t } = useTranslation();
   const schedule = getEffectiveSchedule(card);
 
+  if (card.kind === 'flight' && card.flight) {
+    return <FlightSegmentCard flight={card.flight} />;
+  }
+
+  if (card.kind === 'airport-process' && card.airportProcess) {
+    return (
+      <AirportProcessCard process={card.airportProcess} schedule={schedule} />
+    );
+  }
+
   if (card.kind === 'pokemon-center' && card.pokemonCenter) {
     return (
       <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-5 shadow-sm">
@@ -127,6 +138,12 @@ export function TimelineCardContent({
 }
 
 export function getCardTitle(card: TimelineCard): string {
+  if (card.kind === 'flight' && card.flight) {
+    return `${card.flight.airline} ${card.flight.flightNumber}`;
+  }
+  if (card.kind === 'airport-process' && card.airportProcess) {
+    return card.airportProcess.type === 'departure' ? 'Airport departure' : 'Airport touchdown';
+  }
   if (card.kind === 'pokemon-center' && card.pokemonCenter) return card.pokemonCenter.name;
   if (card.kind === 'place' && card.place) return card.place.name;
   if (card.kind === 'meal' && card.meal) return card.meal.name;

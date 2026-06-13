@@ -1,4 +1,4 @@
-import type { FoodStop, Place } from '../types/itinerary';
+import type { AirportProcess, FlightSegment, FoodStop, Place } from '../types/itinerary';
 import type { CardSchedule, DurationRange, TimeSlot, TimelineCard } from '../types/board';
 import { formatDuration, TIME_SLOTS } from '../types/board';
 
@@ -41,6 +41,40 @@ export function inferTimeSlot(raw: string): TimeSlot {
   return 'Morning';
 }
 
+export function inferTimeSlotFromClock(time: string): TimeSlot {
+  const hour = parseInt(time.split(':')[0] ?? '12', 10);
+  if (hour < 6) return 'Night';
+  if (hour < 10) return 'Morning';
+  if (hour < 12) return 'Late Morning';
+  if (hour < 14) return 'Noon';
+  if (hour < 17) return 'Afternoon';
+  if (hour < 20) return 'Evening';
+  return 'Night';
+}
+
+export function parseFlightDuration(raw: string): DurationRange {
+  const match = raw.trim().match(/(\d+)\s*h(?:ours?|rs?)?(?:\s*(\d+)\s*m(?:ins?|inutes?)?)?/i);
+  if (match) {
+    const totalMins = parseInt(match[1], 10) * 60 + (match[2] ? parseInt(match[2], 10) : 0);
+    return { min: totalMins, max: totalMins, unit: 'mins' };
+  }
+  return parseDurationString(raw);
+}
+
+export function defaultScheduleForAirportProcess(process: AirportProcess): CardSchedule {
+  return {
+    timeSlot: inferTimeSlotFromClock(process.time),
+    duration: { min: process.durationMinutes, max: process.durationMinutes, unit: 'mins' },
+  };
+}
+
+export function defaultScheduleForFlight(flight: FlightSegment): CardSchedule {
+  return {
+    timeSlot: inferTimeSlotFromClock(flight.arrival.time),
+    duration: parseFlightDuration(flight.duration),
+  };
+}
+
 export function defaultScheduleForPlace(place: Place): CardSchedule {
   return {
     timeSlot: inferTimeSlot(place.timeSlot),
@@ -78,6 +112,12 @@ export function getEffectiveSchedule(card: TimelineCard): CardSchedule {
       duration: card.customActivity.duration,
     };
   }
+  if (card.kind === 'airport-process' && card.airportProcess) {
+    return defaultScheduleForAirportProcess(card.airportProcess);
+  }
+  if (card.kind === 'flight' && card.flight) {
+    return defaultScheduleForFlight(card.flight);
+  }
 
   return { timeSlot: 'Morning', duration: { min: 1, max: 1, unit: 'hrs' } };
 }
@@ -103,11 +143,18 @@ export function isActivityScheduleCard(card: TimelineCard): boolean {
 export function getCardTimeLabel(card: TimelineCard): string {
   const mealLabel = getMealTypeLabel(card);
   if (mealLabel) return mealLabel;
+  if (card.kind === 'flight' && card.flight) {
+    return `${card.flight.departure.time} → ${card.flight.arrival.time}`;
+  }
+  if (card.kind === 'airport-process' && card.airportProcess) {
+    return card.airportProcess.time;
+  }
   return getEffectiveSchedule(card).timeSlot;
 }
 
 export function getCardDurationLabel(card: TimelineCard): string {
   if (isMealCard(card)) return '';
+  if (card.kind === 'flight' && card.flight) return card.flight.duration;
   return formatDuration(getEffectiveSchedule(card).duration);
 }
 

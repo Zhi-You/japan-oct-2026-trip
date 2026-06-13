@@ -10,6 +10,38 @@ export interface FoodStop {
   note?: string;
 }
 
+export interface FlightEndpoint {
+  airportCode: string;
+  airportName: string;
+  terminal?: string;
+  time: string;
+  dateLabel?: string;
+}
+
+export interface FlightSegment {
+  id: string;
+  airline: string;
+  flightNumber: string;
+  aircraft?: string;
+  departure: FlightEndpoint;
+  arrival: FlightEndpoint;
+  duration: string;
+}
+
+export interface AirportProcess {
+  id: string;
+  type: 'departure' | 'touchdown';
+  airportCode: string;
+  airportName: string;
+  terminal?: string;
+  time: string;
+  durationMinutes: number;
+}
+
+export type FlightTimelineItem =
+  | { kind: 'flight'; flight: FlightSegment }
+  | { kind: 'airport-process'; process: AirportProcess };
+
 export interface Place {
   id: string;
   name: string;
@@ -43,6 +75,10 @@ export interface DayPlan {
   };
   places: Place[];
   food: FoodStop[];
+  /** Flights and airport processes — rendered as timeline cards before other activities. */
+  flightTimeline?: FlightTimelineItem[];
+  /** When true, flight cards appear after places (e.g. departure day transfer first). */
+  flightTimelineAfterPlaces?: boolean;
   transport: string[];
   dayTips: string[];
   weatherNote?: string;

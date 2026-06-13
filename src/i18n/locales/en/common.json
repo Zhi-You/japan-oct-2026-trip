@@ -23,6 +23,7 @@
     "emptyDay": "No cards yet — add an activity or meal above",
     "reset": "Reset timeline",
     "resetConfirm": "Reset all days to the original itinerary? Your custom cards, order, and notes will be lost.",
+    "savedHint": "Changes saved automatically",
     "noMeals": "No meals on the timeline yet",
     "schedule": "Time & duration",
     "notes": {
@@ -68,6 +69,9 @@
     "transport": "Transport",
     "dayTips": "Day notes",
     "pokemonCenter": "Pokemon Center",
+    "flight": "Flight",
+    "airportDeparture": "Departure process",
+    "airportTouchdown": "Touchdown process",
     "area": "Area",
     "category": "Category",
     "deadline": "Deadline",

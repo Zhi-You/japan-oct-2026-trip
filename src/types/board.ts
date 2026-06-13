@@ -1,4 +1,4 @@
-import type { FoodStop, Place } from './itinerary';
+import type { AirportProcess, FlightSegment, FoodStop, Place } from './itinerary';
 
 export type TimeSlot =
   | 'Morning'
@@ -38,7 +38,14 @@ export interface CustomMeal {
   meal: 'breakfast' | 'lunch' | 'dinner';
 }
 
-export type CardKind = 'place' | 'meal' | 'custom-activity' | 'custom-meal' | 'pokemon-center';
+export type CardKind =
+  | 'place'
+  | 'meal'
+  | 'custom-activity'
+  | 'custom-meal'
+  | 'pokemon-center'
+  | 'flight'
+  | 'airport-process';
 
 export interface TimelineCard {
   id: string;
@@ -52,6 +59,8 @@ export interface TimelineCard {
     openTime: string;
     note: string;
   };
+  flight?: FlightSegment;
+  airportProcess?: AirportProcess;
   /** Overrides default time/duration for place and pokemon-center cards only. */
   schedule?: CardSchedule;
 }

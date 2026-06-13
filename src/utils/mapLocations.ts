@@ -1,6 +1,7 @@
 import type { TimelineCard } from '../types/board';
 import { getCardDurationLabel, getCardTimeLabel } from './cardSchedule';
 import {
+  AIRPORT_COORDINATES,
   PLACE_COORDINATES,
   POKEMON_CENTER_COORDINATES,
   resolveAreaCoordinates,
@@ -24,6 +25,20 @@ function resolveCustomLocation(location?: string): Coordinates | null {
 }
 
 function resolveCardCoordinates(card: TimelineCard): Coordinates | null {
+  if (card.kind === 'flight' && card.flight) {
+    const { departure, arrival } = card.flight;
+    const dep = AIRPORT_COORDINATES[departure.airportCode];
+    const arr = AIRPORT_COORDINATES[arrival.airportCode];
+    const jpAirports = new Set(['HND', 'NRT']);
+    if (jpAirports.has(arrival.airportCode) && arr) return arr;
+    if (jpAirports.has(departure.airportCode) && dep) return dep;
+    return dep ?? arr ?? null;
+  }
+
+  if (card.kind === 'airport-process' && card.airportProcess) {
+    return AIRPORT_COORDINATES[card.airportProcess.airportCode] ?? null;
+  }
+
   if (card.kind === 'pokemon-center' && card.pokemonCenter) {
     return POKEMON_CENTER_COORDINATES[card.pokemonCenter.name] ?? null;
   }
@@ -53,6 +68,15 @@ function resolveCardCoordinates(card: TimelineCard): Coordinates | null {
 }
 
 function getCardLocationLabel(card: TimelineCard): string {
+  if (card.kind === 'flight' && card.flight) {
+    const dep = card.flight.departure;
+    const arr = card.flight.arrival;
+    return `${dep.airportCode}${dep.terminal ? ` ${dep.terminal}` : ''} → ${arr.airportCode}${arr.terminal ? ` ${arr.terminal}` : ''}`;
+  }
+  if (card.kind === 'airport-process' && card.airportProcess) {
+    const p = card.airportProcess;
+    return `${p.airportCode}${p.terminal ? ` · ${p.terminal}` : ''}`;
+  }
   if (card.kind === 'pokemon-center' && card.pokemonCenter) {
     return card.pokemonCenter.name
       .replace(/^Pokemon Center /i, '')
@@ -68,6 +92,12 @@ function getCardLocationLabel(card: TimelineCard): string {
 }
 
 function getCardTitle(card: TimelineCard): string {
+  if (card.kind === 'flight' && card.flight) {
+    return `${card.flight.airline} ${card.flight.flightNumber}`;
+  }
+  if (card.kind === 'airport-process' && card.airportProcess) {
+    return card.airportProcess.type === 'departure' ? 'Airport departure' : 'Airport touchdown';
+  }
   if (card.kind === 'pokemon-center' && card.pokemonCenter) return card.pokemonCenter.name;
   if (card.kind === 'place' && card.place) return card.place.name;
   if (card.kind === 'meal' && card.meal) return card.meal.name;

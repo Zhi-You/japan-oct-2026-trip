@@ -15,7 +15,14 @@ export function ItinerarySection({ days }: ItinerarySectionProps) {
   const { t } = useTranslation();
   const { resetBoard } = useBoard();
   const [mode, setMode] = useState<ViewMode>('view');
+  const [savedHint, setSavedHint] = useState(false);
   const activeDays = days;
+
+  const switchToView = () => {
+    setMode('view');
+    setSavedHint(true);
+    window.setTimeout(() => setSavedHint(false), 3000);
+  };
 
   return (
     <section id="itinerary" className="bg-white py-16">
@@ -25,7 +32,9 @@ export function ItinerarySection({ days }: ItinerarySectionProps) {
             <h2 className="font-serif text-3xl font-bold text-ink">{t('nav.itinerary')}</h2>
             <p className="mt-2 text-ink-light/70">
               {mode === 'view'
-                ? t('board.viewSubtitle')
+                ? savedHint
+                  ? t('board.savedHint')
+                  : t('board.viewSubtitle')
                 : t('board.customizeSubtitle')}
             </p>
           </div>
@@ -45,7 +54,7 @@ export function ItinerarySection({ days }: ItinerarySectionProps) {
             <div className="flex rounded-lg border border-washi-dark bg-washi p-1">
               <button
                 type="button"
-                onClick={() => setMode('view')}
+                onClick={switchToView}
                 className={`rounded-md px-4 py-2 text-sm font-medium transition ${
                   mode === 'view'
                     ? 'bg-white text-ink shadow-sm'
