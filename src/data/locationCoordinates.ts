@@ -80,6 +80,7 @@ export const VENUE_COORDINATES: Record<string, Coordinates> = {
 
 /** Pokemon Center locations (optional day metadata pins). */
 export const POKEMON_CENTER_COORDINATES: Record<string, Coordinates> = {
+  'Pokemon Center Tokyo Station & Tokyo DX': { lat: 35.6812, lng: 139.7706 },
   'Pokemon Store Tokyo Station': { lat: 35.6812, lng: 139.7671 },
   'Pokemon Center SKYTREE TOWN': { lat: 35.7101, lng: 139.8107 },
   'Pokemon Center SHIBUYA': { lat: 35.662, lng: 139.702 },

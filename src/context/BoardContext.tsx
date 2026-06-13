@@ -20,7 +20,8 @@ import {
   createEmptyCustomActivity,
   createEmptyCustomMeal,
 } from '../types/board';
-import { loadBoardState, saveBoardState } from '../utils/boardStorage';
+import { downloadBoardState, loadBoardState, loadBundledBoardState, saveBoardState } from '../utils/boardStorage';
+import { runBoardMigrations } from '../utils/boardMigrations';
 import { generateCardId } from '../utils/ids';
 import {
   initializeBoardState,
@@ -44,6 +45,8 @@ interface BoardContextValue {
   toggleCardNote: (dayId: string, cardId: string) => void;
   getCardNote: (dayId: string, cardId: string) => CardNote | undefined;
   resetBoard: () => void;
+  exportBoard: () => void;
+  importBoard: (state: BoardState) => void;
 }
 
 const BoardContext = createContext<BoardContextValue | null>(null);
@@ -58,13 +61,28 @@ export function BoardProvider({ days, children }: BoardProviderProps) {
 
   const [board, setBoard] = useState<BoardState>(() => {
     const saved = loadBoardState();
-    const base = saved ? mergeBoardWithDefaults(saved, days) : defaultBoard;
+    const migrated = saved ? runBoardMigrations(saved) : null;
+    const base = migrated ? mergeBoardWithDefaults(migrated, days) : defaultBoard;
     return repairBoardState(base, days);
   });
 
   useEffect(() => {
     saveBoardState(board);
   }, [board]);
+
+  useEffect(() => {
+    if (loadBoardState()) return;
+
+    let cancelled = false;
+    loadBundledBoardState().then((bundled) => {
+      if (cancelled || !bundled) return;
+      setBoard(repairBoardState(mergeBoardWithDefaults(runBoardMigrations(bundled), days), days));
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [days]);
 
   const getDayCards = useCallback(
     (dayId: string): TimelineCard[] => {
@@ -303,6 +321,18 @@ export function BoardProvider({ days, children }: BoardProviderProps) {
     setBoard(repairBoardState(initializeBoardState(days), days));
   }, [days]);
 
+  const exportBoard = useCallback(() => {
+    downloadBoardState(board);
+  }, [board]);
+
+  const importBoard = useCallback(
+    (state: BoardState) => {
+      const merged = mergeBoardWithDefaults(runBoardMigrations(state), days);
+      setBoard(repairBoardState(merged, days));
+    },
+    [days],
+  );
+
   const value: BoardContextValue = {
     board,
     getDayCards,
@@ -317,6 +347,8 @@ export function BoardProvider({ days, children }: BoardProviderProps) {
     toggleCardNote,
     getCardNote,
     resetBoard,
+    exportBoard,
+    importBoard,
   };
 
   return <BoardContext.Provider value={value}>{children}</BoardContext.Provider>;

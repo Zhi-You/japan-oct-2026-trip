@@ -1,6 +1,6 @@
 import type { DayPlan } from '../types/itinerary';
 import type { BoardState, DayBoard, TimelineCard } from '../types/board';
-import { createFlightTimelineCard, mergeFlightTimelineCards } from './flightBoard';
+import { createFlightTimelineCard, getDefaultFlightCardIds, mergeFlightTimelineCards } from './flightBoard';
 
 function createPokemonCenterCard(day: DayPlan): TimelineCard | null {
   if (!day.pokemonCenter) return null;
@@ -12,16 +12,39 @@ function createPokemonCenterCard(day: DayPlan): TimelineCard | null {
   };
 }
 
-/** Ensure Pokemon Center card exists; strip invalid meal schedules. */
+function findPokemonCenterInsertIndex(day: DayPlan, dayBoard: DayBoard): number {
+  const flightIds = getDefaultFlightCardIds(day);
+  for (let i = flightIds.length - 1; i >= 0; i -= 1) {
+    const idx = dayBoard.cardIds.indexOf(flightIds[i]!);
+    if (idx >= 0) return idx + 1;
+  }
+
+  const firstPlaceId = day.places[0]?.id;
+  if (firstPlaceId) {
+    const placeIdx = dayBoard.cardIds.indexOf(firstPlaceId);
+    if (placeIdx >= 0) return placeIdx;
+  }
+
+  return 0;
+}
+
+/** Ensure Pokemon Center card matches itinerary; strip invalid meal schedules. */
 export function repairDayBoard(day: DayPlan, dayBoard: DayBoard): void {
+  const pcId = `${day.id}-pokemon-center`;
+
   if (day.pokemonCenter) {
-    const pcId = `${day.id}-pokemon-center`;
-    if (!dayBoard.cards[pcId]) {
-      dayBoard.cards[pcId] = createPokemonCenterCard(day)!;
-      if (!dayBoard.cardIds.includes(pcId)) {
-        dayBoard.cardIds.push(pcId);
-      }
+    dayBoard.cards[pcId] = createPokemonCenterCard(day)!;
+
+    if (!dayBoard.cardIds.includes(pcId)) {
+      const insertIndex = findPokemonCenterInsertIndex(day, dayBoard);
+      dayBoard.cardIds.splice(insertIndex, 0, pcId);
     }
+  } else if (dayBoard.cards[pcId] || dayBoard.cardIds.includes(pcId)) {
+    const { [pcId]: _removed, ...cards } = dayBoard.cards;
+    const { [pcId]: _note, ...notes } = dayBoard.notes;
+    dayBoard.cards = cards;
+    dayBoard.notes = notes;
+    dayBoard.cardIds = dayBoard.cardIds.filter((id) => id !== pcId);
   }
 
   mergeFlightTimelineCards(day, dayBoard);

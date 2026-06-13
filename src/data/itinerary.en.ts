@@ -1,4 +1,5 @@
 import type { ItineraryData } from '../types/itinerary';
+import { tokyoStationAreaPokemonCenter } from './pokemonCenterPresets';
 
 const itineraryEn: ItineraryData = {
   meta: {
@@ -15,17 +16,17 @@ const itineraryEn: ItineraryData = {
     'Autumn leaves in central Tokyo (Ueno, Imperial Palace, Nikko mountains) are just starting in early October — expect green with hints of colour, not peak kōyō. Nikko’s higher elevation may show more red maples.',
     'Mount Fuji visibility improves in October (~60% of days). Check isfujivisible.com the night before your Fuji day — clouds often build by late morning.',
     'Sunset in early October is around 17:20. Evenings cool to ~15°C — bring a light jacket for rooftop decks and lakeside wind.',
-    'Sports Day (national holiday) falls on 12 October 2026 — your trip dates avoid this, but weekend crowds (Sat 4 & Sun 5) still apply at popular spots.',
+    'Sports Day (national holiday) falls on 12 October 2026 — your trip dates avoid this, but Sunday 4 Oct (Yanaka & museum) and Saturday 3 Oct (Asakusa) draw weekend crowds.',
   ],
   bookingChecklist: [
     {
       id: 'shibuya-sky',
       item: 'Shibuya Sky — sunset time slot (5 Oct)',
-      deadline: 'Book by 7 Sep 2026, 00:00 JST (28 days ahead)',
+      deadline: 'Book 21 Sep 2026, 00:00 JST (14 days ahead — official release)',
       urgency: 'critical',
       link: 'https://www.shibuya-scramble-square.com/sky/',
       notes:
-        'Sunset ~17:20 on 5 Oct. Target entry slot 16:00–16:30. Sunset slots sell out in minutes — use Klook/KKday if the official site rejects foreign cards. Alternative: book 14:00–15:00 and stay until dark (no time limit on deck). Bring a ¥100 coin for rooftop lockers.',
+        'Sunset ~17:20 on 5 Oct (Monday). Official site releases tickets exactly 14 days ahead at 00:00 JST — set an alarm for 21 Sep. Target entry 16:00–16:30. Sunset slots sell out in minutes; Klook/KKday may have backup inventory. Once inside, no time limit — stay for blue hour. Bring a ¥100 coin for rooftop lockers.',
     },
     {
       id: 'nikko-tour',
@@ -50,7 +51,7 @@ const itineraryEn: ItineraryData = {
       deadline: 'Anytime before visit',
       urgency: 'medium',
       link: 'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',
-      notes: '¥1,000 adults. Open 9:30–17:00 Sat. Online ticket skips 30+ min queues. Seniors 70+ free with ID.',
+      notes: '¥1,000 adults. Open Tue–Sun 9:30–17:00 (your museum visit is Sun 4 Oct). Online ticket skips queues. Seniors 70+ free with ID.',
     },
     {
       id: 'sim-esim',
@@ -63,19 +64,20 @@ const itineraryEn: ItineraryData = {
   pokemonStrategy: [
     'Visit a Pokemon Center at opening (10:00–10:30) most days — we’ve mapped each day to the nearest centre to your route.',
     'Highly sought-after TCG booster boxes often require a lottery via the matoca LINE mini-app. Announcements appear on voice.pokemon.co.jp/stv/ ~1 week before release. Tourists can try, but a Japanese phone number may be required — don’t rely on this alone.',
-    'For reliable card purchases: Akihabara specialty shops (Hareruya2 Tower, Poketown, Ninnin) restock singles and some sealed product without lottery. Poketown opens at 12:00 — plan afternoon visits.',
-    'Pokemon Center MEGA TOKYO (Ikebukuro) is temporarily closed — use Shibuya, Skytree, Tokyo DX, or Tokyo Station Store instead.',
+    'For reliable card purchases: Akihabara specialty shops (Hareruya2 Tower, Poketown) restock daily; Ninnin is weekends only — your Akihabara day is Wed 7 Oct, so skip Ninnin.',
+    'Pokemon Center MEGA TOKYO (Ikebukuro) is temporarily closed — use Shibuya, Skytree, or the Tokyo Station / Tokyo DX pair instead.',
     'Bring a dedicated bag for cards — staff may ask to open booster boxes at the counter upon purchase.',
     'One person queues while others rest nearby — rotate daily so everyone gets a fair chance at stock.',
   ],
   pokemonCenters: [
     {
-      name: 'Pokemon Store Tokyo Station',
-      location: '1F First Avenue Tokyo Station',
-      hours: '10:00–20:30',
-      nearestStation: 'JR Tokyo Station',
-      assignedDay: '1 Oct (arrival day, if convenient)',
-      tcgNote: 'Compact store — good for exclusives; limited TCG wall vs larger centres.',
+      name: 'Pokemon Center Tokyo Station & Tokyo DX',
+      location: 'First Avenue Tokyo Station & Nihombashi Takashimaya East 5F (~10 min apart)',
+      hours: '10:00–21:00 (DX from 10:30)',
+      nearestStation: 'JR Tokyo Station / Nihombashi',
+      assignedDay: '1 Oct (optional) & 7 Oct',
+      tcgNote:
+        'One trip covers both — compact Tokyo Station store plus flagship DX (Pokemon Cafe at DX needs a separate reservation).',
     },
     {
       name: 'Pokemon Center SKYTREE TOWN',
@@ -90,16 +92,8 @@ const itineraryEn: ItineraryData = {
       location: 'Shibuya PARCO 6F',
       hours: '10:00–21:00',
       nearestStation: 'Shibuya Station',
-      assignedDay: '5 Oct — before Shibuya Sky sunset',
+      assignedDay: '5 Oct — on Shibuya route before sunset',
       tcgNote: 'Mewtwo installation & strong merch. Do cards first, then explore Shibuya.',
-    },
-    {
-      name: 'Pokemon Center TOKYO DX',
-      location: 'Nihombashi Takashimaya S.C. East 5F',
-      hours: '10:30–21:00',
-      nearestStation: 'Nihombashi / Tokyo Station',
-      assignedDay: '7 Oct — with Imperial Palace & Ginza',
-      tcgNote: 'Flagship DX with Pokemon Cafe (cafe needs separate reservation).',
     },
   ],
   tcgShops: [
@@ -175,11 +169,9 @@ const itineraryEn: ItineraryData = {
           },
         },
       ],
-      pokemonCenter: {
-        name: 'Pokemon Store Tokyo Station',
-        openTime: '10:00',
-        note: 'Optional — only if your airport transfer passes Tokyo Station and energy allows. Otherwise skip; plenty of PC days ahead.',
-      },
+      pokemonCenter: tokyoStationAreaPokemonCenter(
+        'Optional on arrival — both centres ~10 min apart. Tokyo Station opens 10:00, Tokyo DX 10:30. Skip if tired; more PC days ahead.',
+      ),
       places: [
         {
           id: 'ameyoko',
@@ -254,7 +246,7 @@ const itineraryEn: ItineraryData = {
     {
       id: 'day-2',
       date: '2 Oct',
-      weekday: 'Thursday',
+      weekday: 'Friday',
       title: 'Mount Fuji Day Trip',
       theme: 'Priority #1 — chase the morning view',
       area: 'Kawaguchiko / Fuji Five Lakes',
@@ -341,7 +333,7 @@ const itineraryEn: ItineraryData = {
     {
       id: 'day-3',
       date: '3 Oct',
-      weekday: 'Friday',
+      weekday: 'Saturday',
       title: 'Asakusa & Senso-ji',
       theme: 'Priority #2 — old Tokyo atmosphere',
       area: 'Asakusa / Oshiage',
@@ -371,7 +363,7 @@ const itineraryEn: ItineraryData = {
             'Arrive 6:30–7:30 for fewer crowds and soft morning light — best for photos',
             'Main hall open 6:00–17:00 (Oct)',
             'Draw an omikuji fortune (¥100) — fun group activity',
-            'Imperial Palace East Gardens are CLOSED Fridays — good day for Asakusa instead',
+            'Saturday crowds build from late morning — earlier is better for photos',
           ],
           ticket: { type: 'free', detail: 'Free entry to temple grounds' },
           photoNote: '★★ Major photo day. Budget 2–3 hrs. Nakamise can eat another hour if you browse every stall.',
@@ -454,14 +446,14 @@ const itineraryEn: ItineraryData = {
         'Asakusa → Oshiage: Tobu Skytree Line 2 min or 15 min riverside walk',
       ],
       dayTips: [
-        'Friday at Senso-ji is moderate crowds — morning timing is key.',
+        'Saturday at Senso-ji — arrive before 9:00 for space and soft light.',
         'If Fuji was cancelled yesterday due to weather, do Fuji today instead and shift Asakusa to tomorrow.',
       ],
     },
     {
       id: 'day-4',
       date: '4 Oct',
-      weekday: 'Saturday',
+      weekday: 'Sunday',
       title: 'Nezu, Yanaka & Ueno Culture',
       theme: 'Priority #4, #5, #7 — walkable from Ueno',
       area: 'Nezu / Yanaka / Ueno',
@@ -482,7 +474,7 @@ const itineraryEn: ItineraryData = {
             'Small pond garden',
           ],
           tips: [
-            'Opens at 6:00 — arrive 8:00 for best light + fewer Saturday crowds',
+            'Opens at 6:00 — arrive 8:00 for best light (Sunday still gets busy by late morning)',
             '10 min walk from Nezu Station (Chiyoda Line)',
             'Combine with Yanaka — 15 min walk north',
           ],
@@ -527,7 +519,7 @@ const itineraryEn: ItineraryData = {
             'Japanese garden behind Honkan',
           ],
           tips: [
-            'Closed Mondays — Saturday open 9:30–17:00',
+            'Closed Mondays — Sunday 4 Oct open 9:30–17:00',
             'Seniors 70+ and under-18 free with passport/ID',
             'Buy online ticket to skip queue',
             'Wheelchairs available — mostly flat within buildings',
@@ -583,14 +575,14 @@ const itineraryEn: ItineraryData = {
         'Nezu Station: Chiyoda Line from Ueno (2 stops)',
       ],
       dayTips: [
-        'Saturday = more crowds at Yanaka Ginza and museum. Start Nezu early.',
-        'No dedicated Pokemon Center today — rest day from 10 AM queues, or optional Tokyo DX if energetic (20 min from Ueno).',
+        'Sunday = busy at Yanaka Ginza and the museum. Start Nezu early.',
+        'No Pokemon Center today — the day is packed around Nezu, Yanaka & Ueno; any PC is a long detour from this area.',
       ],
     },
     {
       id: 'day-5',
       date: '5 Oct',
-      weekday: 'Sunday',
+      weekday: 'Monday',
       title: 'Shibuya Sky Sunset',
       theme: 'Priority #3 & #9 — rooftop + crossing',
       area: 'Shibuya / Harajuku / Shinjuku',
@@ -618,7 +610,7 @@ const itineraryEn: ItineraryData = {
           tips: [
             'Opens at sunrise (~5:30 in Oct) — shrine grounds always accessible',
             'Flat main path — good for seniors; side gardens have more walking',
-            'Sunday mornings can have wedding processions — photogenic',
+            'Weekday mornings are calmer — occasional wedding processions still possible',
           ],
           ticket: { type: 'free', detail: 'Free' },
           photoNote: 'Forest light dappling — beautiful but dark under canopy. Big torii at entrance is the hero shot.',
@@ -652,22 +644,23 @@ const itineraryEn: ItineraryData = {
           timeSlot: 'Sunset (~16:00 entry)',
           duration: '1.5–2 hrs',
           summary:
-            '360° open-air rooftop 229m above Shibuya — the headline sunset experience. Watch Tokyo transition from golden hour to neon.',
+            'Not just an elevator — escalator art tunnel, 46F indoor gallery, then the open-air rooftop (Sky Edge, hammocks, 360° views). Stay as long as you like once inside.',
           highlights: [
-            'Open-air Sky Edge corner — iconic photo spot',
-            'Mt. Fuji silhouette on clear winter days (rare in Oct but possible at dusk)',
-            '360° city panorama including Shibuya crossing below',
+            'Transit escalator tunnel + indoor 46F observation before the roof',
+            'Open-air Sky Edge corner — iconic photo spot above Shibuya crossing',
+            '360° panorama; Mt Fuji sometimes visible at dusk on clear days',
+            'No time limit after entry — stay through sunset into neon hour',
           ],
           tips: [
-            '★ BOOK IN ADVANCE — sunset slot 16:00–16:30 entry for 17:20 sunset',
+            '★ Official tickets release 14 days ahead at 00:00 JST (book 21 Sep for 5 Oct)',
+            'Target sunset entry 16:00–16:30 for 17:20 sunset',
             'Bring ¥100 coin for locker (bags not allowed on rooftop)',
             'No tripods/selfie sticks on roof — phone only',
             'Rooftop closes in high wind/rain — no refund; check forecast',
-            'Can stay past your slot until closing — no time limit once inside',
           ],
           ticket: {
             type: 'advance_required',
-            detail: '¥2,700–3,400 online — book 28 days ahead at midnight JST',
+            detail: '¥2,700–3,400 online — 14 days ahead at 00:00 JST on shibuya-scramble-square.com',
           },
           photoNote: '★★★ Top photo moment of the trip. Arrive 30 min before sunset. Windy — secure hats.',
         },
@@ -716,15 +709,16 @@ const itineraryEn: ItineraryData = {
         'Shibuya → Shinjuku: JR 3 min for dinner',
       ],
       dayTips: [
-        'Sunday = busiest day this week. Meiji early, Shibuya Sky ticket is timed — don’t be late.',
-        'Shibuya Sky strictly enforces entry time — plan backwards from 16:00.',
+        'Monday is calmer than weekend — still pre-book Shibuya Sky sunset.',
+        'Tickets release 14 days ahead at 00:00 JST — book 21 Sep for 5 Oct.',
+        'Plan backwards from your timed entry slot (~16:00 for 17:20 sunset).',
       ],
       weatherNote: 'Sunset 17:20. Evening ~15°C on rooftop — bring jacket.',
     },
     {
       id: 'day-6',
       date: '6 Oct',
-      weekday: 'Monday',
+      weekday: 'Tuesday',
       title: 'Nikko Day Tour',
       theme: 'Priority #6 — UNESCO shrines & waterfalls',
       area: 'Nikko (Tochigi)',
@@ -805,7 +799,7 @@ const itineraryEn: ItineraryData = {
       transport: [
         'Organised tour pickup ~7:00–8:00 from Ueno/Tokyo area',
         'Return ~18:00–19:00 depending on tour',
-        'Imperial Palace CLOSED Mondays — no conflict',
+        'Nikko tour Tue 6 Oct — Imperial Palace closed Mon/Fri; no schedule clash',
       ],
       dayTips: [
         'Longest day for seniors — confirm tour pacing includes rest stops.',
@@ -816,16 +810,14 @@ const itineraryEn: ItineraryData = {
     {
       id: 'day-7',
       date: '7 Oct',
-      weekday: 'Tuesday',
+      weekday: 'Wednesday',
       title: 'Imperial Palace, Ginza & Akihabara TCG',
       theme: 'Priority #8 & #10 — culture + card hunting',
       area: 'Chiyoda / Ginza / Akihabara',
       intensity: 'moderate',
-      pokemonCenter: {
-        name: 'Pokemon Center TOKYO DX',
-        openTime: '10:30',
-        note: 'After Imperial Palace (~10:30 open) — 10 min walk from Otemachi/Nihombashi.',
-      },
+      pokemonCenter: tokyoStationAreaPokemonCenter(
+        'After Imperial Palace — 10 min from Otemachi. Tokyo Station store (10:00) then Tokyo DX (10:30); ~10 min walk between.',
+      ),
       places: [
         {
           id: 'imperial-east',
@@ -842,7 +834,7 @@ const itineraryEn: ItineraryData = {
             'Historic stone walls and gates',
           ],
           tips: [
-            'CLOSED Mondays & Fridays — Tuesday 7 Oct is OPEN',
+            'CLOSED Mondays & Fridays — Wednesday 7 Oct is OPEN',
             'Oct hours: 9:00–16:30, last entry 16:00',
             'Enter via Otemon Gate — flat paths, good for seniors',
             'Peak autumn foliage here is late Nov — expect green in early Oct',
@@ -877,8 +869,9 @@ const itineraryEn: ItineraryData = {
             'Kanda Tamagoken nearby for dinner',
           ],
           tips: [
-            'Poketown opens 12:00 — do Imperial/Ginza/PC DX first',
-            'Hareruya open 10:00–22:00 — start here if Poketown not yet open',
+            'Poketown opens 12:00 — do Imperial Palace & Ginza first (Wed 7 Oct)',
+            'Ninnin is weekends only — closed today; focus on Hareruya2 & Poketown',
+            'Hareruya open 10:00–22:00 daily',
             'Tax-free at Poketown — bring passport',
             'Compare prices — Hareruya singles often better value than sealed at PC',
           ],
@@ -912,7 +905,7 @@ const itineraryEn: ItineraryData = {
           priceRange: '¥1,500–3,000',
           rating: '4.2★',
           meal: 'lunch',
-          note: 'Tsukiji Outer Market is ~15 min from Ginza — fresh sashimi breakfast/lunch sets at counter seats. Arrive before 11:00 to avoid the worst crowds. Perfect pre-Akihabara lunch.',
+          note: 'Tsukiji Outer Market is ~15 min from Ginza — fresh sashimi lunch sets (Wed 7 Oct; market stalls open weekdays). Arrive before 11:00. Perfect pre-Akihabara lunch.',
         },
         {
           name: 'Kanda Tamagoken Akihabara',
@@ -930,8 +923,9 @@ const itineraryEn: ItineraryData = {
         'Ginza → Akihabara: Metro Hibiya Line 10 min',
       ],
       dayTips: [
-        'Last full day — leave luggage at hotel. Pack cards in carry-on for flight.',
-        'Departure tomorrow 08:00 — early night recommended.',
+        'Imperial Palace East Gardens close 16:30 — start at 9:00, then Tokyo Station & Tokyo DX, Ginza & Akihabara.',
+        'Wednesday Akihabara: Hareruya & Poketown open; Ninnin is weekends only.',
+        'Last full sightseeing day before departure — pack cards for tomorrow.',
       ],
     },
     {

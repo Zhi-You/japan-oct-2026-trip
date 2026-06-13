@@ -31,7 +31,19 @@ The **Itinerary** section has a **View / Customize** toggle:
 - **Per-card notes** — click 📝 on the right column to expand a collapsible comment (saved per card)
 - **Delete** — remove any card with a confirmation dialog
 
-Changes persist in `localStorage` automatically. Use **Reset timeline** in Customize mode to restore the original itinerary.
+Changes persist in this browser's **localStorage** automatically (same on localhost and after you deploy). Use **Export timeline** in Customize mode to back up or ship your layout.
+
+### Deploying with your custom timeline (GitHub Pages, etc.)
+
+1. In **Customize** mode, click **Export timeline** → saves `tokyo-itinerary-board.json`
+2. Rename/copy it to `public/custom-board.json` in this repo
+3. Run `npm run build` and deploy `dist/`
+
+New visitors (or a fresh browser) load `custom-board.json` when there is no local save yet. Further edits still auto-save locally. Use **Import timeline** to restore a backup on another device.
+
+For GitHub project pages, set `base` in `vite.config.ts` to your repo path (e.g. `'/Japan/'`).
+
+Use **Reset timeline** in Customize mode to restore the original itinerary.
 
 ## Day map
 
@@ -69,7 +81,7 @@ src/
 
 | Item | Action by |
 |------|-----------|
-| Shibuya Sky (5 Oct sunset) | **7 Sep 2026, 00:00 JST** |
+| Shibuya Sky (5 Oct sunset) | **21 Sep 2026, 00:00 JST** (14 days ahead) |
 | Nikko tour (6 Oct) | 2–4 weeks before |
 | Fuji highway bus (2 Oct) | 1–2 weeks before |
 | Tokyo National Museum | Anytime online |
