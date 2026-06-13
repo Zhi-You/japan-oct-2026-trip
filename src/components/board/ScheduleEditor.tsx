@@ -24,7 +24,7 @@ function DurationFields({
         onChange={(e) =>
           onChange({ ...duration, min: Math.max(0, Number(e.target.value) || 0) })
         }
-        className="w-16 rounded border border-washi-dark px-2 py-1 text-sm"
+        className="w-16 rounded border border-washi-dark px-2 py-2 text-sm sm:py-1"
       />
       <span className="text-xs text-ink-light">–</span>
       <input
@@ -38,12 +38,12 @@ function DurationFields({
             max: Math.max(duration.min, Number(e.target.value) || 0),
           })
         }
-        className="w-16 rounded border border-washi-dark px-2 py-1 text-sm"
+        className="w-16 rounded border border-washi-dark px-2 py-2 text-sm sm:py-1"
       />
       <select
         value={duration.unit}
         onChange={(e) => onChange({ ...duration, unit: e.target.value as DurationUnit })}
-        className="rounded border border-washi-dark px-2 py-1 text-sm"
+        className="rounded border border-washi-dark px-2 py-2 text-sm sm:py-1"
       >
         <option value="hrs">hrs</option>
         <option value="mins">mins</option>
@@ -56,13 +56,13 @@ function DurationFields({
 export function ScheduleEditor({ schedule, onChange, compact = false }: ScheduleEditorProps) {
   if (compact) {
     return (
-      <div className="flex flex-wrap items-center gap-3 rounded-lg border border-indigo/15 bg-indigo/5 px-3 py-2">
+      <div className="flex flex-col gap-3 rounded-lg border border-indigo/15 bg-indigo/5 px-3 py-3 sm:flex-row sm:flex-wrap sm:items-center">
         <select
           value={schedule.timeSlot}
           onChange={(e) =>
             onChange({ ...schedule, timeSlot: e.target.value as TimeSlot })
           }
-          className="rounded border border-washi-dark bg-white px-2 py-1 text-xs"
+          className="min-h-11 w-full rounded border border-washi-dark bg-white px-3 py-2 text-sm sm:w-auto sm:py-1 sm:text-xs"
         >
           {TIME_SLOTS.map((slot) => (
             <option key={slot} value={slot}>

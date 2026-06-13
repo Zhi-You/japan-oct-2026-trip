@@ -89,7 +89,7 @@ export function TimelineCardContent({
 
   if (card.kind === 'pokemon-center' && card.pokemonCenter) {
     return (
-      <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-5 shadow-sm">
+      <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-4 shadow-sm sm:p-5">
         <PokemonCenterCardView data={card.pokemonCenter} schedule={schedule} />
       </div>
     );
@@ -101,7 +101,7 @@ export function TimelineCardContent({
 
   if (card.kind === 'meal' && card.meal) {
     return (
-      <div className="rounded-xl border border-washi-dark bg-white p-5 shadow-sm">
+      <div className="rounded-xl border border-washi-dark bg-white p-4 shadow-sm sm:p-5">
         <p className="mb-2 text-xs font-semibold uppercase text-vermillion">
           🍜 {t('labels.food')}
         </p>
@@ -112,7 +112,7 @@ export function TimelineCardContent({
 
   if (card.kind === 'custom-activity' && card.customActivity) {
     return (
-      <div className="rounded-xl border border-indigo/20 bg-white p-5 shadow-sm">
+      <div className="rounded-xl border border-indigo/20 bg-white p-4 shadow-sm sm:p-5">
         {mode === 'edit' && onUpdateActivity ? (
           <CustomActivityEditor data={card.customActivity} onChange={onUpdateActivity} />
         ) : (
@@ -124,7 +124,7 @@ export function TimelineCardContent({
 
   if (card.kind === 'custom-meal' && card.customMeal) {
     return (
-      <div className="rounded-xl border border-vermillion/20 bg-white p-5 shadow-sm">
+      <div className="rounded-xl border border-vermillion/20 bg-white p-4 shadow-sm sm:p-5">
         {mode === 'edit' && onUpdateMeal ? (
           <CustomMealEditor data={card.customMeal} onChange={onUpdateMeal} />
         ) : (

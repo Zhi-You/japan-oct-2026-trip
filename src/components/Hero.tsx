@@ -20,28 +20,28 @@ export function Hero({ meta }: HeroProps) {
         backgroundSize: '40px 40px',
       }} />
 
-      <div className="relative mx-auto max-w-5xl px-6 py-20 md:py-28">
+      <div className="relative mx-auto max-w-5xl px-4 py-14 sm:px-6 md:py-28">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-washi/20 bg-washi/10 px-4 py-1.5 text-sm backdrop-blur-sm">
           <span className="h-2 w-2 rounded-full bg-vermillion animate-pulse" />
           {t('hero.badge')}
         </div>
 
-        <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+        <h1 className="font-serif text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-6xl">
           {meta.title}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-washi/80 md:text-xl">{meta.subtitle}</p>
         <p className="mt-2 font-serif text-2xl text-gold-light md:text-3xl">{meta.dates}</p>
 
-        <div className="mt-10 flex flex-wrap gap-4">
+        <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
           <a
             href="#itinerary"
-            className="rounded-lg bg-vermillion px-6 py-3 font-medium text-white shadow-lg transition hover:bg-vermillion-light"
+            className="min-h-11 rounded-lg bg-vermillion px-6 py-3 text-center font-medium text-white shadow-lg transition hover:bg-vermillion-light"
           >
             {t('hero.cta')}
           </a>
           <a
             href="#bookings"
-            className="rounded-lg border border-washi/30 px-6 py-3 font-medium text-washi transition hover:bg-washi/10"
+            className="min-h-11 rounded-lg border border-washi/30 px-6 py-3 text-center font-medium text-washi transition hover:bg-washi/10"
           >
             {t('hero.ctaBookings')}
           </a>

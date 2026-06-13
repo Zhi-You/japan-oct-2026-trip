@@ -11,9 +11,9 @@ export function PokemonSection({ strategy, centers, shops }: PokemonSectionProps
   const { t } = useTranslation();
 
   return (
-    <section id="pokemon" className="bg-indigo py-16 text-washi">
-      <div className="mx-auto max-w-5xl px-6">
-        <h2 className="font-serif text-3xl font-bold">⚡ {t('nav.pokemon')}</h2>
+    <section id="pokemon" className="bg-indigo py-10 text-washi sm:py-16">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <h2 className="font-serif text-2xl font-bold sm:text-3xl">⚡ {t('nav.pokemon')}</h2>
         <p className="mt-2 text-washi/70">
           Daily Pokemon Center strategy + Akihabara TCG backup shops
         </p>

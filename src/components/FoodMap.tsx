@@ -43,9 +43,9 @@ export function FoodMap({ days }: FoodMapProps) {
   }, {});
 
   return (
-    <section id="food" className="washi-pattern py-16">
-      <div className="mx-auto max-w-5xl px-6">
-        <h2 className="font-serif text-3xl font-bold text-ink">🍜 {t('nav.food')}</h2>
+    <section id="food" className="washi-pattern py-10 sm:py-16">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <h2 className="font-serif text-2xl font-bold text-ink sm:text-3xl">🍜 {t('nav.food')}</h2>
         <p className="mt-2 text-ink-light/70">
           Meals from your itinerary timeline — updates when you reorder or add custom meals
         </p>

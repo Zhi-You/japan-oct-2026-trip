@@ -4,7 +4,7 @@ import { tokyoStationAreaPokemonCenter } from './pokemonCenterPresets';
 const itineraryEn: ItineraryData = {
   meta: {
     title: 'Tokyo Autumn Journey',
-    subtitle: 'A photo-friendly itinerary for four — two young adults & two active seniors',
+    subtitle: 'A photo-friendly itinerary for four',
     dates: '1 – 8 October 2026',
     travellers: '4 people',
     baseArea: 'Ueno area (accommodation TBD)',

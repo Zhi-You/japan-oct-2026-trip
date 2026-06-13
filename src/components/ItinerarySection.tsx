@@ -45,11 +45,11 @@ export function ItinerarySection({ days }: ItinerarySectionProps) {
   };
 
   return (
-    <section id="itinerary" className="bg-white py-16">
-      <div className="mx-auto max-w-5xl px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+    <section id="itinerary" className="bg-white py-10 sm:py-16">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-serif text-3xl font-bold text-ink">{t('nav.itinerary')}</h2>
+            <h2 className="font-serif text-2xl font-bold text-ink sm:text-3xl">{t('nav.itinerary')}</h2>
             <p className="mt-2 text-ink-light/70">
               {mode === 'view'
                 ? savedHint
@@ -59,20 +59,20 @@ export function ItinerarySection({ days }: ItinerarySectionProps) {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
             {mode === 'customize' && (
-              <>
+              <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center">
                 <button
                   type="button"
                   onClick={exportBoard}
-                  className="rounded-lg border border-washi-dark px-3 py-2 text-xs text-ink-light transition hover:border-indigo hover:text-indigo"
+                  className="min-h-11 rounded-lg border border-washi-dark px-3 py-2.5 text-xs text-ink-light transition hover:border-indigo hover:text-indigo"
                 >
                   {t('board.export')}
                 </button>
                 <button
                   type="button"
                   onClick={() => importInputRef.current?.click()}
-                  className="rounded-lg border border-washi-dark px-3 py-2 text-xs text-ink-light transition hover:border-indigo hover:text-indigo"
+                  className="min-h-11 rounded-lg border border-washi-dark px-3 py-2.5 text-xs text-ink-light transition hover:border-indigo hover:text-indigo"
                 >
                   {t('board.import')}
                 </button>
@@ -88,17 +88,17 @@ export function ItinerarySection({ days }: ItinerarySectionProps) {
                   onClick={() => {
                     if (window.confirm(t('board.resetConfirm'))) resetBoard();
                   }}
-                  className="rounded-lg border border-washi-dark px-3 py-2 text-xs text-ink-light transition hover:border-vermillion hover:text-vermillion"
+                  className="col-span-2 min-h-11 rounded-lg border border-washi-dark px-3 py-2.5 text-xs text-ink-light transition hover:border-vermillion hover:text-vermillion sm:col-span-1"
                 >
                   {t('board.reset')}
                 </button>
-              </>
+              </div>
             )}
             <div className="flex rounded-lg border border-washi-dark bg-washi p-1">
               <button
                 type="button"
                 onClick={switchToView}
-                className={`rounded-md px-4 py-2 text-sm font-medium transition ${
+                className={`min-h-11 flex-1 rounded-md px-4 py-2.5 text-sm font-medium transition sm:flex-none sm:py-2 ${
                   mode === 'view'
                     ? 'bg-white text-ink shadow-sm'
                     : 'text-ink-light hover:text-ink'
@@ -109,7 +109,7 @@ export function ItinerarySection({ days }: ItinerarySectionProps) {
               <button
                 type="button"
                 onClick={() => setMode('customize')}
-                className={`rounded-md px-4 py-2 text-sm font-medium transition ${
+                className={`min-h-11 flex-1 rounded-md px-4 py-2.5 text-sm font-medium transition sm:flex-none sm:py-2 ${
                   mode === 'customize'
                     ? 'bg-indigo text-white shadow-sm'
                     : 'text-ink-light hover:text-ink'
@@ -127,7 +127,7 @@ export function ItinerarySection({ days }: ItinerarySectionProps) {
           </p>
         )}
 
-        <div className="relative mt-12">
+        <div className="relative mt-8 sm:mt-12">
           {mode === 'view' ? (
             <DayTimeline days={days} />
           ) : (

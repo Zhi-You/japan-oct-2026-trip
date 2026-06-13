@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -27,10 +28,19 @@ body {
   background-color: var(--color-washi);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
   background: color-mix(in srgb, var(--color-vermillion) 25%, transparent);
+}
+
+/* Room for fixed mobile bottom nav */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 .washi-pattern {
@@ -62,6 +72,15 @@ body {
   animation: fade-up 0.5s ease-out forwards;
 }
 
+.touch-target {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}
+
+.drag-handle {
+  touch-action: none;
+}
+
 /* Leaflet map markers */
 .day-map-marker {
   background: transparent;
@@ -72,15 +91,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
   color: #fff;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1;
+}
+
+@media (pointer: coarse) {
+  .day-map-marker-pin {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
 }
 
 .leaflet-popup-content-wrapper {
@@ -90,4 +117,11 @@ body {
 .leaflet-popup-content {
   margin: 10px 12px;
   line-height: 1.4;
+  font-size: 14px;
+}
+
+@media (pointer: coarse) {
+  .leaflet-container {
+    touch-action: pan-x pan-y;
+  }
 }

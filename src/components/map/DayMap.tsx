@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import type { MapPin } from '../../utils/mapLocations';
+import { useCoarsePointer } from './useCoarsePointer';
 
 interface DayMapProps {
   pins: MapPin[];
@@ -36,6 +37,7 @@ function createNumberedIcon(order: number, isPokemon = false): L.DivIcon {
 }
 
 export function DayMap({ pins, className = '' }: DayMapProps) {
+  const coarsePointer = useCoarsePointer();
   const plotPins = pins;
   const positions: [number, number][] = plotPins.map((p) => [
     p.coordinates.lat,
@@ -51,8 +53,8 @@ export function DayMap({ pins, className = '' }: DayMapProps) {
       <MapContainer
         center={defaultCenter}
         zoom={defaultZoom}
-        scrollWheelZoom
-        className="h-full min-h-[320px] w-full md:min-h-[420px]"
+        scrollWheelZoom={!coarsePointer}
+        className="h-[45vh] min-h-[280px] w-full md:h-full md:min-h-[420px]"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'

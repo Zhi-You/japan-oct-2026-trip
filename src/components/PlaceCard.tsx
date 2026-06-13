@@ -15,17 +15,17 @@ export function PlaceCard({ place, index, schedule }: PlaceCardProps) {
 
   return (
     <article
-      className="animate-fade-up rounded-xl border border-washi-dark bg-white p-5 shadow-sm"
+      className="animate-fade-up rounded-xl border border-washi-dark bg-white p-4 shadow-sm sm:p-5"
       style={{ animationDelay: `${index * 60}ms` }}
     >
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <div>
+      <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
+        <div className="min-w-0">
           <h4 className="font-serif text-lg font-semibold text-ink">{place.name}</h4>
           <p className="text-xs text-ink-light/60">
             {place.area} · {place.category}
           </p>
         </div>
-        <ScheduleDisplay schedule={schedule} />
+        <ScheduleDisplay schedule={schedule} className="sm:text-right" />
       </div>
 
       <p className="mt-3 text-sm leading-relaxed text-ink-light">{place.summary}</p>

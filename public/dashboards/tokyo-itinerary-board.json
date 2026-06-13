@@ -1,0 +1,1337 @@
+{
+  "version": 1,
+  "days": {
+    "day-1": {
+      "dayId": "day-1",
+      "cardIds": [
+        "flight-inbound",
+        "haneda-touchdown",
+        "day-1-pokemon-center",
+        "ameyoko",
+        "day-1-meal-0",
+        "ueno-park-lite",
+        "day-1-meal-1"
+      ],
+      "cards": {
+        "flight-inbound": {
+          "id": "flight-inbound",
+          "kind": "flight",
+          "flight": {
+            "id": "flight-inbound",
+            "airline": "Scoot",
+            "flightNumber": "TR 882",
+            "aircraft": "B787-9",
+            "departure": {
+              "airportCode": "SIN",
+              "airportName": "Changi Airport",
+              "terminal": "T1",
+              "time": "17:15",
+              "dateLabel": "30 Sep"
+            },
+            "arrival": {
+              "airportCode": "HND",
+              "airportName": "Haneda Airport",
+              "terminal": "T3",
+              "time": "01:05",
+              "dateLabel": "1 Oct"
+            },
+            "duration": "6h 50m"
+          }
+        },
+        "haneda-touchdown": {
+          "id": "haneda-touchdown",
+          "kind": "airport-process",
+          "airportProcess": {
+            "id": "haneda-touchdown",
+            "type": "touchdown",
+            "airportCode": "HND",
+            "airportName": "Haneda Airport",
+            "terminal": "T3",
+            "time": "01:05",
+            "durationMinutes": 30
+          }
+        },
+        "day-1-pokemon-center": {
+          "id": "day-1-pokemon-center",
+          "kind": "pokemon-center",
+          "pokemonCenter": {
+            "name": "Pokemon Center Tokyo Station & Tokyo DX",
+            "openTime": "10:00",
+            "note": "Optional on arrival — both centres ~10 min apart. Tokyo Station opens 10:00, Tokyo DX 10:30. Skip if tired; more PC days ahead."
+          }
+        },
+        "ameyoko": {
+          "id": "ameyoko",
+          "kind": "place",
+          "place": {
+            "id": "ameyoko",
+            "name": "Ameyoko Market",
+            "area": "Ueno",
+            "category": "Market",
+            "timeSlot": "Afternoon",
+            "duration": "1–1.5 hrs",
+            "summary": "A lively post-war market street under the Yamanote tracks — street food, dried goods, sneakers, and bargain snacks. Less polished than department stores, very local energy.",
+            "highlights": [
+              "Sample grilled seafood skewers and fresh fruit",
+              "People-watching and neon-adjacent shop fronts",
+              "Short walk from Ueno Station"
+            ],
+            "tips": [
+              "Cash still preferred at smaller stalls",
+              "Go before 17:00 when stalls start closing",
+              "Watch your belongings — it gets crowded on weekends (today is quieter midweek)"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free to walk"
+            },
+            "photoNote": "Colourful stall awnings and narrow alleys — allow extra time for photos."
+          }
+        },
+        "ueno-park-lite": {
+          "id": "ueno-park-lite",
+          "kind": "place",
+          "place": {
+            "id": "ueno-park-lite",
+            "name": "Ueno Park (exterior stroll)",
+            "area": "Ueno",
+            "category": "Park",
+            "timeSlot": "Late afternoon",
+            "duration": "45–60 min",
+            "summary": "One of Tokyo’s oldest public parks — ponds, shrines, and wide paths. Today is a gentle preview; full museum visit on Day 4.",
+            "highlights": [
+              "Shinobazu Pond lotus views",
+              "Saigo Takamori statue",
+              "Preview of museum buildings"
+            ],
+            "tips": [
+              "Benches throughout — good rest stop for seniors",
+              "Early October: greenery with occasional cosmos flowers, not yet peak autumn colour"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Park is free"
+            }
+          }
+        },
+        "day-1-meal-0": {
+          "id": "day-1-meal-0",
+          "kind": "meal",
+          "meal": {
+            "name": "Uogashi Nihon-Ichi Ueno Okachimachi",
+            "area": "Ueno",
+            "cuisine": "Standing sushi / sashimi",
+            "priceRange": "¥800–1,500",
+            "rating": "4.3★",
+            "meal": "lunch",
+            "note": "Affordable sashimi option near Ameyoko — order piece-by-piece at the counter (¥100–300 per piece). Quick, no reservation needed. Alternative to a sit-down lunch if you arrive hungry before exploring."
+          }
+        },
+        "day-1-meal-1": {
+          "id": "day-1-meal-1",
+          "kind": "meal",
+          "meal": {
+            "name": "Gyukatsu Motomura Ueno",
+            "area": "Ueno",
+            "cuisine": "Beef cutlet (gyukatsu)",
+            "priceRange": "¥2,000–3,000",
+            "rating": "4.8★",
+            "meal": "dinner",
+            "note": "From your saved list. Deep-fried beef you finish on a hot stone — hearty after travel. Expect 20–40 min queue at peak; go early (~17:30)."
+          }
+        }
+      },
+      "notes": {}
+    },
+    "day-2": {
+      "dayId": "day-2",
+      "cardIds": [
+        "kawaguchiko",
+        "chureito",
+        "fuji-q-area",
+        "day-2-meal-0"
+      ],
+      "cards": {
+        "kawaguchiko": {
+          "id": "kawaguchiko",
+          "kind": "place",
+          "place": {
+            "id": "kawaguchiko",
+            "name": "Lake Kawaguchiko & Oishi Park",
+            "area": "Fuji Five Lakes",
+            "category": "Nature / Scenic",
+            "timeSlot": "Morning (priority)",
+            "duration": "2–3 hrs",
+            "summary": "The classic northern Fuji viewpoint. Oishi Park’s lakeside promenade frames Fuji across the water — one of Japan’s most photographed compositions.",
+            "highlights": [
+              "Oishi Park seasonal flower fields (cosmos often in early Oct)",
+              "Lake Kawaguchiko shoreline walk",
+              "Fuji panoramic on clear days"
+            ],
+            "tips": [
+              "Check isfujivisible.com the night before — if visibility is “Poor”, swap to backup Day 3",
+              "Lake area is 5–10°C cooler than Tokyo — bring windbreaker",
+              "Morning 7:00–10:00 has best Fuji visibility; clouds often obscure by midday"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Oishi Park free"
+            },
+            "photoNote": "★ Photo-heavy zone — budget 2+ hrs if conditions are clear. If Fuji is hidden, spend less time and explore lakeside cafés.",
+            "paceNote": "If visibility is poor, accept it gracefully — lakeside is still pleasant but consider shortening to 1 hr."
+          }
+        },
+        "chureito": {
+          "id": "chureito",
+          "kind": "place",
+          "place": {
+            "id": "chureito",
+            "name": "Chureito Pagoda (Arakurayama Sengen Park)",
+            "area": "Fuji Five Lakes",
+            "category": "Scenic / Shrine",
+            "timeSlot": "Late morning",
+            "duration": "1.5–2 hrs",
+            "summary": "The iconic five-story pagoda with Fuji behind it — 398 steps up. One of the most famous views in Japan.",
+            "highlights": [
+              "Pagoda + Fuji composition",
+              "Seasonal cherry blossoms (not Oct) / early autumn tones"
+            ],
+            "tips": [
+              "398 steps — seniors can wait at the base while others climb (partial views still exist lower down)",
+              "Free entry; can be crowded mid-morning on clear days",
+              "Combine with Shimoyoshida station (Fujikyu line)"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free — open park"
+            },
+            "photoNote": "Allow 30+ min for the perfect shot — viewpoint gets crowded. Weekday helps.",
+            "paceNote": "Recommend: young adults hike up, seniors rest at Fujisan Station café area if needed."
+          }
+        },
+        "fuji-q-area": {
+          "id": "fuji-q-area",
+          "kind": "place",
+          "place": {
+            "id": "fuji-q-area",
+            "name": "Kawaguchiko town & souvenir strip",
+            "area": "Kawaguchiko",
+            "category": "Town",
+            "timeSlot": "Afternoon",
+            "duration": "1 hr",
+            "summary": "Lakefront shops, local Hoto noodle restaurants, and souvenir hunting. Relaxed fallback if weather turns.",
+            "highlights": [
+              "Hoto noodle (Yamanashi specialty)",
+              "Local craft shops"
+            ],
+            "tips": [
+              "Buy return bus ticket early — evening buses sell out on clear Fuji days"
+            ],
+            "ticket": {
+              "type": "walk_in",
+              "detail": "No ticket needed"
+            }
+          }
+        },
+        "day-2-meal-0": {
+          "id": "day-2-meal-0",
+          "kind": "meal",
+          "meal": {
+            "name": "Hoto Fudo or Kawaguchiko Hoto",
+            "area": "Kawaguchiko",
+            "cuisine": "Hoto noodles (Yamanashi)",
+            "priceRange": "¥1,000–1,500",
+            "meal": "lunch",
+            "note": "Thick miso noodles in a hot pot — warming after lakeside wind. Famous rustic venues near the lake."
+          }
+        }
+      },
+      "notes": {}
+    },
+    "day-3": {
+      "dayId": "day-3",
+      "cardIds": [
+        "sensoji",
+        "day-3-meal-0",
+        "day-3-meal-3",
+        "sumida",
+        "day-3-pokemon-center",
+        "skytree-exterior",
+        "day-3-meal-1",
+        "day-3-meal-2",
+        "day-3-meal-4"
+      ],
+      "cards": {
+        "day-3-pokemon-center": {
+          "id": "day-3-pokemon-center",
+          "kind": "pokemon-center",
+          "pokemonCenter": {
+            "name": "Pokemon Center SKYTREE TOWN",
+            "openTime": "10:00",
+            "note": "After Senso-ji morning exploration — 15 min walk or 1 stop on Asakusa Line to Oshiage."
+          }
+        },
+        "sensoji": {
+          "id": "sensoji",
+          "kind": "place",
+          "place": {
+            "id": "sensoji",
+            "name": "Senso-ji Temple",
+            "area": "Asakusa",
+            "category": "Temple",
+            "timeSlot": "Early morning (best)",
+            "duration": "2–3 hrs",
+            "summary": "Tokyo’s oldest temple — thunder gate (Kaminarimon), Nakamise shopping street, and the main hall. The spiritual heart of Asakusa.",
+            "highlights": [
+              "Kaminarimon giant red lantern",
+              "Nakamise-dori traditional snacks & souvenirs",
+              "Main hall prayer and incense",
+              "Five-story pagoda views"
+            ],
+            "tips": [
+              "Arrive 6:30–7:30 for fewer crowds and soft morning light — best for photos",
+              "Main hall open 6:00–17:00 (Oct)",
+              "Draw an omikuji fortune (¥100) — fun group activity",
+              "Imperial Palace East Gardens are CLOSED Fridays — good day for Asakusa instead"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free entry to temple grounds"
+            },
+            "photoNote": "★★ Major photo day. Budget 2–3 hrs. Nakamise can eat another hour if you browse every stall.",
+            "paceNote": "Speed-up tip: Focus on Kaminarimon → main hall → pagoda. Skip deep Nakamise browsing to save 45 min."
+          }
+        },
+        "sumida": {
+          "id": "sumida",
+          "kind": "place",
+          "place": {
+            "id": "sumida",
+            "name": "Sumida Park & river views",
+            "area": "Asakusa",
+            "category": "Park / Riverside",
+            "timeSlot": "Late morning",
+            "duration": "30–45 min",
+            "summary": "Riverside walk with Skytree backdrop — good angle for tower + temple area context shots.",
+            "highlights": [
+              "Skytree framing from riverbank",
+              "Azuma Bridge views"
+            ],
+            "tips": [
+              "Optional short river cruise from Asakusa pier if legs need a rest (~15 min)"
+            ],
+            "ticket": {
+              "type": "walk_in",
+              "detail": "Park free; cruise ~¥1,000+"
+            }
+          },
+          "schedule": {
+            "timeSlot": "Late Morning",
+            "duration": {
+              "min": 30,
+              "max": 45,
+              "unit": "mins"
+            }
+          }
+        },
+        "skytree-exterior": {
+          "id": "skytree-exterior",
+          "kind": "place",
+          "place": {
+            "id": "skytree-exterior",
+            "name": "Tokyo Skytree Town (exterior)",
+            "area": "Oshiage",
+            "category": "Landmark",
+            "timeSlot": "Afternoon",
+            "duration": "45 min",
+            "summary": "Browse Solamachi mall at the base — Pokemon Center is here. Skytree observation deck is optional (not a priority vs Shibuya Sky).",
+            "highlights": [
+              "Solamachi shopping",
+              "Pokemon Center Skytree Town"
+            ],
+            "tips": [
+              "Observation deck ticket not essential — you visit Shibuya Sky for sunset views"
+            ],
+            "ticket": {
+              "type": "advance_recommended",
+              "detail": "Deck: book ahead if desired; mall free"
+            }
+          },
+          "schedule": {
+            "timeSlot": "Late Afternoon",
+            "duration": {
+              "min": 45,
+              "max": 45,
+              "unit": "mins"
+            }
+          }
+        },
+        "day-3-meal-0": {
+          "id": "day-3-meal-0",
+          "kind": "meal",
+          "meal": {
+            "name": "Age.3 ASAKUSA",
+            "area": "Asakusa",
+            "cuisine": "Cafe — cream-filled pastries",
+            "priceRange": "¥1–1,000",
+            "rating": "4.9★",
+            "meal": "breakfast",
+            "note": "From your saved list. Viral cream puffs — go early before sell-out. Perfect post-temple treat."
+          }
+        },
+        "day-3-meal-1": {
+          "id": "day-3-meal-1",
+          "kind": "meal",
+          "meal": {
+            "name": "Maguro-to-Shari Asakusa",
+            "area": "Asakusa",
+            "cuisine": "Tuna rice bowls",
+            "priceRange": "¥2,000–3,000",
+            "rating": "4.9★",
+            "meal": "lunch",
+            "note": "From your saved list. Fresh tuna specialist — lunch sets are excellent value."
+          }
+        },
+        "day-3-meal-2": {
+          "id": "day-3-meal-2",
+          "kind": "meal",
+          "meal": {
+            "name": "Magurobito Asakusa",
+            "area": "Asakusa",
+            "cuisine": "Tuna / sashimi bowls",
+            "priceRange": "¥1,000–2,000",
+            "rating": "4.4★",
+            "meal": "lunch",
+            "note": "Budget-friendly alternative to Maguro-to-Shari — generous tuna bowls and sashimi sets without the longest queues. Good backup if Maguro-to-Shari is packed."
+          }
+        },
+        "day-3-meal-3": {
+          "id": "day-3-meal-3",
+          "kind": "meal",
+          "meal": {
+            "name": "Ichiran Asakusa",
+            "area": "Asakusa",
+            "cuisine": "Tonkotsu ramen (solo booths)",
+            "priceRange": "¥1,000–2,000",
+            "rating": "4.3★",
+            "meal": "lunch",
+            "note": "Alternative lunch. Solo booth format — group sits in separate stalls. Note from your list: many Ichiran branches exist; this one pairs with Asakusa day."
+          }
+        },
+        "day-3-meal-4": {
+          "id": "day-3-meal-4",
+          "kind": "meal",
+          "meal": {
+            "name": "Dotombori Kamukura — Asakusa ROX",
+            "area": "Asakusa",
+            "cuisine": "Ramen",
+            "priceRange": "¥1,000–2,000",
+            "rating": "4.0★",
+            "meal": "dinner",
+            "note": "From your saved list. Solid backup dinner near Asakusa station."
+          }
+        }
+      },
+      "notes": {
+        "day-3-meal-2": {
+          "text": "Optional - alr chosen ichiran",
+          "isOpen": false
+        },
+        "day-3-meal-1": {
+          "text": "Optional - alr chosen ichiran",
+          "isOpen": false
+        }
+      }
+    },
+    "day-4": {
+      "dayId": "day-4",
+      "cardIds": [
+        "nezu-shrine",
+        "yanaka",
+        "day-4-meal-1",
+        "day-4-meal-0",
+        "tnm",
+        "ueno-park-full",
+        "day-4-meal-2"
+      ],
+      "cards": {
+        "nezu-shrine": {
+          "id": "nezu-shrine",
+          "kind": "place",
+          "place": {
+            "id": "nezu-shrine",
+            "name": "Nezu Shrine",
+            "area": "Nezu",
+            "category": "Shinto Shrine",
+            "timeSlot": "Early morning",
+            "duration": "1–1.5 hrs",
+            "summary": "A hidden gem with a tunnel of vermillion torii gates — reminiscent of Fushimi Inari but far less crowded. Azalea festival is April; October offers moss, lanterns, and tranquil gardens.",
+            "highlights": [
+              "Senbon Torii (torii gate path)",
+              "Historic main hall (National Important Cultural Property)",
+              "Small pond garden"
+            ],
+            "tips": [
+              "Opens at 6:00 — arrive 8:00 for best light + fewer Saturday crowds",
+              "10 min walk from Nezu Station (Chiyoda Line)",
+              "Combine with Yanaka — 15 min walk north"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free"
+            },
+            "photoNote": "Torii tunnel is narrow — patient queueing for photos. Allow 45+ min for photography."
+          }
+        },
+        "yanaka": {
+          "id": "yanaka",
+          "kind": "place",
+          "place": {
+            "id": "yanaka",
+            "name": "Yanaka Ginza & district",
+            "area": "Yanaka",
+            "category": "Historic neighbourhood",
+            "timeSlot": "Morning",
+            "duration": "1.5–2 hrs",
+            "summary": "“Old Tokyo” survived the firebombing — wooden houses, temple cemeteries, artisan shops, and the famous Yanaka Ginza shopping street. Cats are unofficial mascots.",
+            "highlights": [
+              "Yanaka Ginza shotengai (market street)",
+              "Cat-themed shops & street art",
+              "Yanaka Cemetery — peaceful tree-lined walks (respectful, quiet photos only)"
+            ],
+            "tips": [
+              "Yanaka Ginza gets busy weekends after 11:00 — go earlier",
+              "Cash useful at small shops",
+              "Many stairs in side alleys — seniors may prefer main Yanaka Ginza flat street"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free to explore"
+            },
+            "photoNote": "Charming retro streetscapes — budget extra time. Sunset cat-themed snacks (menchi-katsu) are famous.",
+            "paceNote": "Speed-up: Walk Yanaka Ginza main strip only (~45 min) to save energy for museum."
+          },
+          "schedule": {
+            "timeSlot": "Late Morning",
+            "duration": {
+              "min": 1.5,
+              "max": 2,
+              "unit": "hrs"
+            }
+          }
+        },
+        "tnm": {
+          "id": "tnm",
+          "kind": "place",
+          "place": {
+            "id": "tnm",
+            "name": "Tokyo National Museum",
+            "area": "Ueno",
+            "category": "Museum",
+            "timeSlot": "Afternoon",
+            "duration": "2–3 hrs",
+            "summary": "Japan’s oldest and largest art museum — samurai armour, ukiyo-e prints, ceramics, and Buddhist sculpture. Honkan (Japanese Gallery) is the essential wing.",
+            "highlights": [
+              "Honkan — Japanese art through the ages",
+              "Gallery of Horyuji Treasures",
+              "Japanese garden behind Honkan"
+            ],
+            "tips": [
+              "Closed Mondays — Saturday open 9:30–17:00",
+              "Seniors 70+ and under-18 free with passport/ID",
+              "Buy online ticket to skip queue",
+              "Wheelchairs available — mostly flat within buildings"
+            ],
+            "ticket": {
+              "type": "advance_recommended",
+              "detail": "¥1,000 adults — buy online at tnm.jp"
+            },
+            "paceNote": "Focus on Honkan only (~90 min) if tired rather than all buildings."
+          },
+          "schedule": {
+            "timeSlot": "Afternoon",
+            "duration": {
+              "min": 2,
+              "max": 3,
+              "unit": "hrs"
+            }
+          }
+        },
+        "ueno-park-full": {
+          "id": "ueno-park-full",
+          "kind": "place",
+          "place": {
+            "id": "ueno-park-full",
+            "name": "Ueno Park",
+            "area": "Ueno",
+            "category": "Park",
+            "timeSlot": "Late afternoon",
+            "duration": "45 min",
+            "summary": "Stroll through the park connecting museum, Shinobazu Pond, and Ueno Zoo exterior paths.",
+            "highlights": [
+              "Shinobazu Pond",
+              "Statues and seasonal flowers"
+            ],
+            "tips": [
+              "Early Oct: still mostly green — peak autumn colour comes mid-Nov"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free"
+            }
+          }
+        },
+        "day-4-meal-0": {
+          "id": "day-4-meal-0",
+          "kind": "meal",
+          "meal": {
+            "name": "Yanaka Ginza — menchi-katsu / croquettes",
+            "area": "Yanaka",
+            "cuisine": "Street food",
+            "priceRange": "¥200–500",
+            "meal": "snack",
+            "note": "Famous meat croquettes — eat while walking the shotengai."
+          }
+        },
+        "day-4-meal-1": {
+          "id": "day-4-meal-1",
+          "kind": "meal",
+          "meal": {
+            "name": "Uogashi Nihon-Ichi Ueno Okachimachi",
+            "area": "Ueno",
+            "cuisine": "Standing sushi / sashimi",
+            "priceRange": "¥800–1,500",
+            "rating": "4.3★",
+            "meal": "lunch",
+            "note": "Light sashimi lunch after the museum — same affordable standing-sushi chain as Day 1 if you skipped it earlier."
+          }
+        },
+        "day-4-meal-2": {
+          "id": "day-4-meal-2",
+          "kind": "meal",
+          "meal": {
+            "name": "Ueno area izakaya or café",
+            "area": "Ueno",
+            "cuisine": "Japanese casual",
+            "priceRange": "¥1,500–2,500",
+            "meal": "dinner",
+            "note": "Many options near Ueno Station — or return to Gyukatsu Motomura if you loved it."
+          }
+        }
+      },
+      "notes": {
+        "yanaka": {
+          "text": "",
+          "isOpen": false
+        },
+        "nezu-shrine": {
+          "text": "",
+          "isOpen": false
+        }
+      }
+    },
+    "day-5": {
+      "dayId": "day-5",
+      "cardIds": [
+        "day-5-pokemon-center",
+        "shibuya-crossing",
+        "day-5-meal-0",
+        "day-5-meal-1",
+        "meiji",
+        "shibuya-sky",
+        "day-5-meal-2",
+        "day-5-meal-3"
+      ],
+      "cards": {
+        "day-5-pokemon-center": {
+          "id": "day-5-pokemon-center",
+          "kind": "pokemon-center",
+          "pokemonCenter": {
+            "name": "Pokemon Center SHIBUYA",
+            "openTime": "10:00",
+            "note": "First stop — then Meiji Shrine → Harajuku → Shibuya crossing → Sky for sunset."
+          }
+        },
+        "meiji": {
+          "id": "meiji",
+          "kind": "place",
+          "place": {
+            "id": "meiji",
+            "name": "Meiji Jingu",
+            "area": "Harajuku",
+            "category": "Shinto Shrine",
+            "timeSlot": "Morning",
+            "duration": "1–1.5 hrs",
+            "summary": "A forest shrine oasis in the city — towering trees, massive torii, and peaceful paths. Recommended add-on near Shibuya day.",
+            "highlights": [
+              "Forest approach through 100,000 trees",
+              "Main shrine building",
+              "Write wishes on ema plaques"
+            ],
+            "tips": [
+              "Opens at sunrise (~5:30 in Oct) — shrine grounds always accessible",
+              "Flat main path — good for seniors; side gardens have more walking",
+              "Sunday mornings can have wedding processions — photogenic"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free"
+            },
+            "photoNote": "Forest light dappling — beautiful but dark under canopy. Big torii at entrance is the hero shot."
+          }
+        },
+        "shibuya-crossing": {
+          "id": "shibuya-crossing",
+          "kind": "place",
+          "place": {
+            "id": "shibuya-crossing",
+            "name": "Shibuya Scramble Crossing",
+            "area": "Shibuya",
+            "category": "Landmark",
+            "timeSlot": "Afternoon & after dark",
+            "duration": "30–45 min total",
+            "summary": "The world’s busiest pedestrian crossing — up to 3,000 people per green light. View from ground level AND Shibuya Sky above.",
+            "highlights": [
+              "Cross at street level for the experience",
+              "Hachiko statue meeting point",
+              "Night neon version after sunset"
+            ],
+            "tips": [
+              "Shibuya Sky covers the aerial view — ground crossing complements it",
+              "Magnet by Shibuya Station Tsutaya 2F is a classic overhead photo spot (free)",
+              "Return after Shibuya Sky (~18:30) for neon photos"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free"
+            }
+          }
+        },
+        "shibuya-sky": {
+          "id": "shibuya-sky",
+          "kind": "place",
+          "place": {
+            "id": "shibuya-sky",
+            "name": "Shibuya Sky",
+            "area": "Shibuya",
+            "category": "Observation deck",
+            "timeSlot": "Sunset (~16:00 entry)",
+            "duration": "1.5–2 hrs",
+            "summary": "360° open-air rooftop 229m above Shibuya — the headline sunset experience. Watch Tokyo transition from golden hour to neon.",
+            "highlights": [
+              "Open-air Sky Edge corner — iconic photo spot",
+              "Mt. Fuji silhouette on clear winter days (rare in Oct but possible at dusk)",
+              "360° city panorama including Shibuya crossing below"
+            ],
+            "tips": [
+              "★ BOOK IN ADVANCE — sunset slot 16:00–16:30 entry for 17:20 sunset",
+              "Bring ¥100 coin for locker (bags not allowed on rooftop)",
+              "No tripods/selfie sticks on roof — phone only",
+              "Rooftop closes in high wind/rain — no refund; check forecast",
+              "Can stay past your slot until closing — no time limit once inside"
+            ],
+            "ticket": {
+              "type": "advance_required",
+              "detail": "¥2,700–3,400 online — book 28 days ahead at midnight JST"
+            },
+            "photoNote": "★★★ Top photo moment of the trip. Arrive 30 min before sunset. Windy — secure hats."
+          }
+        },
+        "day-5-meal-0": {
+          "id": "day-5-meal-0",
+          "kind": "meal",
+          "meal": {
+            "name": "Spontini Cascade Harajuku",
+            "area": "Harajuku",
+            "cuisine": "Italian pizza",
+            "priceRange": "¥1,000–2,000",
+            "rating": "4.1★",
+            "meal": "lunch",
+            "note": "From your saved list. Thick Milanese-style slices — quick lunch between Meiji and Shibuya."
+          }
+        },
+        "day-5-meal-1": {
+          "id": "day-5-meal-1",
+          "kind": "meal",
+          "meal": {
+            "name": "Sushi no Midori Shibuya",
+            "area": "Shibuya",
+            "cuisine": "Sashimi / sushi sets",
+            "priceRange": "¥1,500–2,500",
+            "rating": "4.3★",
+            "meal": "lunch",
+            "note": "Famous budget sushi — generous lunch sets with sashimi. Expect 30–60 min queue at peak; go before noon or late afternoon. Great value alternative to Spontini if you prefer Japanese."
+          }
+        },
+        "day-5-meal-2": {
+          "id": "day-5-meal-2",
+          "kind": "meal",
+          "meal": {
+            "name": "Ramen Afro Beats Shinjuku",
+            "area": "Shinjuku",
+            "cuisine": "Ramen",
+            "priceRange": "¥1,000–2,000",
+            "rating": "4.4★",
+            "meal": "dinner",
+            "note": "From your saved list. Post-sunset dinner — 2 stops from Shibuya on JR."
+          }
+        },
+        "day-5-meal-3": {
+          "id": "day-5-meal-3",
+          "kind": "meal",
+          "meal": {
+            "name": "Izumo Shinjuku",
+            "area": "Shinjuku",
+            "cuisine": "Izakaya",
+            "priceRange": "¥2,000–3,000",
+            "rating": "4.8★",
+            "meal": "dinner",
+            "note": "Alternative dinner from saved list. Lively izakaya — good for groups, reserve if possible."
+          }
+        },
+        "imperial-east": {
+          "id": "imperial-east",
+          "kind": "place",
+          "place": {
+            "id": "imperial-east",
+            "name": "Imperial Palace East Gardens",
+            "area": "Otemachi",
+            "category": "Historic garden",
+            "timeSlot": "Morning (opens 9:00)",
+            "duration": "1.5–2 hrs",
+            "summary": "The Edo Castle ruins transformed into imperial gardens — stone walls, moats, manicured lawns, and the foundation of the former keep. Free and tranquil.",
+            "highlights": [
+              "Tenshudai (castle keep foundation) — elevated city views",
+              "Ninomaru Garden",
+              "Historic stone walls and gates"
+            ],
+            "tips": [
+              "CLOSED Mondays & Fridays — Tuesday 7 Oct is OPEN",
+              "Oct hours: 9:00–16:30, last entry 16:00",
+              "Enter via Otemon Gate — flat paths, good for seniors",
+              "Peak autumn foliage here is late Nov — expect green in early Oct"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free — pick up entry slip at gate"
+            },
+            "photoNote": "Wide garden compositions — less crowded than Senso-ji. Morning light on stone walls is best."
+          }
+        },
+        "ginza-stroll": {
+          "id": "ginza-stroll",
+          "kind": "place",
+          "place": {
+            "id": "ginza-stroll",
+            "name": "Ginza district stroll",
+            "area": "Ginza",
+            "category": "Shopping / Architecture",
+            "timeSlot": "Late morning",
+            "duration": "45 min",
+            "summary": "Upscale shopping boulevard — flagship stores, art deco buildings, and people-watching. Window shopping is free entertainment.",
+            "highlights": [
+              "Ginza crossing",
+              "Itoya stationery (if time)",
+              "Department store food halls (depachika)"
+            ],
+            "tips": [
+              "Most shops open 11:00 — morning is for architecture walks"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free"
+            }
+          }
+        },
+        "akihabara-tcg": {
+          "id": "akihabara-tcg",
+          "kind": "place",
+          "place": {
+            "id": "akihabara-tcg",
+            "name": "Akihabara TCG district",
+            "area": "Akihabara",
+            "category": "Shopping / Hobby",
+            "timeSlot": "Afternoon",
+            "duration": "2–3 hrs",
+            "summary": "Electric Town’s card shop cluster — Hareruya2 Tower (6 floors), Poketown, Ninnin, and dozens more. Your main Pokemon card hunting ground beyond official Centers.",
+            "highlights": [
+              "Hareruya2 Akihabara Tower — largest Pokemon TCG store",
+              "Poketown — tax-free, social media favourite",
+              "Kanda Tamagoken nearby for dinner"
+            ],
+            "tips": [
+              "Poketown opens 12:00 — do Imperial Palace & Ginza first",
+              "Hareruya open 10:00–22:00 — start here if Poketown not yet open",
+              "Tax-free at Poketown — bring passport",
+              "Compare prices — Hareruya singles often better value than sealed at PC"
+            ],
+            "ticket": {
+              "type": "walk_in",
+              "detail": "No tickets — cash/card accepted"
+            },
+            "photoNote": "Neon signs and multi-floor shops — fun documentary shots. Focus on shopping first."
+          }
+        }
+      },
+      "notes": {
+        "meiji": {
+          "text": "OPTIONAL if tired. Otherwise maybe before pokemon center or after pokemon center. \nOtherwise just shop around shibuya!",
+          "isOpen": false
+        }
+      }
+    },
+    "day-6": {
+      "dayId": "day-6",
+      "cardIds": [
+        "toshogu",
+        "kegon-falls",
+        "lake-chuzenji",
+        "day-6-meal-0",
+        "day-6-meal-1"
+      ],
+      "cards": {
+        "toshogu": {
+          "id": "toshogu",
+          "kind": "place",
+          "place": {
+            "id": "toshogu",
+            "name": "Nikko Toshogu Shrine",
+            "area": "Nikko",
+            "category": "UNESCO Shrine",
+            "timeSlot": "Morning (on tour)",
+            "duration": "1.5–2 hrs",
+            "summary": "Japan’s most lavish shrine — gold leaf, carvings of the “see no evil” monkeys, and the tomb of Tokugawa Ieyasu. A masterpiece of Edo craftsmanship.",
+            "highlights": [
+              "Yomeimon Gate — “sunset gate” with 500 carvings",
+              "Three Wise Monkeys carving",
+              "Nemuri-neko (Sleeping Cat)"
+            ],
+            "tips": [
+              "Many stairs throughout — seniors may prefer main courtyard level",
+              "Admission ~¥1,300 (often included in tours)",
+              "Early October: beginning of autumn colour at shrine cedar grove"
+            ],
+            "ticket": {
+              "type": "advance_recommended",
+              "detail": "Usually bundled in tour; solo entry ¥1,300"
+            },
+            "photoNote": "Detailed carvings reward close-up photography — allow time at Yomeimon."
+          }
+        },
+        "kegon-falls": {
+          "id": "kegon-falls",
+          "kind": "place",
+          "place": {
+            "id": "kegon-falls",
+            "name": "Kegon Falls",
+            "area": "Nikko",
+            "category": "Waterfall",
+            "timeSlot": "Afternoon (on tour)",
+            "duration": "45 min",
+            "summary": "97m waterfall at Lake Chuzenji outlet — one of Japan’s three finest falls. Elevator to observation platform.",
+            "highlights": [
+              "Observation deck view",
+              "Mountain scenery"
+            ],
+            "tips": [
+              "Elevator ¥570 — often included in tours",
+              "Cooler at altitude — extra layer"
+            ],
+            "ticket": {
+              "type": "walk_in",
+              "detail": "Elevator ~¥570 unless tour includes"
+            }
+          }
+        },
+        "lake-chuzenji": {
+          "id": "lake-chuzenji",
+          "kind": "place",
+          "place": {
+            "id": "lake-chuzenji",
+            "name": "Lake Chuzenji & Irohazaka",
+            "area": "Nikko",
+            "category": "Scenic / Nature",
+            "timeSlot": "Afternoon (on tour)",
+            "duration": "1 hr",
+            "summary": "Mountain lake at 1,269m elevation — scenic drive via Irohazaka’s 48 hairpin turns. Akechidaira ropeway optional on some tours.",
+            "highlights": [
+              "Lake panorama",
+              "Irohazaka winding road views",
+              "Akechidaira ropeway lookout (if included)"
+            ],
+            "tips": [
+              "Long bus day (~3 hrs each way from Tokyo) — bring neck pillow",
+              "Motion sickness sufferers: sit front of bus on Irohazaka"
+            ],
+            "ticket": {
+              "type": "advance_required",
+              "detail": "Book full tour package"
+            }
+          }
+        },
+        "day-6-meal-0": {
+          "id": "day-6-meal-0",
+          "kind": "meal",
+          "meal": {
+            "name": "Tour-provided stops or local Nikko yuba",
+            "area": "Nikko",
+            "cuisine": "Japanese (yuba tofu skin)",
+            "priceRange": "¥1,000–1,500",
+            "meal": "lunch",
+            "note": "Nikko specialty is yuba (tofu skin). Tours usually stop at a restaurant or convenience area."
+          }
+        },
+        "day-6-meal-1": {
+          "id": "day-6-meal-1",
+          "kind": "meal",
+          "meal": {
+            "name": "TAMAGO-KEN Ikebukuro",
+            "area": "Ikebukuro",
+            "cuisine": "Omurice",
+            "priceRange": "¥1,000–2,000",
+            "rating": "4.7★",
+            "meal": "dinner",
+            "note": "From saved list — if tour returns by ~18:00. Famous fluffy omurice near Ikebukuro Station."
+          }
+        }
+      },
+      "notes": {}
+    },
+    "day-7": {
+      "dayId": "day-7",
+      "cardIds": [
+        "day-7-pokemon-center",
+        "imperial-east",
+        "day-7-meal-0",
+        "ginza-stroll",
+        "day-7-meal-1",
+        "day-7-meal-2",
+        "akihabara-tcg",
+        "day-7-meal-3"
+      ],
+      "cards": {
+        "day-7-pokemon-center": {
+          "id": "day-7-pokemon-center",
+          "kind": "pokemon-center",
+          "pokemonCenter": {
+            "name": "Pokemon Center Tokyo Station & Tokyo DX",
+            "openTime": "10:00",
+            "note": "After Imperial Palace — 10 min from Otemachi. Tokyo Station store (10:00) then Tokyo DX (10:30); ~10 min walk between."
+          }
+        },
+        "imperial-east": {
+          "id": "imperial-east",
+          "kind": "place",
+          "place": {
+            "id": "imperial-east",
+            "name": "Imperial Palace East Gardens",
+            "area": "Otemachi",
+            "category": "Historic garden",
+            "timeSlot": "Morning (opens 9:00)",
+            "duration": "1.5–2 hrs",
+            "summary": "The Edo Castle ruins transformed into imperial gardens — stone walls, moats, manicured lawns, and the foundation of the former keep. Free and tranquil.",
+            "highlights": [
+              "Tenshudai (castle keep foundation) — elevated city views",
+              "Ninomaru Garden",
+              "Historic stone walls and gates"
+            ],
+            "tips": [
+              "CLOSED Mondays & Fridays — Tuesday 7 Oct is OPEN",
+              "Oct hours: 9:00–16:30, last entry 16:00",
+              "Enter via Otemon Gate — flat paths, good for seniors",
+              "Peak autumn foliage here is late Nov — expect green in early Oct"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free — pick up entry slip at gate"
+            },
+            "photoNote": "Wide garden compositions — less crowded than Senso-ji. Morning light on stone walls is best."
+          }
+        },
+        "ginza-stroll": {
+          "id": "ginza-stroll",
+          "kind": "place",
+          "place": {
+            "id": "ginza-stroll",
+            "name": "Ginza district stroll",
+            "area": "Ginza",
+            "category": "Shopping / Architecture",
+            "timeSlot": "Late morning",
+            "duration": "45 min",
+            "summary": "Upscale shopping boulevard — flagship stores, art deco buildings, and people-watching. Window shopping is free entertainment.",
+            "highlights": [
+              "Ginza crossing",
+              "Itoya stationery (if time)",
+              "Department store food halls (depachika)"
+            ],
+            "tips": [
+              "Most shops open 11:00 — morning is for architecture walks"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free"
+            }
+          }
+        },
+        "akihabara-tcg": {
+          "id": "akihabara-tcg",
+          "kind": "place",
+          "place": {
+            "id": "akihabara-tcg",
+            "name": "Akihabara TCG district",
+            "area": "Akihabara",
+            "category": "Shopping / Hobby",
+            "timeSlot": "Afternoon",
+            "duration": "2–3 hrs",
+            "summary": "Electric Town’s card shop cluster — Hareruya2 Tower (6 floors), Poketown, Ninnin, and dozens more. Your main Pokemon card hunting ground beyond official Centers.",
+            "highlights": [
+              "Hareruya2 Akihabara Tower — largest Pokemon TCG store",
+              "Poketown — tax-free, social media favourite",
+              "Kanda Tamagoken nearby for dinner"
+            ],
+            "tips": [
+              "Poketown opens 12:00 — do Imperial/Ginza/PC DX first",
+              "Hareruya open 10:00–22:00 — start here if Poketown not yet open",
+              "Tax-free at Poketown — bring passport",
+              "Compare prices — Hareruya singles often better value than sealed at PC"
+            ],
+            "ticket": {
+              "type": "walk_in",
+              "detail": "No tickets — cash/card accepted"
+            },
+            "photoNote": "Neon signs and multi-floor shops — fun documentary shots. Focus on shopping first."
+          }
+        },
+        "day-7-meal-0": {
+          "id": "day-7-meal-0",
+          "kind": "meal",
+          "meal": {
+            "name": "Age.3 GINZA",
+            "area": "Ginza",
+            "cuisine": "Cafe — cream pastries",
+            "priceRange": "¥1–1,000",
+            "rating": "4.7★",
+            "meal": "snack",
+            "note": "From saved list. Second Age.3 location — snack between Palace and Akihabara."
+          }
+        },
+        "day-7-meal-1": {
+          "id": "day-7-meal-1",
+          "kind": "meal",
+          "meal": {
+            "name": "Ginza Kagari — Soba",
+            "area": "Ginza",
+            "cuisine": "Chicken soba (tori paitan)",
+            "priceRange": "¥1,000–2,000",
+            "rating": "4.2★",
+            "meal": "lunch",
+            "note": "From saved list. Famous rich chicken broth soba — expect 30–60 min queue. Split: 2 queue, 2 explore Ginza."
+          }
+        },
+        "day-7-meal-2": {
+          "id": "day-7-meal-2",
+          "kind": "meal",
+          "meal": {
+            "name": "Sushizanmai Tsukiji Outer Market",
+            "area": "Tsukiji",
+            "cuisine": "Sashimi / sushi",
+            "priceRange": "¥1,500–3,000",
+            "rating": "4.2★",
+            "meal": "lunch",
+            "note": "Tsukiji Outer Market is ~15 min from Ginza — fresh sashimi breakfast/lunch sets at counter seats. Arrive before 11:00 to avoid the worst crowds. Perfect pre-Akihabara lunch."
+          }
+        },
+        "day-7-meal-3": {
+          "id": "day-7-meal-3",
+          "kind": "meal",
+          "meal": {
+            "name": "Kanda Tamagoken Akihabara",
+            "area": "Akihabara",
+            "cuisine": "Omurice",
+            "priceRange": "¥1,000–2,000",
+            "rating": "4.5★",
+            "meal": "dinner",
+            "note": "From saved list. Classic fluffy omurice — perfect post-card-shopping comfort food."
+          }
+        },
+        "meiji": {
+          "id": "meiji",
+          "kind": "place",
+          "place": {
+            "id": "meiji",
+            "name": "Meiji Jingu",
+            "area": "Harajuku",
+            "category": "Shinto Shrine",
+            "timeSlot": "Morning",
+            "duration": "1–1.5 hrs",
+            "summary": "A forest shrine oasis in the city — towering trees, massive torii, and peaceful paths. Recommended add-on near Shibuya day.",
+            "highlights": [
+              "Forest approach through 100,000 trees",
+              "Main shrine building",
+              "Write wishes on ema plaques"
+            ],
+            "tips": [
+              "Opens at sunrise (~5:30 in Oct) — shrine grounds always accessible",
+              "Flat main path — good for seniors; side gardens have more walking",
+              "Sunday mornings can have wedding processions — photogenic"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free"
+            },
+            "photoNote": "Forest light dappling — beautiful but dark under canopy. Big torii at entrance is the hero shot."
+          }
+        },
+        "shibuya-crossing": {
+          "id": "shibuya-crossing",
+          "kind": "place",
+          "place": {
+            "id": "shibuya-crossing",
+            "name": "Shibuya Scramble Crossing",
+            "area": "Shibuya",
+            "category": "Landmark",
+            "timeSlot": "Afternoon & after dark",
+            "duration": "30–45 min total",
+            "summary": "The world’s busiest pedestrian crossing — up to 3,000 people per green light. View from ground level AND Shibuya Sky above.",
+            "highlights": [
+              "Cross at street level for the experience",
+              "Hachiko statue meeting point",
+              "Night neon version after sunset"
+            ],
+            "tips": [
+              "Shibuya Sky covers the aerial view — ground crossing complements it",
+              "Magnet by Shibuya Station Tsutaya 2F is a classic overhead photo spot (free)",
+              "Return after Shibuya Sky (~18:30) for neon photos"
+            ],
+            "ticket": {
+              "type": "free",
+              "detail": "Free"
+            }
+          }
+        },
+        "shibuya-sky": {
+          "id": "shibuya-sky",
+          "kind": "place",
+          "place": {
+            "id": "shibuya-sky",
+            "name": "Shibuya Sky",
+            "area": "Shibuya",
+            "category": "Observation deck",
+            "timeSlot": "Sunset (~16:00 entry)",
+            "duration": "1.5–2 hrs",
+            "summary": "360° open-air rooftop 229m above Shibuya — the headline sunset experience. Watch Tokyo transition from golden hour to neon.",
+            "highlights": [
+              "Open-air Sky Edge corner — iconic photo spot",
+              "Mt. Fuji silhouette on clear winter days (rare in Oct but possible at dusk)",
+              "360° city panorama including Shibuya crossing below"
+            ],
+            "tips": [
+              "★ BOOK IN ADVANCE — sunset slot 16:00–16:30 entry for 17:20 sunset",
+              "Bring ¥100 coin for locker (bags not allowed on rooftop)",
+              "No tripods/selfie sticks on roof — phone only",
+              "Rooftop closes in high wind/rain — no refund; check forecast",
+              "Can stay past your slot until closing — no time limit once inside"
+            ],
+            "ticket": {
+              "type": "advance_required",
+              "detail": "¥2,700–3,400 online — book 28 days ahead at midnight JST"
+            },
+            "photoNote": "★★★ Top photo moment of the trip. Arrive 30 min before sunset. Windy — secure hats."
+          }
+        }
+      },
+      "notes": {
+        "day-7-meal-2": {
+          "text": "Optional (if chosen Soba then no need this)",
+          "isOpen": false
+        }
+      }
+    },
+    "day-8": {
+      "dayId": "day-8",
+      "cardIds": [
+        "departure",
+        "narita-departure",
+        "flight-outbound",
+        "changi-touchdown"
+      ],
+      "cards": {
+        "departure": {
+          "id": "departure",
+          "kind": "place",
+          "place": {
+            "id": "departure",
+            "name": "Airport transfer",
+            "area": "Narita / Haneda",
+            "category": "Transit",
+            "timeSlot": "Early morning",
+            "duration": "—",
+            "summary": "Depart Tokyo 08:00 — aim to leave Ueno by 05:00–05:30 for Narita (N'EX ~55 min) or 05:30 for Haneda (~45 min).",
+            "highlights": [],
+            "tips": [
+              "Pre-book Narita Express or airport limousine bus",
+              "Konbini breakfast at station — nothing open early at airport Terminal 3 sometimes",
+              "Tax-free shopping at airport if needed"
+            ],
+            "ticket": {
+              "type": "advance_recommended",
+              "detail": "Pre-book N'EX / Skyliner seats"
+            }
+          }
+        },
+        "narita-departure": {
+          "id": "narita-departure",
+          "kind": "airport-process",
+          "airportProcess": {
+            "id": "narita-departure",
+            "type": "departure",
+            "airportCode": "NRT",
+            "airportName": "Narita International Airport",
+            "terminal": "T1",
+            "time": "07:50",
+            "durationMinutes": 30
+          }
+        },
+        "flight-outbound": {
+          "id": "flight-outbound",
+          "kind": "flight",
+          "flight": {
+            "id": "flight-outbound",
+            "airline": "Scoot",
+            "flightNumber": "TR 885",
+            "aircraft": "B787-9",
+            "departure": {
+              "airportCode": "NRT",
+              "airportName": "Narita International Airport",
+              "terminal": "T1",
+              "time": "08:20",
+              "dateLabel": "8 Oct"
+            },
+            "arrival": {
+              "airportCode": "SIN",
+              "airportName": "Changi Airport",
+              "terminal": "T1",
+              "time": "14:35",
+              "dateLabel": "8 Oct"
+            },
+            "duration": "7h 15m"
+          }
+        },
+        "changi-touchdown": {
+          "id": "changi-touchdown",
+          "kind": "airport-process",
+          "airportProcess": {
+            "id": "changi-touchdown",
+            "type": "touchdown",
+            "airportCode": "SIN",
+            "airportName": "Changi Airport",
+            "terminal": "T1",
+            "time": "14:35",
+            "durationMinutes": 30
+          }
+        }
+      },
+      "notes": {}
+    }
+  }
+}

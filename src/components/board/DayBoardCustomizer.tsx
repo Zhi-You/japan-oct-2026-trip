@@ -3,6 +3,7 @@ import {
   closestCenter,
   KeyboardSensor,
   PointerSensor,
+  TouchSensor,
   useSensor,
   useSensors,
   type DragEndEvent,
@@ -45,6 +46,7 @@ export function DayBoardCustomizer({ day }: DayBoardCustomizerProps) {
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   );
 
@@ -69,7 +71,7 @@ export function DayBoardCustomizer({ day }: DayBoardCustomizerProps) {
   };
 
   return (
-    <div className="rounded-2xl border-2 border-dashed border-indigo/20 bg-white p-6 md:p-8">
+    <div className="rounded-2xl border-2 border-dashed border-indigo/20 bg-white p-4 sm:p-6 md:p-8">
       <DaySectionHeader
         day={day}
         mapOpen={mapOpen}

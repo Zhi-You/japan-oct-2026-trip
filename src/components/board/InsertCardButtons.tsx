@@ -15,18 +15,18 @@ export function InsertCardButtons({
 
   if (compact) {
     return (
-      <div className="flex items-center justify-center gap-2 py-1">
+      <div className="flex flex-wrap items-center justify-center gap-2 py-2">
         <button
           type="button"
           onClick={onInsertActivity}
-          className="rounded-full border border-dashed border-indigo/40 px-3 py-1 text-xs text-indigo transition hover:border-indigo hover:bg-indigo/5"
+          className="min-h-10 rounded-full border border-dashed border-indigo/40 px-4 py-2 text-xs text-indigo transition hover:border-indigo hover:bg-indigo/5"
         >
           + {t('board.addActivity')}
         </button>
         <button
           type="button"
           onClick={onInsertMeal}
-          className="rounded-full border border-dashed border-vermillion/40 px-3 py-1 text-xs text-vermillion transition hover:border-vermillion hover:bg-vermillion/5"
+          className="min-h-10 rounded-full border border-dashed border-vermillion/40 px-4 py-2 text-xs text-vermillion transition hover:border-vermillion hover:bg-vermillion/5"
         >
           + {t('board.addMeal')}
         </button>
@@ -35,18 +35,18 @@ export function InsertCardButtons({
   }
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
       <button
         type="button"
         onClick={onInsertActivity}
-        className="rounded-lg border border-indigo/30 bg-indigo/5 px-4 py-2 text-sm font-medium text-indigo transition hover:bg-indigo/10"
+        className="min-h-11 rounded-lg border border-indigo/30 bg-indigo/5 px-4 py-3 text-sm font-medium text-indigo transition hover:bg-indigo/10 sm:py-2"
       >
         + {t('board.addActivity')}
       </button>
       <button
         type="button"
         onClick={onInsertMeal}
-        className="rounded-lg border border-vermillion/30 bg-vermillion/5 px-4 py-2 text-sm font-medium text-vermillion transition hover:bg-vermillion/10"
+        className="min-h-11 rounded-lg border border-vermillion/30 bg-vermillion/5 px-4 py-3 text-sm font-medium text-vermillion transition hover:bg-vermillion/10 sm:py-2"
       >
         + {t('board.addMeal')}
       </button>

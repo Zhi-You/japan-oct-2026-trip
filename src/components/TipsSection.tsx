@@ -7,8 +7,8 @@ interface TipsSectionProps {
 
 export function TipsSection({ backupPlans, extras }: TipsSectionProps) {
   return (
-    <section id="tips" className="mx-auto max-w-5xl px-6 py-16">
-      <h2 className="font-serif text-3xl font-bold text-ink">Backup Plans &amp; Extras</h2>
+    <section id="tips" className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
+      <h2 className="font-serif text-2xl font-bold text-ink sm:text-3xl">Backup Plans &amp; Extras</h2>
 
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <div>

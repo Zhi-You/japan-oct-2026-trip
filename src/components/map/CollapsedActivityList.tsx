@@ -27,14 +27,14 @@ export function CollapsedActivityList({
           <button
             type="button"
             onClick={() => onSelect?.(item.id)}
-            className={`flex w-full items-start gap-3 rounded-lg border px-3 py-2.5 text-left transition ${
+            className={`flex w-full items-start gap-3 rounded-lg border px-3 py-3 text-left transition sm:py-2.5 ${
               activeId === item.id
                 ? 'border-indigo bg-indigo/5'
                 : 'border-washi-dark bg-white hover:border-indigo/30 hover:bg-washi/50'
             } ${!item.hasCoordinates ? 'opacity-70' : ''}`}
           >
             <span
-              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${
+              className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white sm:h-7 sm:w-7 ${
                 item.isPokemonCenter
                   ? 'bg-indigo'
                   : item.hasCoordinates

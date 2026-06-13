@@ -20,7 +20,7 @@ export function DaySectionHeader({
 
   return (
     <>
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
         <div className="rounded-lg bg-ink px-3 py-1 font-serif text-sm font-bold text-washi">
           {day.date}
         </div>
@@ -29,9 +29,9 @@ export function DaySectionHeader({
         {extraBadge}
       </div>
 
-      <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <h3 className="font-serif text-2xl font-bold text-ink">{day.title}</h3>
+      <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <h3 className="font-serif text-xl font-bold text-ink sm:text-2xl">{day.title}</h3>
           <p className="mt-1 text-sm text-indigo">{day.theme}</p>
           <p className="mt-1 text-xs text-ink-light/60">
             📍 {day.area}
@@ -42,7 +42,7 @@ export function DaySectionHeader({
         <button
           type="button"
           onClick={onToggleMap}
-          className={`shrink-0 rounded-lg border px-4 py-2 text-sm font-medium transition ${
+          className={`w-full shrink-0 rounded-lg border px-4 py-3 text-sm font-medium transition sm:w-auto sm:py-2 ${
             mapOpen
               ? 'border-indigo bg-indigo text-white shadow-sm'
               : 'border-washi-dark bg-white text-ink-light hover:border-indigo hover:text-indigo'
@@ -61,7 +61,7 @@ export function DaySectionFooter({ day }: { day: DayPlan }) {
   return (
     <>
       {day.transport.length > 0 && (
-        <div className="mt-6 rounded-lg bg-ink/5 p-4">
+        <div className="mt-6 rounded-lg bg-ink/5 p-3 sm:p-4">
           <p className="text-xs font-semibold uppercase text-ink-light">
             🚃 {t('labels.transport')}
           </p>
@@ -80,7 +80,7 @@ export function DaySectionFooter({ day }: { day: DayPlan }) {
           <p className="text-xs font-semibold text-gold">{t('labels.dayTips')}</p>
           <ul className="mt-2 space-y-1">
             {day.dayTips.map((tip, i) => (
-              <li key={i} className="text-xs text-ink-light">
+              <li key={i} className="text-xs leading-relaxed text-ink-light">
                 → {tip}
               </li>
             ))}

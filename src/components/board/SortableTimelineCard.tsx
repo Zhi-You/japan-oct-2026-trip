@@ -40,18 +40,36 @@ export function SortableTimelineCard({
   const schedule = getEffectiveSchedule(card);
   const showScheduleEditor = cardSupportsScheduleEdit(card);
 
+  const deleteButton = (
+    <button
+      type="button"
+      onClick={() => onDelete(card)}
+      className="flex h-11 w-11 items-center justify-center rounded-lg border border-washi-dark text-ink-light/40 transition hover:border-vermillion hover:bg-vermillion/10 hover:text-vermillion"
+      aria-label={t('board.deleteCard', { title: getCardTitle(card) })}
+      title={t('board.delete')}
+    >
+      🗑
+    </button>
+  );
+
   return (
-    <div ref={setNodeRef} style={style} className="relative">
-      <div className="flex gap-2 md:gap-3">
-        <button
-          type="button"
-          className="mt-4 flex h-10 w-8 shrink-0 cursor-grab items-center justify-center rounded-lg border border-washi-dark bg-washi text-ink-light/50 active:cursor-grabbing hover:border-indigo/40 hover:text-indigo"
-          aria-label={t('board.dragHandle')}
-          {...attributes}
-          {...listeners}
-        >
-          ⠿
-        </button>
+    <div ref={setNodeRef} style={style} className="relative rounded-xl border border-washi-dark/60 bg-white p-3 sm:border-0 sm:bg-transparent sm:p-0">
+      <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
+        <div className="flex items-center gap-2 sm:block">
+          <button
+            type="button"
+            className="drag-handle touch-target flex h-11 w-11 shrink-0 cursor-grab items-center justify-center rounded-lg border border-washi-dark bg-washi text-lg text-ink-light/50 active:cursor-grabbing hover:border-indigo/40 hover:text-indigo sm:mt-4"
+            aria-label={t('board.dragHandle')}
+            {...attributes}
+            {...listeners}
+          >
+            ⠿
+          </button>
+          <div className="ml-auto flex items-center gap-2 sm:hidden">
+            <CardNotesPanel dayId={dayId} cardId={card.id} />
+            {deleteButton}
+          </div>
+        </div>
 
         <div className="min-w-0 flex-1 space-y-3">
           {showScheduleEditor && (
@@ -70,18 +88,10 @@ export function SortableTimelineCard({
           />
         </div>
 
-        <div className="relative shrink-0">
+        <div className="relative hidden shrink-0 sm:block">
           <div className="flex flex-col items-center gap-2 pt-4">
             <CardNotesPanel dayId={dayId} cardId={card.id} />
-            <button
-              type="button"
-              onClick={() => onDelete(card)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-washi-dark text-ink-light/40 transition hover:border-vermillion hover:bg-vermillion/10 hover:text-vermillion md:h-10 md:w-10"
-              aria-label={t('board.deleteCard', { title: getCardTitle(card) })}
-              title={t('board.delete')}
-            >
-              🗑
-            </button>
+            {deleteButton}
           </div>
         </div>
       </div>
