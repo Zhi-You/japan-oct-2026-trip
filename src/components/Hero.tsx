@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { ItineraryData } from '../types/itinerary';
 
 interface HeroProps {
   meta: ItineraryData['meta'];
+  todayDayId: string;
 }
 
-export function Hero({ meta }: HeroProps) {
+export function Hero({ meta, todayDayId }: HeroProps) {
   const { t } = useTranslation();
 
   return (
@@ -33,6 +35,12 @@ export function Hero({ meta }: HeroProps) {
         <p className="mt-2 font-serif text-2xl text-gold-light md:text-3xl">{meta.dates}</p>
 
         <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+          <Link
+            to={`/day/${todayDayId}`}
+            className="min-h-11 rounded-lg bg-gold px-6 py-3 text-center font-medium text-ink shadow-lg transition hover:bg-gold-light"
+          >
+            {t('hero.ctaToday')}
+          </Link>
           <a
             href="#itinerary"
             className="min-h-11 rounded-lg bg-vermillion px-6 py-3 text-center font-medium text-white shadow-lg transition hover:bg-vermillion-light"

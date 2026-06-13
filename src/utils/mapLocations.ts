@@ -158,4 +158,4 @@ export function extractCollapsedActivities(cards: TimelineCard[]): CollapsedActi
   });
 }
 
-export { getCardTitle, getCardTimeLabel, getCardDurationLabel };
+export { getCardTitle, getCardTimeLabel, getCardDurationLabel, resolveCardCoordinates };

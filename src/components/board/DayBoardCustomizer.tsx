@@ -27,9 +27,11 @@ import { DaySectionFooter, DaySectionHeader } from '../map/DaySectionHeader';
 
 interface DayBoardCustomizerProps {
   day: DayPlan;
+  /** Slim layout for the day focus page (no header/map chrome). */
+  embedded?: boolean;
 }
 
-export function DayBoardCustomizer({ day }: DayBoardCustomizerProps) {
+export function DayBoardCustomizer({ day, embedded = false }: DayBoardCustomizerProps) {
   const { t } = useTranslation();
   const {
     getDayCards,
@@ -71,23 +73,31 @@ export function DayBoardCustomizer({ day }: DayBoardCustomizerProps) {
   };
 
   return (
-    <div className="rounded-2xl border-2 border-dashed border-indigo/20 bg-white p-4 sm:p-6 md:p-8">
-      <DaySectionHeader
-        day={day}
-        mapOpen={mapOpen}
-        onToggleMap={() => setMapOpen((v) => !v)}
-        extraBadge={
-          <span className="rounded-full bg-indigo/10 px-2.5 py-0.5 text-xs font-medium text-indigo">
-            {t('board.customizeMode')}
-          </span>
-        }
-      />
+    <div
+      className={
+        embedded
+          ? 'rounded-xl border border-indigo/20 bg-white p-3 sm:p-4'
+          : 'rounded-2xl border-2 border-dashed border-indigo/20 bg-white p-4 sm:p-6 md:p-8'
+      }
+    >
+      {!embedded && (
+        <DaySectionHeader
+          day={day}
+          mapOpen={mapOpen}
+          onToggleMap={() => setMapOpen((v) => !v)}
+          extraBadge={
+            <span className="rounded-full bg-indigo/10 px-2.5 py-0.5 text-xs font-medium text-indigo">
+              {t('board.customizeMode')}
+            </span>
+          }
+        />
+      )}
 
-      {mapOpen ? (
+      {!embedded && mapOpen ? (
         <DayMapPanel day={day} cards={cards} />
       ) : (
         <>
-          <div className="mt-6">
+          <div className={embedded ? 'mt-0' : 'mt-6'}>
             <InsertCardButtons
               onInsertActivity={() => handleInsertAt(0, 'activity')}
               onInsertMeal={() => handleInsertAt(0, 'meal')}
@@ -133,7 +143,7 @@ export function DayBoardCustomizer({ day }: DayBoardCustomizerProps) {
         </>
       )}
 
-      <DaySectionFooter day={day} />
+      {!embedded && <DaySectionFooter day={day} />}
 
       <DeleteConfirmModal
         isOpen={pendingDelete !== null}

@@ -46,8 +46,24 @@
     "legend": "{{mapped}} of {{total}} stops plotted · dashed line shows visit order",
     "routeNote": "Route line is approximate (straight paths, not transit routes). Powered by OpenStreetMap."
   },
+  "focus": {
+    "back": "Overview",
+    "navigate": "Go",
+    "edit": "Edit",
+    "todaysStops": "Today's stops",
+    "tapHint": "Tap a stop to focus the map. Use Open in Google Maps for turn-by-turn directions (works with your saved/starred places when names match).",
+    "onMap": "On map",
+    "filteringOne": "Showing selected stop on map",
+    "filteringNoMap": "Selected stop — open Google Maps for directions",
+    "showAllStops": "Show all stops",
+    "openGoogleMaps": "Open in Google Maps",
+    "enableLocation": "Enable location",
+    "locationActive": "Live location on",
+    "locationError": "Could not get location"
+  },
   "hero": {
     "badge": "October 2026 · Tokyo",
+    "ctaToday": "Today's plan & map",
     "cta": "View Itinerary",
     "ctaBookings": "Booking Checklist"
   },
