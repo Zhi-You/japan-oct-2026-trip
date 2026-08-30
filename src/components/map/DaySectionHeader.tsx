@@ -21,7 +21,7 @@ export function DaySectionHeader({
   return (
     <>
       <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-        <div className="rounded-lg bg-ink px-3 py-1 font-serif text-sm font-bold text-washi">
+        <div className="rounded-lg bg-banner px-3 py-1 font-serif text-sm font-bold text-banner-fg">
           {day.date}
         </div>
         <span className="text-sm text-ink-light/60">{day.weekday}</span>
@@ -45,7 +45,7 @@ export function DaySectionHeader({
           className={`w-full shrink-0 rounded-lg border px-4 py-3 text-sm font-medium transition sm:w-auto sm:py-2 ${
             mapOpen
               ? 'border-indigo bg-indigo text-white shadow-sm'
-              : 'border-washi-dark bg-white text-ink-light hover:border-indigo hover:text-indigo'
+              : 'border-washi-dark bg-surface text-ink-light hover:border-indigo hover:text-indigo'
           }`}
         >
           {mapOpen ? t('map.hideMap') : t('map.showMap')}

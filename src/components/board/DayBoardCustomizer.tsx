@@ -76,8 +76,8 @@ export function DayBoardCustomizer({ day, embedded = false }: DayBoardCustomizer
     <div
       className={
         embedded
-          ? 'rounded-xl border border-indigo/20 bg-white p-3 sm:p-4'
-          : 'rounded-2xl border-2 border-dashed border-indigo/20 bg-white p-4 sm:p-6 md:p-8'
+          ? 'rounded-xl border border-indigo/20 bg-surface p-3 sm:p-4'
+          : 'rounded-2xl border-2 border-dashed border-indigo/20 bg-surface p-4 sm:p-6 md:p-8'
       }
     >
       {!embedded && (

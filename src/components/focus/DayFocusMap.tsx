@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Circle, MapContainer, Marker, Polyline, Popup, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import type { GeoPosition } from './useGeolocation';
@@ -63,6 +64,7 @@ export function DayFocusMap({
   userPosition,
   className = '',
 }: DayFocusMapProps) {
+  const { t } = useTranslation();
   const coarsePointer = useCoarsePointer();
 
   const visiblePins = useMemo(
@@ -124,7 +126,7 @@ export function DayFocusMap({
               pathOptions={{ color: '#2563eb', fillColor: '#2563eb', fillOpacity: 0.12, weight: 1 }}
             />
             <Marker position={[userPosition.lat, userPosition.lng]} icon={userIcon}>
-              <Popup>You are here</Popup>
+              <Popup>{t('map.youAreHere')}</Popup>
             </Marker>
           </>
         )}

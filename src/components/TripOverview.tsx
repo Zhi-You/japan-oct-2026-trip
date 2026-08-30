@@ -28,7 +28,7 @@ export function TripOverview({ meta, seasonNotes }: TripOverviewProps) {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-xl border border-washi-dark bg-white p-5 shadow-sm"
+            className="rounded-xl border border-washi-dark bg-surface p-5 shadow-sm"
           >
             <p className="text-sm font-medium uppercase tracking-wider text-ink-light/60">
               {stat.label}
@@ -55,11 +55,7 @@ export function TripOverview({ meta, seasonNotes }: TripOverviewProps) {
 
       <div className="mt-6 rounded-xl border border-matcha/30 bg-matcha/5 p-5">
         <p className="text-sm font-medium text-matcha">{t('overview.transport')}</p>
-        <p className="mt-1 text-sm text-ink-light">
-          JR Yamanote Line, Tokyo Metro, Keisei &amp; highway buses. Suica/Pasmo IC cards for all
-          trains and most buses. No rental car needed — every day is public-transit optimised from
-          Asakusa, with the last night at Narita Airport.
-        </p>
+        <p className="mt-1 text-sm text-ink-light">{t('overview.transportBody')}</p>
       </div>
     </CollapsibleSection>
   );

@@ -7,6 +7,22 @@
     <meta name="theme-color" content="#f5f0e6" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('tokyo-itinerary-theme');
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', '#14141c');
+          }
+          if (localStorage.getItem('tokyo-itinerary-locale') === 'zh') {
+            document.documentElement.lang = 'zh-CN';
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta
       name="description"
       content="Tokyo trip itinerary for 4 travellers — October 1–8, 2026. Mount Fuji, Senso-ji, Shibuya Sky, Nikko, Pokemon Centers, and more."
@@ -14,7 +30,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <title>Tokyo Autumn Journey · Oct 1–8, 2026</title>

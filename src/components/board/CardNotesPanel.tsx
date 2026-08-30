@@ -54,7 +54,7 @@ export function CardNotesPanel({ dayId, cardId }: CardNotesPanelProps) {
             aria-hidden
           />
           <div
-            className="fixed inset-x-0 bottom-0 z-[60] rounded-t-2xl border border-washi-dark bg-white p-4 shadow-2xl md:hidden"
+            className="fixed inset-x-0 bottom-0 z-[60] rounded-t-2xl border border-washi-dark bg-surface p-4 shadow-2xl md:hidden"
             style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}
           >
             <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-washi-dark" />
@@ -71,7 +71,7 @@ export function CardNotesPanel({ dayId, cardId }: CardNotesPanelProps) {
             </button>
           </div>
 
-          <div className="absolute right-0 top-full z-20 mt-2 hidden w-64 rounded-lg border border-washi-dark bg-white p-3 shadow-lg md:block">
+          <div className="absolute right-0 top-full z-20 mt-2 hidden w-64 rounded-lg border border-washi-dark bg-surface p-3 shadow-lg md:block">
             <label className="text-xs font-semibold uppercase tracking-wide text-indigo">
               {t('board.notes.label')}
             </label>

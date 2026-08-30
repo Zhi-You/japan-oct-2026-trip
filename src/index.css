@@ -1,8 +1,10 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --font-sans: "Noto Sans JP", system-ui, sans-serif;
+  --font-sans: "Noto Sans SC", "Noto Sans JP", system-ui, sans-serif;
   --font-serif: "Noto Serif JP", Georgia, serif;
   --color-ink: #1a1a2e;
   --color-ink-light: #2d2d44;
@@ -12,6 +14,9 @@
   --color-gold-light: #d4a843;
   --color-washi: #f5f0e6;
   --color-washi-dark: #e8dfd0;
+  --color-surface: #ffffff;
+  --color-banner: #1a1a2e;
+  --color-banner-fg: #f5f0e6;
   --color-indigo: #283593;
   --color-sakura: #ffcdd2;
   --color-matcha: #558b2f;
@@ -20,6 +25,19 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+  --color-ink: #f0ebe3;
+  --color-ink-light: #c8c2b8;
+  --color-washi: #14141c;
+  --color-washi-dark: #2a2a36;
+  --color-surface: #1e1e28;
+  --color-banner: #0e0e14;
+  --color-banner-fg: #f0ebe3;
+  --color-sakura: #5c3a3e;
 }
 
 body {

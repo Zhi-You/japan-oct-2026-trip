@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n';
 import type { TimelineCard } from '../../types/board';
 import { getEffectiveSchedule } from '../../utils/cardSchedule';
 import { PlaceCard } from '../PlaceCard';
@@ -101,7 +102,7 @@ export function TimelineCardContent({
 
   if (card.kind === 'meal' && card.meal) {
     return (
-      <div className="rounded-xl border border-washi-dark bg-white p-4 shadow-sm sm:p-5">
+      <div className="rounded-xl border border-washi-dark bg-surface p-4 shadow-sm sm:p-5">
         <p className="mb-2 text-xs font-semibold uppercase text-vermillion">
           🍜 {t('labels.food')}
         </p>
@@ -112,7 +113,7 @@ export function TimelineCardContent({
 
   if (card.kind === 'custom-activity' && card.customActivity) {
     return (
-      <div className="rounded-xl border border-indigo/20 bg-white p-4 shadow-sm sm:p-5">
+      <div className="rounded-xl border border-indigo/20 bg-surface p-4 shadow-sm sm:p-5">
         {mode === 'edit' && onUpdateActivity ? (
           <CustomActivityEditor data={card.customActivity} onChange={onUpdateActivity} />
         ) : (
@@ -124,7 +125,7 @@ export function TimelineCardContent({
 
   if (card.kind === 'custom-meal' && card.customMeal) {
     return (
-      <div className="rounded-xl border border-vermillion/20 bg-white p-4 shadow-sm sm:p-5">
+      <div className="rounded-xl border border-vermillion/20 bg-surface p-4 shadow-sm sm:p-5">
         {mode === 'edit' && onUpdateMeal ? (
           <CustomMealEditor data={card.customMeal} onChange={onUpdateMeal} />
         ) : (
@@ -142,16 +143,18 @@ export function getCardTitle(card: TimelineCard): string {
     return `${card.flight.airline} ${card.flight.flightNumber}`;
   }
   if (card.kind === 'airport-process' && card.airportProcess) {
-    return card.airportProcess.type === 'departure' ? 'Airport departure' : 'Airport touchdown';
+    return card.airportProcess.type === 'departure'
+      ? i18n.t('labels.airportDeparture')
+      : i18n.t('labels.airportTouchdown');
   }
   if (card.kind === 'pokemon-center' && card.pokemonCenter) return card.pokemonCenter.name;
   if (card.kind === 'place' && card.place) return card.place.name;
   if (card.kind === 'meal' && card.meal) return card.meal.name;
   if (card.kind === 'custom-activity' && card.customActivity)
-    return card.customActivity.title || 'Untitled activity';
+    return card.customActivity.title || i18n.t('board.untitledActivity');
   if (card.kind === 'custom-meal' && card.customMeal)
-    return card.customMeal.name || 'Untitled meal';
-  return 'Card';
+    return card.customMeal.name || i18n.t('board.untitledMeal');
+  return i18n.t('nav.itinerary');
 }
 
 /** Only activities use the When / duration editor — not meals. */

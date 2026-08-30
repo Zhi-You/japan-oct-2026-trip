@@ -1,3 +1,4 @@
+import i18n from '../i18n';
 import type { TimelineCard } from '../types/board';
 import { getCardDurationLabel, getCardTimeLabel } from './cardSchedule';
 import {
@@ -96,16 +97,18 @@ function getCardTitle(card: TimelineCard): string {
     return `${card.flight.airline} ${card.flight.flightNumber}`;
   }
   if (card.kind === 'airport-process' && card.airportProcess) {
-    return card.airportProcess.type === 'departure' ? 'Airport departure' : 'Airport touchdown';
+    return card.airportProcess.type === 'departure'
+      ? i18n.t('labels.airportDeparture')
+      : i18n.t('labels.airportTouchdown');
   }
   if (card.kind === 'pokemon-center' && card.pokemonCenter) return card.pokemonCenter.name;
   if (card.kind === 'place' && card.place) return card.place.name;
   if (card.kind === 'meal' && card.meal) return card.meal.name;
   if (card.kind === 'custom-activity' && card.customActivity)
-    return card.customActivity.title || 'Untitled activity';
+    return card.customActivity.title || i18n.t('board.untitledActivity');
   if (card.kind === 'custom-meal' && card.customMeal)
-    return card.customMeal.name || 'Untitled meal';
-  return 'Activity';
+    return card.customMeal.name || i18n.t('board.untitledMeal');
+  return i18n.t('nav.itinerary');
 }
 
 export function extractMapPins(cards: TimelineCard[]): MapPin[] {

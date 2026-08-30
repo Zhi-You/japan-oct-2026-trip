@@ -53,7 +53,7 @@ export function SortableTimelineCard({
   );
 
   return (
-    <div ref={setNodeRef} style={style} className="relative rounded-xl border border-washi-dark/60 bg-white p-3 sm:border-0 sm:bg-transparent sm:p-0">
+    <div ref={setNodeRef} style={style} className="relative rounded-xl border border-washi-dark/60 bg-surface p-3 sm:border-0 sm:bg-transparent sm:p-0">
       <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
         <div className="flex items-center gap-2 sm:block">
           <button

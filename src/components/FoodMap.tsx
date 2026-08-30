@@ -21,9 +21,9 @@ export function FoodMap({ days }: FoodMapProps) {
       }
       if (card.kind === 'custom-meal' && card.customMeal) {
         allFood.push({
-          name: card.customMeal.name || 'Untitled meal',
+          name: card.customMeal.name || t('board.untitledMeal'),
           area: card.customMeal.location ?? '—',
-          cuisine: 'Custom',
+          cuisine: t('food.custom'),
           priceRange: card.customMeal.price || '—',
           meal: card.customMeal.meal,
           note: card.customMeal.description,
@@ -46,9 +46,7 @@ export function FoodMap({ days }: FoodMapProps) {
     <section id="food" className="washi-pattern py-10 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <h2 className="font-serif text-2xl font-bold text-ink sm:text-3xl">🍜 {t('nav.food')}</h2>
-        <p className="mt-2 text-ink-light/70">
-          Meals from your itinerary timeline — updates when you reorder or add custom meals
-        </p>
+        <p className="mt-2 text-ink-light/70">{t('food.subtitle')}</p>
 
         {allFood.length === 0 ? (
           <p className="mt-8 text-center text-sm text-ink-light/60">{t('board.noMeals')}</p>
@@ -57,7 +55,7 @@ export function FoodMap({ days }: FoodMapProps) {
             {Object.entries(byArea).map(([area, items]) => (
               <div
                 key={area}
-                className="rounded-xl border border-washi-dark bg-white p-5 shadow-sm"
+                className="rounded-xl border border-washi-dark bg-surface p-5 shadow-sm"
               >
                 <h3 className="font-serif text-lg font-semibold text-vermillion">{area}</h3>
                 <ul className="mt-3 space-y-3">
@@ -67,7 +65,7 @@ export function FoodMap({ days }: FoodMapProps) {
                         <p className="font-medium text-ink">
                           {item.name}
                           {item.isCustom && (
-                            <span className="ml-2 text-xs text-vermillion">(custom)</span>
+                            <span className="ml-2 text-xs text-vermillion">({t('food.customTag')})</span>
                           )}
                         </p>
                         {item.rating && (
@@ -78,7 +76,7 @@ export function FoodMap({ days }: FoodMapProps) {
                         {item.cuisine} · {item.priceRange} · {item.meal}
                       </p>
                       <p className="mt-1 text-xs text-indigo">
-                        Scheduled: {item.day} ({item.dayTitle})
+                        {t('food.scheduled', { day: item.day, dayTitle: item.dayTitle })}
                       </p>
                     </li>
                   ))}

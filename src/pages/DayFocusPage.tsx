@@ -14,6 +14,7 @@ import { DayBoardCustomizer } from '../components/board/DayBoardCustomizer';
 import { DayFocusActivityList } from '../components/focus/DayFocusActivityList';
 import { DayFocusMap } from '../components/focus/DayFocusMap';
 import { useGeolocation } from '../components/focus/useGeolocation';
+import { PrefsToggles } from '../components/PrefsToggles';
 
 interface DayFocusPageProps {
   days: DayPlan[];
@@ -79,7 +80,7 @@ export function DayFocusPage({ days }: DayFocusPageProps) {
               {day.date} · {day.weekday}
             </p>
           </div>
-          <div className="flex shrink-0 rounded-lg border border-washi-dark bg-white p-0.5">
+          <div className="flex shrink-0 rounded-lg border border-washi-dark bg-surface p-0.5">
             <button
               type="button"
               onClick={() => setMode('navigate')}
@@ -104,7 +105,8 @@ export function DayFocusPage({ days }: DayFocusPageProps) {
           </div>
         </div>
 
-        <div className="flex gap-1.5 overflow-x-auto px-3 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex items-center gap-1.5 px-3 pb-2">
+          <div className="flex min-w-0 flex-1 gap-1.5 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {days.map((d) => (
             <button
               key={d.id}
@@ -115,13 +117,15 @@ export function DayFocusPage({ days }: DayFocusPageProps) {
               }}
               className={`shrink-0 rounded-full px-3 py-2 text-xs font-medium transition ${
                 d.id === activeDayId
-                  ? 'bg-ink text-washi'
-                  : 'border border-washi-dark bg-white text-ink-light'
+                  ? 'bg-banner text-banner-fg'
+                  : 'border border-washi-dark bg-surface text-ink-light'
               }`}
             >
               {d.date}
             </button>
           ))}
+          </div>
+          <PrefsToggles compact />
         </div>
       </header>
 
@@ -133,7 +137,7 @@ export function DayFocusPage({ days }: DayFocusPageProps) {
             userPosition={position}
           />
 
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-washi-dark bg-white px-4 py-2 text-xs text-ink-light/70">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-washi-dark bg-surface px-4 py-2 text-xs text-ink-light/70">
             <span>
               {selectedId
                 ? selectedPin
@@ -177,7 +181,7 @@ export function DayFocusPage({ days }: DayFocusPageProps) {
 
           {selectedId && googleMapsUrl && (
             <div
-              className="fixed inset-x-0 bottom-0 z-50 border-t border-washi-dark bg-white/95 p-3 backdrop-blur-md"
+              className="fixed inset-x-0 bottom-0 z-50 border-t border-washi-dark bg-surface/95 p-3 backdrop-blur-md"
               style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom, 0px))' }}
             >
               <a

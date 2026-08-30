@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 interface DeleteConfirmModalProps {
   isOpen: boolean;
   title: string;
@@ -13,6 +15,7 @@ export function DeleteConfirmModal({
   onConfirm,
   onCancel,
 }: DeleteConfirmModalProps) {
+  const { t } = useTranslation();
   if (!isOpen) return null;
 
   return (
@@ -26,7 +29,7 @@ export function DeleteConfirmModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="delete-modal-title"
-        className="relative w-full max-w-md rounded-t-2xl border border-washi-dark bg-white p-6 shadow-xl sm:rounded-xl"
+        className="relative w-full max-w-md rounded-t-2xl border border-washi-dark bg-surface p-6 shadow-xl sm:rounded-xl"
         style={{ paddingBottom: 'calc(1.5rem + env(safe-area-inset-bottom, 0px))' }}
       >
         <h3 id="delete-modal-title" className="font-serif text-xl font-bold text-ink">
@@ -39,14 +42,14 @@ export function DeleteConfirmModal({
             onClick={onCancel}
             className="min-h-11 rounded-lg border border-washi-dark px-4 py-3 text-sm font-medium text-ink-light transition hover:bg-washi sm:py-2"
           >
-            Cancel
+            {t('board.cancel')}
           </button>
           <button
             type="button"
             onClick={onConfirm}
             className="min-h-11 rounded-lg bg-vermillion px-4 py-3 text-sm font-medium text-white transition hover:bg-vermillion-light sm:py-2"
           >
-            Delete
+            {t('board.confirmDelete')}
           </button>
         </div>
       </div>

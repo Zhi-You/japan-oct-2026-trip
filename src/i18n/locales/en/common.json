@@ -31,6 +31,12 @@
     "persistenceNote": "Customizations auto-save in this browser. Export before deploying to GitHub Pages, then add the file as public/custom-board.json in your repo.",
     "noMeals": "No meals on the timeline yet",
     "schedule": "Time & duration",
+    "cancel": "Cancel",
+    "confirmDelete": "Delete",
+    "show": "Show",
+    "hide": "Hide",
+    "untitledActivity": "Untitled activity",
+    "untitledMeal": "Untitled meal",
     "notes": {
       "toggle": "Toggle notes",
       "hasNote": "This card has a note",
@@ -45,7 +51,8 @@
     "noActivities": "No activities to show",
     "noCoordinates": "No map location — add an area name",
     "legend": "{{mapped}} of {{total}} stops plotted · dashed line shows visit order",
-    "routeNote": "Route line is approximate (straight paths, not transit routes). Powered by OpenStreetMap."
+    "routeNote": "Route line is approximate (straight paths, not transit routes). Powered by OpenStreetMap.",
+    "youAreHere": "You are here"
   },
   "focus": {
     "back": "Overview",
@@ -73,7 +80,36 @@
     "dates": "Dates",
     "travellers": "Travellers",
     "base": "Home Base",
-    "transport": "Getting Around"
+    "transport": "Getting Around",
+    "transportBody": "JR Yamanote Line, Tokyo Metro, Keisei & highway buses. Suica/Pasmo IC cards for all trains and most buses. No rental car needed — every day is public-transit optimised from Asakusa, with the last night at Narita Airport."
+  },
+  "pokemon": {
+    "subtitle": "Daily Pokemon Center strategy + Akihabara TCG backup shops",
+    "strategy": "Strategy",
+    "centersByDay": "Pokemon Centers by Day",
+    "akihabaraShops": "Akihabara TCG Shops (Day 7)"
+  },
+  "tips": {
+    "title": "Backup Plans & Extras",
+    "contingencies": "Contingencies",
+    "addons": "Optional Add-ons",
+    "addonsNote": "From your saved list — lower priority"
+  },
+  "food": {
+    "subtitle": "Meals from your itinerary timeline — updates when you reorder or add custom meals",
+    "custom": "Custom",
+    "customTag": "custom",
+    "scheduled": "Scheduled: {{day}} ({{dayTitle}})"
+  },
+  "bookings": {
+    "subtitle": "Critical reservations — missing these can derail the trip",
+    "bookOnline": "Book online →"
+  },
+  "prefs": {
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark"
   },
   "labels": {
     "intensity": "Pace",
@@ -112,6 +148,32 @@
   },
   "footer": {
     "note": "Itinerary optimised for Asakusa base (1–7 Oct) · Narita last night · Public transport only · i18n-ready architecture",
-    "built": "Built for your group of 4"
+    "built": "Built for your group of 4",
+    "locale": "Language: English"
+  },
+  "forms": {
+    "title": "Title *",
+    "titlePlaceholder": "Activity name",
+    "location": "Location (optional)",
+    "locationPlaceholder": "Area or address",
+    "areaPlaceholder": "Area",
+    "when": "When",
+    "duration": "Duration",
+    "description": "Description",
+    "activityDescriptionPlaceholder": "What to expect, tips...",
+    "customActivity": "Custom activity",
+    "name": "Name *",
+    "namePlaceholder": "Restaurant or dish",
+    "price": "Price",
+    "pricePlaceholder": "e.g. ¥1,000–2,000",
+    "mealType": "Meal type",
+    "mealDescriptionPlaceholder": "Notes, what to order...",
+    "customMeal": "Custom meal",
+    "hrs": "hrs",
+    "mins": "mins",
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "snack": "Snack"
   }
 }

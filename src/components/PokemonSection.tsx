@@ -11,18 +11,16 @@ export function PokemonSection({ strategy, centers, shops }: PokemonSectionProps
   const { t } = useTranslation();
 
   return (
-    <section id="pokemon" className="bg-indigo py-10 text-washi sm:py-16">
+    <section id="pokemon" className="bg-indigo py-10 text-banner-fg sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <h2 className="font-serif text-2xl font-bold sm:text-3xl">⚡ {t('nav.pokemon')}</h2>
-        <p className="mt-2 text-washi/70">
-          Daily Pokemon Center strategy + Akihabara TCG backup shops
-        </p>
+        <p className="mt-2 text-banner-fg/70">{t('pokemon.subtitle')}</p>
 
-        <div className="mt-8 rounded-xl border border-washi/10 bg-washi/5 p-6">
-          <h3 className="font-serif text-lg font-semibold text-gold-light">Strategy</h3>
+        <div className="mt-8 rounded-xl border border-banner-fg/10 bg-banner-fg/5 p-6">
+          <h3 className="font-serif text-lg font-semibold text-gold-light">{t('pokemon.strategy')}</h3>
           <ul className="mt-4 space-y-2">
             {strategy.map((s, i) => (
-              <li key={i} className="flex gap-3 text-sm text-washi/85">
+              <li key={i} className="flex gap-3 text-sm text-banner-fg/85">
                 <span className="font-bold text-vermillion-light">{i + 1}.</span>
                 {s}
               </li>
@@ -30,25 +28,25 @@ export function PokemonSection({ strategy, centers, shops }: PokemonSectionProps
           </ul>
         </div>
 
-        <h3 className="mt-10 font-serif text-xl font-semibold">Pokemon Centers by Day</h3>
+        <h3 className="mt-10 font-serif text-xl font-semibold">{t('pokemon.centersByDay')}</h3>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {centers.map((pc) => (
             <div
               key={pc.name}
-              className="rounded-xl border border-washi/10 bg-ink-light/50 p-5"
+              className="rounded-xl border border-banner-fg/10 bg-banner/40 p-5"
             >
               <p className="font-semibold text-gold-light">{pc.assignedDay}</p>
               <p className="mt-1 font-serif text-lg">{pc.name}</p>
-              <p className="mt-1 text-xs text-washi/60">{pc.location}</p>
+              <p className="mt-1 text-xs text-banner-fg/60">{pc.location}</p>
               <p className="mt-2 text-xs">
                 🕐 {pc.hours} · 🚉 {pc.nearestStation}
               </p>
-              <p className="mt-2 text-xs text-washi/75">{pc.tcgNote}</p>
+              <p className="mt-2 text-xs text-banner-fg/75">{pc.tcgNote}</p>
             </div>
           ))}
         </div>
 
-        <h3 className="mt-10 font-serif text-xl font-semibold">Akihabara TCG Shops (Day 7)</h3>
+        <h3 className="mt-10 font-serif text-xl font-semibold">{t('pokemon.akihabaraShops')}</h3>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {shops.map((shop) => (
             <div
@@ -56,9 +54,9 @@ export function PokemonSection({ strategy, centers, shops }: PokemonSectionProps
               className="rounded-xl border border-vermillion/30 bg-vermillion/10 p-5"
             >
               <p className="font-semibold">{shop.name}</p>
-              <p className="mt-1 text-xs text-washi/60">{shop.location}</p>
+              <p className="mt-1 text-xs text-banner-fg/60">{shop.location}</p>
               <p className="mt-2 text-xs">🕐 {shop.hours}</p>
-              <p className="mt-2 text-xs text-washi/80">{shop.note}</p>
+              <p className="mt-2 text-xs text-banner-fg/80">{shop.note}</p>
             </div>
           ))}
         </div>

@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from 'react';
@@ -69,6 +70,15 @@ export function BoardProvider({ days, children }: BoardProviderProps) {
   useEffect(() => {
     saveBoardState(board);
   }, [board]);
+
+  const skipLocaleMerge = useRef(true);
+  useEffect(() => {
+    if (skipLocaleMerge.current) {
+      skipLocaleMerge.current = false;
+      return;
+    }
+    setBoard((prev) => repairBoardState(mergeBoardWithDefaults(prev, days), days));
+  }, [days]);
 
   useEffect(() => {
     if (loadBoardState()) return;

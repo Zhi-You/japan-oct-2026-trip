@@ -14,14 +14,14 @@ export function BookingChecklist({ items }: BookingChecklistProps) {
     <CollapsibleSection
       id="bookings"
       title={t('nav.bookings')}
-      subtitle="Critical reservations — missing these can derail the trip"
+      subtitle={t('bookings.subtitle')}
       className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10"
     >
       <div className="space-y-4">
         {items.map((item) => (
           <div
             key={item.id}
-            className="rounded-xl border border-washi-dark bg-white p-6 shadow-sm transition hover:shadow-md"
+            className="rounded-xl border border-washi-dark bg-surface p-6 shadow-sm transition hover:shadow-md"
           >
             <div className="flex flex-wrap items-center gap-3">
               <UrgencyBadge urgency={item.urgency} />
@@ -40,7 +40,7 @@ export function BookingChecklist({ items }: BookingChecklistProps) {
                 rel="noopener noreferrer"
                 className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-indigo hover:underline"
               >
-                Book online →
+                {t('bookings.bookOnline')}
               </a>
             )}
           </div>

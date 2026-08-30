@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface CollapsibleSectionProps {
   id: string;
@@ -15,6 +16,7 @@ export function CollapsibleSection({
   children,
   className = '',
 }: CollapsibleSectionProps) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -39,8 +41,8 @@ export function CollapsibleSection({
           <h2 className="font-serif text-2xl font-bold text-ink sm:text-3xl">{title}</h2>
           {subtitle && <p className="mt-2 text-ink-light/70">{subtitle}</p>}
         </span>
-        <span className="mt-1 shrink-0 rounded-lg border border-washi-dark bg-white px-3 py-2 text-xs font-medium text-ink-light">
-          {open ? 'Hide' : 'Show'}
+        <span className="mt-1 shrink-0 rounded-lg border border-washi-dark bg-surface px-3 py-2 text-xs font-medium text-ink-light">
+          {open ? t('board.hide') : t('board.show')}
         </span>
       </button>
 

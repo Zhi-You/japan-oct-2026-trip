@@ -32,7 +32,7 @@ export function DayFocusActivityList({
               className={`flex w-full items-start gap-3 rounded-xl border px-3 py-3 text-left transition ${
                 selected
                   ? 'border-gold bg-gold/10 shadow-sm'
-                  : 'border-washi-dark bg-white hover:border-indigo/30 hover:bg-washi/50'
+                  : 'border-washi-dark bg-surface hover:border-indigo/30 hover:bg-washi/50'
               } ${!item.hasCoordinates ? 'opacity-80' : ''}`}
             >
               <span
