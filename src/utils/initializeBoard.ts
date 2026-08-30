@@ -98,6 +98,7 @@ export function initializeDayBoard(day: DayPlan): DayBoard {
 
   const addPlaceCards = () => {
     for (const place of day.places) {
+      if (place.id === 'narita-hotel-transfer') continue;
       pushCard({ id: place.id, kind: 'place', place });
     }
   };
@@ -117,6 +118,11 @@ export function initializeDayBoard(day: DayPlan): DayBoard {
     const id = `${day.id}-meal-${index}`;
     pushCard({ id, kind: 'meal', meal });
   });
+
+  const eveningTransfer = day.places.find((place) => place.id === 'narita-hotel-transfer');
+  if (eveningTransfer) {
+    pushCard({ id: eveningTransfer.id, kind: 'place', place: eveningTransfer });
+  }
 
   return { dayId: day.id, cardIds, cards, notes: {} };
 }
@@ -141,31 +147,43 @@ export function mergeBoardWithDefaults(
 
     const defaultDay = merged.days[day.id];
     const savedCardIds = savedDay.cardIds.filter((id) => savedDay.cards[id]);
-    const defaultPlaceIds = new Set(day.places.map((p) => p.id));
 
     defaultDay.cardIds = savedCardIds.length > 0 ? savedCardIds : defaultDay.cardIds;
     defaultDay.cards = { ...defaultDay.cards, ...savedDay.cards };
     defaultDay.notes = savedDay.notes ?? {};
 
-    for (const placeId of defaultPlaceIds) {
-      if (!defaultDay.cards[placeId] && day.places.find((p) => p.id === placeId)) {
-        const place = day.places.find((p) => p.id === placeId)!;
-        defaultDay.cards[placeId] = { id: placeId, kind: 'place', place };
-        if (!defaultDay.cardIds.includes(placeId)) {
-          defaultDay.cardIds.push(placeId);
-        }
+    for (const place of day.places) {
+      const existing = defaultDay.cards[place.id];
+      defaultDay.cards[place.id] = existing
+        ? { ...existing, kind: 'place', place }
+        : { id: place.id, kind: 'place', place };
+      if (!defaultDay.cardIds.includes(place.id)) {
+        defaultDay.cardIds.push(place.id);
       }
     }
 
     day.food.forEach((meal, index) => {
       const id = `${day.id}-meal-${index}`;
-      if (!defaultDay.cards[id]) {
-        defaultDay.cards[id] = { id, kind: 'meal', meal };
-        if (!defaultDay.cardIds.includes(id)) {
-          defaultDay.cardIds.push(id);
-        }
+      const existing = defaultDay.cards[id];
+      defaultDay.cards[id] = existing
+        ? { ...existing, kind: 'meal', meal }
+        : { id, kind: 'meal', meal };
+      if (!defaultDay.cardIds.includes(id)) {
+        defaultDay.cardIds.push(id);
       }
     });
+
+    for (const item of day.flightTimeline ?? []) {
+      const card = createFlightTimelineCard(item);
+      const existing = defaultDay.cards[card.id];
+      defaultDay.cards[card.id] = existing ? { ...existing, ...card } : card;
+    }
+
+    const pcCard = createPokemonCenterCard(day);
+    if (pcCard) {
+      const existing = defaultDay.cards[pcCard.id];
+      defaultDay.cards[pcCard.id] = existing ? { ...existing, ...pcCard } : pcCard;
+    }
 
     mergeFlightTimelineCards(day, defaultDay);
   }

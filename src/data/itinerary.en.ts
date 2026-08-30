@@ -27,7 +27,7 @@ const itineraryEn: ItineraryData = {
       urgency: 'critical',
       link: 'https://www.shibuya-scramble-square.com/sky/',
       notes:
-        'Sunset ~17:20 on 5 Oct (Monday). Official site releases tickets exactly 14 days ahead at 00:00 JST — set an alarm for 21 Sep. Target entry 16:00–16:30. Sunset slots sell out in minutes; Klook/KKday may have backup inventory. Once inside, no time limit — stay for blue hour. Bring a ¥100 coin for rooftop lockers.',
+        'TIME SENSITIVE. Official q-skip sales open 14 days ahead at 00:00 JST — 21 Sep 2026 for 5 Oct (not 28 days; older blogs are outdated). Sunset ~17:20. Target entry 16:00–16:30. Adult web tickets ¥2,700 before 15:00 / ¥3,400 from 15:00. Sunset slots sell out in minutes; Klook/KKday may have leftover inventory but not always the exact slot. No rooftop refund if wind/rain closes the roof. Bring a ¥100 coin for lockers.',
     },
     {
       id: 'nikko-tour',
@@ -36,23 +36,43 @@ const itineraryEn: ItineraryData = {
       urgency: 'high',
       link: 'https://www.klook.com',
       notes:
-        'Choose a tour with English guide, Toshogu Shrine, Kegon Falls & Lake Chuzenji. Confirm pickup near Asakusa (or Ueno/Tokyo Station — ~5 min from the hotel). Full day (~10–12 hrs) — pack snacks and walking shoes.',
+        'TIME SENSITIVE. Book 2–4 weeks ahead for a 6 Oct English-guide tour with Toshogu, Kegon Falls & Lake Chuzenji. Confirm pickup near Asakusa (or Ueno/Tokyo Station — ~5 min from the hotel). Full day (~10–12 hrs) — pack snacks and walking shoes.',
     },
     {
       id: 'fuji-transport',
-      item: 'Mount Fuji day — highway bus or tour (2 Oct)',
-      deadline: 'Book 1–2 weeks ahead (earlier for weekends)',
-      urgency: 'high',
+      item: 'Mount Fuji day — highway bus Shinjuku → Kawaguchiko (2 Oct)',
+      deadline: 'Sales open 2 Sep 2026 (1 month ahead) — book that day',
+      urgency: 'critical',
+      link: 'https://fuji.highwaybus.com/en/kawaguchiko/',
       notes:
-        'Highway bus Shinjuku → Kawaguchiko (~1h45) or organised tour. Buy return ticket early — buses sell out. Have a backup day (3 or 4 Oct) if visibility forecast is poor.',
+        'TIME SENSITIVE. Official Chuo Highway Bus / highwaybus.com: reservations open from the same date one month before travel (2 Sep for 2 Oct). Weekday Fuji buses still sell out. Book outbound + return together. Organised tour is the easier senior option if you do not want the Shinjuku terminal transfer.',
+    },
+    {
+      id: 'imahan-lunch',
+      item: 'Ningyocho Imahan sukiyaki lunch — Nihombashi Takashimaya (1 Oct)',
+      deadline: 'Reserve at least 3 days ahead (by 28 Sep); 1–2 weeks is safer',
+      urgency: 'high',
+      link: 'https://imahan-tokyo.com/official/nihonbashi-takashimaya-sc/',
+      notes:
+        'TIME SENSITIVE if you want sukiyaki after Pokemon Center Tokyo DX. Official site: reservation only, book from the homepage at least 3 days ahead with prepaid card/PayPal. Same building as Tokyo DX (Takashimaya Shinkan 6F). Lunch 11:00–15:00; weekday kitchen break 15:00–17:00. Walk-in alternative: Taimeiken omurice (no booking).',
+    },
+    {
+      id: 'hantei-lunch',
+      item: 'Hantei kushiage lunch — Nezu (4 Oct)',
+      deadline: 'Reserve 1–2 weeks ahead',
+      urgency: 'high',
+      link: 'https://www.hantei.co.jp/nedu/nedu_kusiage.html',
+      notes:
+        'Sunday lunch in a 1909 wooden house next to Nezu Shrine. Lunch 11:30–15:00 (LO 14:00); closed Mondays. Popular with groups of 4 — book if you want a sit-down meal after the shrine. Walk-in backup: Hagi Cafe in Yanaka (opens 12:00 Sun).',
     },
     {
       id: 'tnm-tickets',
       item: 'Tokyo National Museum — online tickets (4 Oct)',
-      deadline: 'Anytime before visit',
+      deadline: 'Anytime before visit (valid 2 months from purchase)',
       urgency: 'medium',
       link: 'https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en',
-      notes: '¥1,000 adults. Open Tue–Sun 9:30–17:00 (your museum visit is Sun 4 Oct). Online ticket skips queues. Seniors 70+ free with ID.',
+      notes:
+        'Official 2026: collection ¥1,000 adults; under-18 and 70+ free with ID. Hours 9:30–17:00, last entry 16:30. Closed Mondays — Sun 4 Oct is open. Online tickets skip the main-gate queue (can exceed 30 min). Special exhibitions are priced separately and include collection entry that day.',
     },
     {
       id: 'sim-esim',
@@ -253,13 +273,31 @@ const itineraryEn: ItineraryData = {
       ],
       food: [
         {
+          name: 'Taimeiken (たいめいけん)',
+          area: 'Nihombashi',
+          cuisine: 'Yoshoku — Tampopo omurice',
+          priceRange: '¥1,500–3,000',
+          rating: '4.2★',
+          meal: 'lunch',
+          note: 'After Pokemon Center Tokyo Station / Tokyo DX. Founded 1931 — the Tampopo omurice from the film is the comfort-Japanese starter meal. 1F is walk-in (no booking); expect a queue. Closed Mondays — Thu 1 Oct is open. ~8 min walk from Mitsukoshimae / Tokyo DX. Official: taimeiken.co.jp',
+        },
+        {
+          name: 'Ningyocho Imahan — Nihombashi Takashimaya',
+          area: 'Nihombashi',
+          cuisine: 'Sukiyaki / wagyu',
+          priceRange: '¥5,000–12,000',
+          rating: '4.3★',
+          meal: 'lunch',
+          note: 'Same building as Pokemon Center Tokyo DX (Takashimaya Shinkan 6F) — the classic sukiyaki first lunch. Reservation only, at least 3 days ahead via imahan-tokyo.com. Lunch 11:00–15:00; lunch sets from ~¥5,280. Best “welcome to Japan” sit-down if you book; otherwise use Taimeiken.',
+        },
+        {
           name: 'Uogashi Nihon-Ichi Ueno Okachimachi',
           area: 'Ueno',
           cuisine: 'Standing sushi / sashimi',
           priceRange: '¥800–1,500',
           rating: '4.3★',
           meal: 'lunch',
-          note: 'Affordable sashimi option near Ameyoko — order piece-by-piece at the counter (¥100–300 per piece). Quick, no reservation needed. Alternative to a sit-down lunch if you arrive hungry before exploring.',
+          note: 'Backup if you skip the Nihombashi lunch and go straight to Ameyoko — standing sushi, no reservation. Order piece-by-piece (¥100–300).',
         },
         {
           name: 'Gyukatsu Motomura Ueno',
@@ -272,11 +310,10 @@ const itineraryEn: ItineraryData = {
         },
       ],
       transport: [
-        'TR 882 (2 travellers) lands Haneda T3 at 01:05 — allow 30 min for immigration & baggage',
-        'Haneda → Asakusa: Keikyu + Toei Asakusa Line through train (~45–55 min, no transfer if bound correctly); taxis available 24h',
-        'HX 606 (2 travellers) lands Narita T1 at 08:20 — allow 30 min for immigration & baggage',
-        'Narita T1 → Asakusa: Keisei Access Express through to Toei Asakusa Line (~50–60 min, no transfer if bound for Haneda/Nishi-Magome)',
-        'Hotel: EN The HOUSE Asakusa Nitenmon (2-34-3 Asakusa) — ~5–7 min walk from Asakusa Station (Ginza Line exit 6 / Tobu). Check-in 15:00; store bags if you arrive earlier',
+        'TR 882 (2 travellers) lands Haneda T3 at 01:05 — allow ~30 min for immigration & baggage',
+        'Those 2 go Haneda → Narita T1 to meet HX 606 (lands 08:20; allow ~30 min after landing). Night/early-morning options: taxi or pre-booked car (~60–90 min) or rest at Haneda until first trains (~05:00+)',
+        'HX 606 (2 travellers) lands Narita T1 at 08:20 — wait at T1 arrivals for the Haneda pair',
+        'All 4: arranged transfer from Narita T1 to EN The HOUSE Asakusa Nitenmon (2-34-3 Asakusa). Check-in 15:00; store bags if you arrive earlier',
       ],
       dayTips: [
         'Keep Day 1 light — jet lag hits seniors hard. Save energy for Mount Fuji tomorrow.',
@@ -596,13 +633,31 @@ const itineraryEn: ItineraryData = {
           note: 'Famous meat croquettes — eat while walking the shotengai.',
         },
         {
+          name: 'Hantei (はん亭) Nezu',
+          area: 'Nezu',
+          cuisine: 'Kushiage (fried skewers)',
+          priceRange: '¥4,000–6,000',
+          rating: '4.2★',
+          meal: 'lunch',
+          note: 'Best sit-down lunch after Nezu Shrine (~2 min walk). 1909 wooden townhouse (cultural property). Lunch 11:30–15:00 (LO 14:00), closed Mondays — Sun 4 Oct is open. Reserve 1–2 weeks ahead for 4 people. Kamachiku udon is excellent but closed Sundays.',
+        },
+        {
+          name: 'Hagi Cafe (HAGISO)',
+          area: 'Yanaka',
+          cuisine: 'Cafe lunch / Japanese plates',
+          priceRange: '¥1,200–2,000',
+          rating: '3.8★',
+          meal: 'lunch',
+          note: 'Walk-in backup in Yanaka (3-10-25 Yanaka). Renovated 1950s apartment — curry, sandwiches, sweets. Sun hours 12:00–20:00. No same-day seat reservation; calmer than Hantei if the group is tired.',
+        },
+        {
           name: 'Uogashi Nihon-Ichi Ueno Okachimachi',
           area: 'Ueno',
           cuisine: 'Standing sushi / sashimi',
           priceRange: '¥800–1,500',
           rating: '4.3★',
           meal: 'lunch',
-          note: 'Light sashimi lunch after the museum — same affordable standing-sushi chain as Day 1 if you skipped it earlier.',
+          note: 'Backup if you reach Ueno Park / the museum first and want a fast counter lunch — no reservation.',
         },
         {
           name: 'Asakusa area izakaya or café',

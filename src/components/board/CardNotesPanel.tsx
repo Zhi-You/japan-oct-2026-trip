@@ -12,11 +12,11 @@ export function CardNotesPanel({ dayId, cardId }: CardNotesPanelProps) {
   const note = getCardNote(dayId, cardId);
   const hasText = Boolean(note?.text?.trim());
 
-  const noteButtonClass = `flex h-11 w-11 items-center justify-center rounded-lg border text-sm transition ${
+  const noteButtonClass = `relative flex h-11 w-11 items-center justify-center rounded-lg border text-base font-bold transition ${
     note?.isOpen
       ? 'border-indigo bg-indigo/10 text-indigo'
       : hasText
-        ? 'border-gold bg-gold/10 text-gold'
+        ? 'border-vermillion bg-vermillion text-white'
         : 'border-washi-dark bg-washi text-ink-light/50 hover:border-indigo/40 hover:text-indigo'
   }`;
 
@@ -35,12 +35,15 @@ export function CardNotesPanel({ dayId, cardId }: CardNotesPanelProps) {
       <button
         type="button"
         onClick={() => toggleCardNote(dayId, cardId)}
-        title={t('board.notes.toggle')}
+        title={hasText ? t('board.notes.hasNote') : t('board.notes.toggle')}
         className={noteButtonClass}
         aria-expanded={note?.isOpen ?? false}
-        aria-label={t('board.notes.toggle')}
+        aria-label={hasText ? t('board.notes.hasNote') : t('board.notes.toggle')}
       >
-        📝
+        {hasText ? '!' : '📝'}
+        {hasText && !note?.isOpen && (
+          <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-gold" />
+        )}
       </button>
 
       {note?.isOpen && (

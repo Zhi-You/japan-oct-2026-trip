@@ -54,6 +54,7 @@ export const AREA_COORDINATES: Record<string, Coordinates> = {
   Otemachi: { lat: 35.6854, lng: 139.7528 },
   Chiyoda: { lat: 35.6854, lng: 139.7528 },
   Nihombashi: { lat: 35.6812, lng: 139.7742 },
+  Nihonbashi: { lat: 35.6812, lng: 139.7742 },
   Kawaguchiko: { lat: 35.5029, lng: 138.7683 },
   'Fuji Five Lakes': { lat: 35.5029, lng: 138.7683 },
   Nikko: { lat: 36.7577, lng: 139.5995 },
@@ -79,6 +80,10 @@ export const VENUE_COORDINATES: Record<string, Coordinates> = {
   'Sushi no Midori Shibuya': { lat: 35.6598, lng: 139.6988 },
   'Sushizanmai Tsukiji Outer Market': { lat: 35.6654, lng: 139.7707 },
   'Magurobito Asakusa': { lat: 35.7126, lng: 139.7968 },
+  'Taimeiken (たいめいけん)': { lat: 35.6864, lng: 139.7736 },
+  'Ningyocho Imahan — Nihombashi Takashimaya': { lat: 35.6808, lng: 139.7744 },
+  'Hantei (はん亭) Nezu': { lat: 35.7172, lng: 139.7658 },
+  'Hagi Cafe (HAGISO)': { lat: 35.7258, lng: 139.7688 },
 };
 
 /** Pokemon Center locations (optional day metadata pins). */

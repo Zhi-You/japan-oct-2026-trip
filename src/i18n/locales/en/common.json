@@ -33,6 +33,7 @@
     "schedule": "Time & duration",
     "notes": {
       "toggle": "Toggle notes",
+      "hasNote": "This card has a note",
       "label": "Notes",
       "placeholder": "Add comments for your group..."
     }
