@@ -4,6 +4,7 @@ import type { DayPlan } from '../types/itinerary';
 import { useBoard } from '../context/BoardContext';
 import { parseImportedBoardState } from '../utils/boardStorage';
 import { DayBoardCustomizer } from './board/DayBoardCustomizer';
+import { RestorePublishedButton } from './board/RestorePublishedButton';
 import { DayTimeline } from './DayTimeline';
 
 interface ItinerarySectionProps {
@@ -82,6 +83,13 @@ export function ItinerarySection({ days }: ItinerarySectionProps) {
                   accept="application/json,.json"
                   className="hidden"
                   onChange={handleImportFile}
+                />
+                <RestorePublishedButton
+                  className="col-span-2 min-h-11 rounded-lg border border-indigo/40 px-3 py-2.5 text-xs font-medium text-indigo transition hover:border-indigo hover:bg-indigo/5 disabled:opacity-50 sm:col-span-1"
+                  onRestored={() => {
+                    setSavedHint(true);
+                    window.setTimeout(() => setSavedHint(false), 3000);
+                  }}
                 />
                 <button
                   type="button"

@@ -41,7 +41,7 @@ Changes persist in this browser's **localStorage** automatically (same on localh
 
 New visitors (or a fresh browser) load `custom-board.json` when there is no local save yet. Further edits still auto-save locally. Use **Import timeline** to restore a backup on another device.
 
-For GitHub project pages, set `base` in `vite.config.ts` to your repo path (e.g. `'/Japan/'`).
+Production builds already set `base` to `/japan-oct-2026-trip/` for GitHub project pages.
 
 Use **Reset timeline** in Customize mode to restore the original itinerary.
 

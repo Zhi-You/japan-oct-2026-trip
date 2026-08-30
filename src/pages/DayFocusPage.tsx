@@ -11,6 +11,7 @@ import {
 import { googleMapsUrlForStop } from '../utils/googleMaps';
 import { findDayPlan, getDefaultDayId, isValidDayId } from '../utils/tripDay';
 import { DayBoardCustomizer } from '../components/board/DayBoardCustomizer';
+import { RestorePublishedButton } from '../components/board/RestorePublishedButton';
 import { DayFocusActivityList } from '../components/focus/DayFocusActivityList';
 import { DayFocusMap } from '../components/focus/DayFocusMap';
 import { useGeolocation } from '../components/focus/useGeolocation';
@@ -204,7 +205,8 @@ export function DayFocusPage({ days }: DayFocusPageProps) {
         </>
       ) : (
         <div className="flex-1 px-3 py-4 sm:px-4">
-          <p className="mb-4 text-xs text-ink-light/60">{t('board.savedHint')}</p>
+          <p className="mb-3 text-xs text-ink-light/60">{t('board.savedHint')}</p>
+          <RestorePublishedButton className="mb-4 w-full min-h-11 rounded-lg border border-indigo/40 px-3 py-2.5 text-xs font-medium text-indigo transition hover:border-indigo hover:bg-indigo/5 disabled:opacity-50" />
           <DayBoardCustomizer day={day} embedded />
         </div>
       )}
