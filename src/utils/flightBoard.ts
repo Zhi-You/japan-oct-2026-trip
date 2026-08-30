@@ -47,16 +47,22 @@ export function mergeFlightTimelineCards(
     }
   }
 
-  const missingIds = flightIds.filter((id) => !dayBoard.cardIds.includes(id));
-  if (missingIds.length === 0) return;
+  const lastPlaceId = day.places.at(-1)?.id;
+  const lastPlaceIndex = lastPlaceId ? dayBoard.cardIds.indexOf(lastPlaceId) : -1;
+  let lastIndex = day.flightTimelineAfterPlaces
+    ? lastPlaceIndex >= 0
+      ? lastPlaceIndex
+      : -1
+    : -1;
 
-  if (day.flightTimelineAfterPlaces) {
-    const lastPlaceId = day.places.at(-1)?.id;
-    const lastPlaceIndex = lastPlaceId ? dayBoard.cardIds.indexOf(lastPlaceId) : -1;
-    const insertIndex = lastPlaceIndex >= 0 ? lastPlaceIndex + 1 : dayBoard.cardIds.length;
-    dayBoard.cardIds = insertMissingIds(dayBoard.cardIds, missingIds, insertIndex);
-    return;
+  for (const id of flightIds) {
+    const existing = dayBoard.cardIds.indexOf(id);
+    if (existing >= 0) {
+      lastIndex = existing;
+      continue;
+    }
+    const insertIndex = lastIndex + 1;
+    dayBoard.cardIds = insertMissingIds(dayBoard.cardIds, [id], insertIndex);
+    lastIndex = insertIndex;
   }
-
-  dayBoard.cardIds = insertMissingIds(dayBoard.cardIds, missingIds, 0);
 }

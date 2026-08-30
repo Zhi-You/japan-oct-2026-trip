@@ -26,7 +26,8 @@ export const PLACE_COORDINATES: Record<string, Coordinates> = {
   'imperial-east': { lat: 35.6854, lng: 139.7528 },
   'ginza-stroll': { lat: 35.6717, lng: 139.764 },
   'akihabara-tcg': { lat: 35.6984, lng: 139.7731 },
-  departure: { lat: 35.7138, lng: 139.7773 },
+  'narita-hotel-transfer': { lat: 35.772, lng: 140.3929 },
+  departure: { lat: 35.765, lng: 140.386 },
 };
 
 /** Airport coordinates for flight timeline cards. */
@@ -34,6 +35,7 @@ export const AIRPORT_COORDINATES: Record<string, Coordinates> = {
   HND: { lat: 35.5494, lng: 139.7798 },
   NRT: { lat: 35.772, lng: 140.3929 },
   SIN: { lat: 1.3644, lng: 103.9915 },
+  HKG: { lat: 22.308, lng: 113.9185 },
 };
 
 /** Area / neighbourhood centres for meals and custom locations. */
@@ -56,6 +58,7 @@ export const AREA_COORDINATES: Record<string, Coordinates> = {
   'Fuji Five Lakes': { lat: 35.5029, lng: 138.7683 },
   Nikko: { lat: 36.7577, lng: 139.5995 },
   Tsukiji: { lat: 35.6654, lng: 139.7707 },
+  Narita: { lat: 35.772, lng: 140.3929 },
 };
 
 /** Named restaurants / venues from the saved food list. */

@@ -7,7 +7,8 @@ const itineraryEn: ItineraryData = {
     subtitle: 'A photo-friendly itinerary for four',
     dates: '1 – 8 October 2026',
     travellers: '4 people',
-    baseArea: 'Ueno area (accommodation TBD)',
+    baseArea:
+      'EN The HOUSE Asakusa Nitenmon (1–7 Oct) · Toyoko Inn Narita Airport Shinkan (7 Oct night)',
     groupNote:
       'Pace is designed for mixed ages: clustered neighbourhoods, regular rest breaks, and optional “speed up” notes where skipping detail lets you cover more ground.',
   },
@@ -35,7 +36,7 @@ const itineraryEn: ItineraryData = {
       urgency: 'high',
       link: 'https://www.klook.com',
       notes:
-        'Choose a tour with English guide, Toshogu Shrine, Kegon Falls & Lake Chuzenji. Confirm pickup near Ueno/Tokyo Station. Full day (~10–12 hrs) — pack snacks and walking shoes.',
+        'Choose a tour with English guide, Toshogu Shrine, Kegon Falls & Lake Chuzenji. Confirm pickup near Asakusa (or Ueno/Tokyo Station — ~5 min from the hotel). Full day (~10–12 hrs) — pack snacks and walking shoes.',
     },
     {
       id: 'fuji-transport',
@@ -127,9 +128,9 @@ const itineraryEn: ItineraryData = {
       id: 'day-1',
       date: '1 Oct',
       weekday: 'Thursday',
-      title: 'Arrival & Gentle Ueno',
-      theme: 'Recover from travel — stay local',
-      area: 'Ueno',
+      title: 'Arrival & Ueno stroll',
+      theme: 'Recover from travel — check in Asakusa, easy hop to Ueno',
+      area: 'Asakusa / Ueno',
       intensity: 'light',
       flightTimeline: [
         {
@@ -154,6 +155,7 @@ const itineraryEn: ItineraryData = {
               dateLabel: '1 Oct',
             },
             duration: '6h 50m',
+            note: '2 of 4 travellers',
           },
         },
         {
@@ -165,6 +167,43 @@ const itineraryEn: ItineraryData = {
             airportName: 'Haneda Airport',
             terminal: 'T3',
             time: '01:05',
+            durationMinutes: 30,
+          },
+        },
+        {
+          kind: 'flight',
+          flight: {
+            id: 'flight-inbound-hx606',
+            airline: 'Hong Kong Airlines',
+            flightNumber: 'HX 606',
+            aircraft: 'A321-200',
+            departure: {
+              airportCode: 'HKG',
+              airportName: 'Hong Kong International Airport',
+              terminal: 'T2',
+              time: '02:35',
+              dateLabel: '1 Oct',
+            },
+            arrival: {
+              airportCode: 'NRT',
+              airportName: 'Narita International Airport',
+              terminal: 'T1',
+              time: '08:20',
+              dateLabel: '1 Oct',
+            },
+            duration: '4h 45m',
+            note: '2 of 4 travellers',
+          },
+        },
+        {
+          kind: 'airport-process',
+          process: {
+            id: 'narita-touchdown-hx',
+            type: 'touchdown',
+            airportCode: 'NRT',
+            airportName: 'Narita International Airport',
+            terminal: 'T1',
+            time: '08:20',
             durationMinutes: 30,
           },
         },
@@ -233,13 +272,17 @@ const itineraryEn: ItineraryData = {
         },
       ],
       transport: [
-        'Flight TR 882 lands Haneda T3 at 01:05 — allow 30 min for immigration & baggage',
-        'Haneda → Ueno: Monorail to Hamamatsucho → JR (~45 min); taxis available 24h',
+        'TR 882 (2 travellers) lands Haneda T3 at 01:05 — allow 30 min for immigration & baggage',
+        'Haneda → Asakusa: Keikyu + Toei Asakusa Line through train (~45–55 min, no transfer if bound correctly); taxis available 24h',
+        'HX 606 (2 travellers) lands Narita T1 at 08:20 — allow 30 min for immigration & baggage',
+        'Narita T1 → Asakusa: Keisei Access Express through to Toei Asakusa Line (~50–60 min, no transfer if bound for Haneda/Nishi-Magome)',
+        'Hotel: EN The HOUSE Asakusa Nitenmon (2-34-3 Asakusa) — ~5–7 min walk from Asakusa Station (Ginza Line exit 6 / Tobu). Check-in 15:00; store bags if you arrive earlier',
       ],
       dayTips: [
         'Keep Day 1 light — jet lag hits seniors hard. Save energy for Mount Fuji tomorrow.',
         'Pick up Suica/Pasmo at the airport for seamless transit.',
         'Convenience stores (konbini) are excellent for breakfast supplies if you arrive very early before hotel check-in.',
+        'Ameyoko / Ueno Park are one Ginza Line stop from the hotel (~5–8 min) — not hotel-doorstep, but still an easy afternoon once both groups have arrived.',
       ],
       weatherNote: 'Avg high ~24°C — warm but comfortable. Light layers for evening.',
     },
@@ -318,9 +361,9 @@ const itineraryEn: ItineraryData = {
         },
       ],
       transport: [
-        'Depart Ueno ~6:00 — JR to Shinjuku → Highway Bus to Kawaguchiko (~1h45)',
+        'Depart Asakusa ~5:45–6:00 — Ginza Line to Ueno (~5 min) → JR to Shinjuku → Highway Bus to Kawaguchiko (~1h45)',
         'Alternative: Reserved tour bus with fixed itinerary (easier for seniors)',
-        'Return bus ~16:00–17:00; back Ueno ~19:00',
+        'Return bus ~16:00–17:00; back Asakusa ~19:15',
       ],
       dayTips: [
         'No Pokemon Center today — you’ll be on the road before stores open.',
@@ -442,7 +485,7 @@ const itineraryEn: ItineraryData = {
         },
       ],
       transport: [
-        'Ueno → Asakusa: Ginza Line 5 min or 20 min walk through Ueno Park',
+        'Hotel is in Asakusa — Senso-ji / Nitenmon is a ~5–7 min walk (no metro needed for the morning)',
         'Asakusa → Oshiage: Tobu Skytree Line 2 min or 15 min riverside walk',
       ],
       dayTips: [
@@ -455,7 +498,7 @@ const itineraryEn: ItineraryData = {
       date: '4 Oct',
       weekday: 'Sunday',
       title: 'Nezu, Yanaka & Ueno Culture',
-      theme: 'Priority #4, #5, #7 — walkable from Ueno',
+      theme: 'Priority #4, #5, #7 — Ueno loop from Asakusa (short metro)',
       area: 'Nezu / Yanaka / Ueno',
       intensity: 'moderate',
       places: [
@@ -562,16 +605,16 @@ const itineraryEn: ItineraryData = {
           note: 'Light sashimi lunch after the museum — same affordable standing-sushi chain as Day 1 if you skipped it earlier.',
         },
         {
-          name: 'Ueno area izakaya or café',
-          area: 'Ueno',
+          name: 'Asakusa area izakaya or café',
+          area: 'Asakusa',
           cuisine: 'Japanese casual',
           priceRange: '¥1,500–2,500',
           meal: 'dinner',
-          note: 'Many options near Ueno Station — or return to Gyukatsu Motomura if you loved it.',
+          note: 'Many options near Asakusa Station / the hotel after you return from Ueno — or Gyukatsu Motomura Ueno if you stay in the area for dinner.',
         },
       ],
       transport: [
-        'All on foot / short metro: Nezu → Yanaka → Ueno Park (~3 km total walking, flat-ish)',
+        'Asakusa → Ueno: Ginza Line ~5–8 min, then on foot / short metro: Nezu → Yanaka → Ueno Park (~3 km total walking, flat-ish)',
         'Nezu Station: Chiyoda Line from Ueno (2 stops)',
       ],
       dayTips: [
@@ -704,7 +747,7 @@ const itineraryEn: ItineraryData = {
         },
       ],
       transport: [
-        'Ueno → Harajuku: JR Yamanote 25 min',
+        'Asakusa → Harajuku: Ginza Line to Ueno (~5 min) then JR Yamanote (~20 min); ~30 min total',
         'Harajuku → Shibuya: JR 2 min or 15 min walk through Yoyogi Park',
         'Shibuya → Shinjuku: JR 3 min for dinner',
       ],
@@ -797,8 +840,8 @@ const itineraryEn: ItineraryData = {
         },
       ],
       transport: [
-        'Organised tour pickup ~7:00–8:00 from Ueno/Tokyo area',
-        'Return ~18:00–19:00 depending on tour',
+        'Organised tour pickup ~7:00–8:00 — confirm Asakusa, or meet Ueno/Tokyo (~5 min from the hotel). Tobu limited express also starts at Asakusa if self-booking',
+        'Return ~18:00–19:00 depending on tour; back to Asakusa hotel',
         'Nikko tour Tue 6 Oct — Imperial Palace closed Mon/Fri; no schedule clash',
       ],
       dayTips: [
@@ -878,6 +921,26 @@ const itineraryEn: ItineraryData = {
           ticket: { type: 'walk_in', detail: 'No tickets — cash/card accepted' },
           photoNote: 'Neon signs and multi-floor shops — fun documentary shots. Focus on shopping first.',
         },
+        {
+          id: 'narita-hotel-transfer',
+          name: 'Luggage pickup & transfer to Toyoko Inn Narita',
+          area: 'Asakusa → Narita',
+          category: 'Transit',
+          timeSlot: 'Evening (leave Asakusa ~20:30)',
+          duration: '1.5–2 hrs',
+          summary:
+            'Checkout EN House during the day and store bags there. After Akihabara dinner, collect luggage, then ride Keisei Access Express from Asakusa (Toei Asakusa Line through service) to Narita T1 (~50–60 min). Free Toyoko Inn shuttle from T1 bus stop 16 to Shinkan (~10 min). Stay at Toyoko Inn Narita Airport Shinkan (560 Tokko, Narita) tonight.',
+          highlights: [
+            'Leave Asakusa by ~20:30–21:00 — comfortably before the last Access Express (~22:00)',
+            'Hotel shuttle from T1 runs until ~24:30 if a later train is needed',
+          ],
+          tips: [
+            'Confirm last Access Express toward Narita on the day (bound for Airport, not Keisei-Ueno)',
+            'Pack a small overnight bag before sightseeing so the evening pickup is quick',
+            'Toyoko Inn check-in from 15:00; breakfast ~05:30–08:00 next morning',
+          ],
+          ticket: { type: 'walk_in', detail: 'Access Express ~¥1,280 IC; hotel shuttle free' },
+        },
       ],
       food: [
         {
@@ -914,18 +977,21 @@ const itineraryEn: ItineraryData = {
           priceRange: '¥1,000–2,000',
           rating: '4.5★',
           meal: 'dinner',
-          note: 'From saved list. Classic fluffy omurice — perfect post-card-shopping comfort food.',
+          note: 'From saved list. Classic fluffy omurice — perfect post-card-shopping comfort food. Keep dinner reasonably early so you can collect bags in Asakusa and still leave by ~20:30.',
         },
       ],
       transport: [
-        'Ueno → Otemachi: Metro Hibiya/Chiyoda 10 min',
+        'Checkout EN House this morning (check-out 11:00) — store luggage at the hotel and continue the day as planned',
+        'Asakusa → Otemachi: Ginza Line to Nihombashi ~15 min, then walk to Otemon',
         'Otemachi → Ginza: Metro 5 min',
         'Ginza → Akihabara: Metro Hibiya Line 10 min',
+        'Evening: Asakusa → Narita T1 via Access Express (~50–60 min), then Toyoko Inn free shuttle (~10 min)',
       ],
       dayTips: [
         'Imperial Palace East Gardens close 16:30 — start at 9:00, then Tokyo Station & Tokyo DX, Ginza & Akihabara.',
         'Wednesday Akihabara: Hareruya & Poketown open; Ninnin is weekends only.',
-        'Last full sightseeing day before departure — pack cards for tomorrow.',
+        'Last full sightseeing day — pack for Toyoko Inn tonight and tomorrow’s flights before you leave the hotel this morning.',
+        'Aim to leave Asakusa with bags by ~20:30–21:00; last Access Express toward Narita is around 22:00.',
       ],
     },
     {
@@ -972,6 +1038,7 @@ const itineraryEn: ItineraryData = {
               dateLabel: '8 Oct',
             },
             duration: '7h 15m',
+            note: '2 of 4 travellers',
           },
         },
         {
@@ -986,32 +1053,73 @@ const itineraryEn: ItineraryData = {
             durationMinutes: 30,
           },
         },
+        {
+          kind: 'airport-process',
+          process: {
+            id: 'narita-departure-hx',
+            type: 'departure',
+            airportCode: 'NRT',
+            airportName: 'Narita International Airport',
+            terminal: 'T1',
+            time: '09:00',
+            durationMinutes: 30,
+          },
+        },
+        {
+          kind: 'flight',
+          flight: {
+            id: 'flight-outbound-hx607',
+            airline: 'Hong Kong Airlines',
+            flightNumber: 'HX 607',
+            aircraft: 'A321-200',
+            departure: {
+              airportCode: 'NRT',
+              airportName: 'Narita International Airport',
+              terminal: 'T1',
+              time: '09:30',
+              dateLabel: '8 Oct',
+            },
+            arrival: {
+              airportCode: 'HKG',
+              airportName: 'Hong Kong International Airport',
+              terminal: 'T1',
+              time: '13:30',
+              dateLabel: '8 Oct',
+            },
+            duration: '5h 0m',
+            note: '2 of 4 travellers — Tokyo leg only',
+          },
+        },
       ],
       places: [
         {
           id: 'departure',
-          name: 'Airport transfer to Narita',
-          area: 'Ueno → Narita',
+          name: 'Hotel shuttle to Narita T1',
+          area: 'Toyoko Inn → Narita T1',
           category: 'Transit',
           timeSlot: 'Early morning',
-          duration: '1–1.5 hrs',
+          duration: '15–25 min',
           summary:
-            'Scoot TR 885 departs Narita T1 at 08:20. Leave Ueno by 05:00–05:30 — Keisei Skyliner from Keisei-Ueno (~41 min) or N\'EX from Tokyo Station (~55 min).',
+            'You are already at Toyoko Inn Narita Airport Shinkan. Free shuttle: hotel → T2 → T1 (~10 min). Scoot TR 885 (2 travellers) departs T1 at 08:20 — take the 06:30 or 06:50 shuttle to be at the terminal by ~07:20. HX 607 (2 travellers) departs T1 at 09:30 — take the 08:00 or 08:20 shuttle to be there by ~08:30.',
           highlights: [],
           tips: [
-            'Pre-book Narita Express or Keisei Skyliner seats',
-            'International check-in closes ~60 min before departure — aim at airport by 07:20',
-            'Konbini breakfast at station if leaving early',
+            'Shuttle from hotel: 06:10, 06:30, 06:50, 07:10, 07:30, 07:50, 08:00, 08:20… (confirm on the day)',
+            'International check-in typically closes ~60 min before departure',
+            'Free hotel breakfast ~05:30–08:00 — Scoot group should eat early or skip',
           ],
-          ticket: { type: 'advance_recommended', detail: 'Pre-book N\'EX / Skyliner seats' },
+          ticket: { type: 'walk_in', detail: 'Hotel shuttle free — no Skyliner needed' },
         },
       ],
       food: [],
       transport: [
-        'Ueno → Narita T1: Keisei Skyliner from Keisei-Ueno (~41 min) — best for TR 885 at 08:20',
-        'Alternative: JR Narita Express from Tokyo Station (~55 min)',
+        'Toyoko Inn Shinkan → Narita T1: free hotel shuttle (~10 min)',
+        'Scoot TR 885 at 08:20 — be at T1 by ~07:20 (shuttle 06:30 or 06:50)',
+        'HX 607 at 09:30 — be at T1 by ~08:30 (shuttle 08:00 or 08:20)',
       ],
-      dayTips: ['No sightseeing today. Confirm flight check-in closes 60 min before departure.'],
+      dayTips: [
+        'No sightseeing today. Confirm check-in closes 60 min before each departure.',
+        'Both groups fly from Narita T1 — only the shuttle time differs.',
+      ],
     },
   ],
   recommendedExtras: [
@@ -1067,7 +1175,7 @@ const itineraryEn: ItineraryData = {
     },
     {
       scenario: 'Seniors tired on Nikko day',
-      action: 'One person stays at hotel in Ueno (Ameyoko, park rest) while others tour — or choose shorter Nikko tour skipping Lake Chuzenji.',
+      action: 'One person stays at the Asakusa hotel (Senso-ji area rest) while others tour — or choose shorter Nikko tour skipping Lake Chuzenji.',
     },
     {
       scenario: 'Pokemon lottery needed for new release',

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { BookingItem } from '../types/itinerary';
 import { UrgencyBadge } from './Badges';
+import { CollapsibleSection } from './CollapsibleSection';
 
 interface BookingChecklistProps {
   items: BookingItem[];
@@ -10,13 +11,13 @@ export function BookingChecklist({ items }: BookingChecklistProps) {
   const { t } = useTranslation();
 
   return (
-    <section id="bookings" className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
-      <h2 className="font-serif text-2xl font-bold text-ink sm:text-3xl">{t('nav.bookings')}</h2>
-      <p className="mt-2 text-ink-light/70">
-        Critical reservations — missing these can derail the trip
-      </p>
-
-      <div className="mt-8 space-y-4">
+    <CollapsibleSection
+      id="bookings"
+      title={t('nav.bookings')}
+      subtitle="Critical reservations — missing these can derail the trip"
+      className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10"
+    >
+      <div className="space-y-4">
         {items.map((item) => (
           <div
             key={item.id}
@@ -45,6 +46,6 @@ export function BookingChecklist({ items }: BookingChecklistProps) {
           </div>
         ))}
       </div>
-    </section>
+    </CollapsibleSection>
   );
 }

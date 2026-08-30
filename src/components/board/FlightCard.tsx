@@ -47,6 +47,9 @@ export function FlightSegmentCard({ flight }: { flight: FlightSegment }) {
           {flight.aircraft && (
             <p className="text-xs text-ink-light/70">{flight.aircraft}</p>
           )}
+          {flight.note && (
+            <p className="mt-1 text-xs text-ink-light/80">{flight.note}</p>
+          )}
         </div>
         <span className="shrink-0 rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-800">
           {flight.duration}

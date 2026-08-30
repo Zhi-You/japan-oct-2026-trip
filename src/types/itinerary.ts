@@ -26,6 +26,8 @@ export interface FlightSegment {
   departure: FlightEndpoint;
   arrival: FlightEndpoint;
   duration: string;
+  /** Optional party / package note (e.g. which travellers). */
+  note?: string;
 }
 
 export interface AirportProcess {

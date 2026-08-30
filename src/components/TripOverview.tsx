@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import type { ItineraryData } from '../types/itinerary';
+import { CollapsibleSection } from './CollapsibleSection';
 
 interface TripOverviewProps {
   meta: ItineraryData['meta'];
@@ -16,9 +17,12 @@ export function TripOverview({ meta, seasonNotes }: TripOverviewProps) {
   ];
 
   return (
-    <section id="overview" className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
-      <h2 className="font-serif text-2xl font-bold text-ink sm:text-3xl">{t('overview.title')}</h2>
-      <p className="mt-3 max-w-3xl text-ink-light/80">{meta.groupNote}</p>
+    <CollapsibleSection
+      id="overview"
+      title={t('overview.title')}
+      className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10"
+    >
+      <p className="max-w-3xl text-ink-light/80">{meta.groupNote}</p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {stats.map((stat) => (
@@ -54,9 +58,9 @@ export function TripOverview({ meta, seasonNotes }: TripOverviewProps) {
         <p className="mt-1 text-sm text-ink-light">
           JR Yamanote Line, Tokyo Metro, Keisei &amp; highway buses. Suica/Pasmo IC cards for all
           trains and most buses. No rental car needed — every day is public-transit optimised from
-          Ueno.
+          Asakusa, with the last night at Narita Airport.
         </p>
       </div>
-    </section>
+    </CollapsibleSection>
   );
 }
