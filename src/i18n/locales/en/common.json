@@ -129,6 +129,7 @@
     "food": "Meals today",
     "transport": "Transport",
     "dayTips": "Day notes",
+    "dayN": "Day {{n}}",
     "pokemonCenter": "Pokemon Center",
     "flight": "Flight",
     "airportDeparture": "Departure process",

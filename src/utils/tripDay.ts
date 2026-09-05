@@ -28,3 +28,8 @@ export function findDayPlan(days: DayPlan[], dayId: string): DayPlan | undefined
 export function isValidDayId(days: DayPlan[], dayId: string | undefined): dayId is string {
   return Boolean(dayId && days.some((d) => d.id === dayId));
 }
+
+export function getDayNumber(day: DayPlan): number {
+  const match = day.id.match(/(\d+)$/);
+  return match ? Number(match[1]) : 0;
+}

@@ -9,7 +9,7 @@ import {
   resolveCardCoordinates,
 } from '../utils/mapLocations';
 import { googleMapsUrlForStop } from '../utils/googleMaps';
-import { findDayPlan, getDefaultDayId, isValidDayId } from '../utils/tripDay';
+import { findDayPlan, getDayNumber, getDefaultDayId, isValidDayId } from '../utils/tripDay';
 import { DayBoardCustomizer } from '../components/board/DayBoardCustomizer';
 import { RestorePublishedButton } from '../components/board/RestorePublishedButton';
 import { DayFocusActivityList } from '../components/focus/DayFocusActivityList';
@@ -86,7 +86,7 @@ export function DayFocusPage({ days }: DayFocusPageProps) {
           <div className="min-w-0 flex-1 text-center">
             <p className="truncate font-serif text-sm font-bold text-ink">{day.title}</p>
             <p className="text-xs text-ink-light/60">
-              {day.date} · {day.weekday}
+              {t('labels.dayN', { n: getDayNumber(day) })} · {day.date} · {day.weekday}
             </p>
           </div>
           <div className="flex shrink-0 rounded-lg border border-washi-dark bg-surface p-0.5">

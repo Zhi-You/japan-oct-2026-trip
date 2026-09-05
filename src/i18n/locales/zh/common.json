@@ -129,6 +129,7 @@
     "food": "今日用餐",
     "transport": "交通",
     "dayTips": "当日备注",
+    "dayN": "第{{n}}天",
     "pokemonCenter": "宝可梦中心",
     "flight": "航班",
     "airportDeparture": "出发流程",

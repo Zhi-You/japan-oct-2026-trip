@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { DayPlan } from '../../types/itinerary';
+import { getDayNumber } from '../../utils/tripDay';
 import { IntensityBadge } from '../Badges';
 
 interface DaySectionHeaderProps {
@@ -24,6 +25,9 @@ export function DaySectionHeader({
         <div className="rounded-lg bg-banner px-3 py-1 font-serif text-sm font-bold text-banner-fg">
           {day.date}
         </div>
+        <span className="font-serif text-sm font-semibold text-ink">
+          {t('labels.dayN', { n: getDayNumber(day) })}
+        </span>
         <span className="text-sm text-ink-light/60">{day.weekday}</span>
         <IntensityBadge intensity={day.intensity} />
         {extraBadge}
