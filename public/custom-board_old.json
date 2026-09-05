@@ -9,8 +9,8 @@
         "flight-inbound-hx606",
         "narita-touchdown-hx",
         "day-1-pokemon-center",
-        "ameyoko",
         "day-1-meal-0",
+        "ameyoko",
         "ueno-park-lite",
         "day-1-meal-1",
         "day-1-meal-2",
@@ -214,6 +214,10 @@
       "notes": {
         "flight-inbound-hx606": {
           "text": "Hotel booking has free taxi transport for us from NRT airport to our hotel. It tracks the airplane timing. \nBooking ref: 700609353",
+          "isOpen": false
+        },
+        "narita-touchdown-hx": {
+          "text": "Pick up Suica/Pasmo at the airport for seamless transit",
           "isOpen": false
         }
       }
@@ -515,6 +519,14 @@
         "day-3-meal-1": {
           "text": "Optional - alr chosen ichiran",
           "isOpen": false
+        },
+        "sensoji": {
+          "text": "Combini for breakfast",
+          "isOpen": false
+        },
+        "day-3-meal-0": {
+          "text": "optional\n",
+          "isOpen": false
         }
       }
     },
@@ -523,11 +535,11 @@
       "cardIds": [
         "nezu-shrine",
         "yanaka",
-        "day-4-meal-1",
         "day-4-meal-0",
+        "day-4-meal-2",
         "tnm",
         "ueno-park-full",
-        "day-4-meal-2",
+        "day-4-meal-1",
         "day-4-meal-3",
         "day-4-meal-4"
       ],
@@ -730,6 +742,14 @@
         "nezu-shrine": {
           "text": "",
           "isOpen": false
+        },
+        "day-4-meal-1": {
+          "text": "",
+          "isOpen": false
+        },
+        "day-4-meal-2": {
+          "text": "or somewhere nearby. Can be OTOT since this is a last min addition by AI",
+          "isOpen": false
         }
       }
     },
@@ -742,8 +762,8 @@
         "day-5-meal-1",
         "meiji",
         "shibuya-sky",
-        "day-5-meal-2",
-        "day-5-meal-3"
+        "day-5-meal-3",
+        "day-5-meal-2"
       ],
       "cards": {
         "day-5-pokemon-center": {
@@ -981,6 +1001,10 @@
         "meiji": {
           "text": "OPTIONAL if tired. Otherwise maybe before pokemon center or after pokemon center. \nOtherwise just shop around shibuya!",
           "isOpen": false
+        },
+        "day-5-meal-3": {
+          "text": "Unagi! Might be preferred by bobbimenz",
+          "isOpen": false
         }
       }
     },
@@ -1099,7 +1123,12 @@
           }
         }
       },
-      "notes": {}
+      "notes": {
+        "toshogu": {
+          "text": "Pack rain jacket",
+          "isOpen": false
+        }
+      }
     },
     "day-7": {
       "dayId": "day-7",
@@ -1382,6 +1411,7 @@
     "day-8": {
       "dayId": "day-8",
       "cardIds": [
+        "meal-1788108996855-zgqdxuj",
         "departure",
         "narita-departure",
         "flight-outbound",
@@ -1503,9 +1533,25 @@
             "duration": "5h 0m",
             "note": "2 of 4 travellers — Tokyo leg only"
           }
+        },
+        "meal-1788108996855-zgqdxuj": {
+          "id": "meal-1788108996855-zgqdxuj",
+          "kind": "custom-meal",
+          "customMeal": {
+            "name": "Hotel Breakfast",
+            "location": "",
+            "price": "Free",
+            "description": "",
+            "meal": "breakfast"
+          }
         }
       },
-      "notes": {}
+      "notes": {
+        "departure": {
+          "text": "",
+          "isOpen": false
+        }
+      }
     }
   }
 }
