@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../i18n';
 import type { TimelineCard } from '../../types/board';
@@ -14,6 +15,8 @@ interface TimelineCardContentProps {
   mode: 'view' | 'edit';
   onUpdateActivity?: (data: NonNullable<TimelineCard['customActivity']>) => void;
   onUpdateMeal?: (data: NonNullable<TimelineCard['customMeal']>) => void;
+  /** Skip outer card chrome — used inside an already-framed expand panel. */
+  bare?: boolean;
 }
 
 function MealCardView({ meal }: { meal: NonNullable<TimelineCard['meal']> }) {
@@ -27,7 +30,7 @@ function MealCardView({ meal }: { meal: NonNullable<TimelineCard['meal']> }) {
             {meal.rating && ` · ${meal.rating}`}
           </p>
         </div>
-        <span className="shrink-0 rounded bg-washi px-2 py-0.5 text-xs capitalize text-ink-light">
+        <span className="shrink-0 rounded bg-washi px-2 py-0.5 text-xs font-semibold capitalize text-vermillion">
           {meal.meal}
         </span>
       </div>
@@ -74,9 +77,12 @@ export function TimelineCardContent({
   mode,
   onUpdateActivity,
   onUpdateMeal,
+  bare = false,
 }: TimelineCardContentProps) {
   const { t } = useTranslation();
   const schedule = getEffectiveSchedule(card);
+  const frame = (extra: string, children: ReactNode) =>
+    bare ? <>{children}</> : <div className={extra}>{children}</div>;
 
   if (card.kind === 'flight' && card.flight) {
     return <FlightSegmentCard flight={card.flight} />;
@@ -89,49 +95,47 @@ export function TimelineCardContent({
   }
 
   if (card.kind === 'pokemon-center' && card.pokemonCenter) {
-    return (
-      <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-4 shadow-sm sm:p-5">
-        <PokemonCenterCardView data={card.pokemonCenter} schedule={schedule} />
-      </div>
+    return frame(
+      'rounded-xl border border-indigo/20 bg-indigo/5 p-4 shadow-sm sm:p-5',
+      <PokemonCenterCardView data={card.pokemonCenter} schedule={schedule} />,
     );
   }
 
   if (card.kind === 'place' && card.place) {
-    return <PlaceCard place={card.place} index={index} schedule={schedule} />;
+    return <PlaceCard place={card.place} index={index} schedule={schedule} embedded={bare} />;
   }
 
   if (card.kind === 'meal' && card.meal) {
-    return (
-      <div className="rounded-xl border border-washi-dark bg-surface p-4 shadow-sm sm:p-5">
+    return frame(
+      'rounded-xl border border-washi-dark bg-surface p-4 shadow-sm sm:p-5',
+      <>
         <p className="mb-2 text-xs font-semibold uppercase text-vermillion">
           🍜 {t('labels.food')}
         </p>
         <MealCardView meal={card.meal} />
-      </div>
+      </>,
     );
   }
 
   if (card.kind === 'custom-activity' && card.customActivity) {
-    return (
-      <div className="rounded-xl border border-indigo/20 bg-surface p-4 shadow-sm sm:p-5">
-        {mode === 'edit' && onUpdateActivity ? (
-          <CustomActivityEditor data={card.customActivity} onChange={onUpdateActivity} />
-        ) : (
-          <CustomActivityDisplay data={card.customActivity} />
-        )}
-      </div>
+    return frame(
+      'rounded-xl border border-indigo/20 bg-surface p-4 shadow-sm sm:p-5',
+      mode === 'edit' && onUpdateActivity ? (
+        <CustomActivityEditor data={card.customActivity} onChange={onUpdateActivity} />
+      ) : (
+        <CustomActivityDisplay data={card.customActivity} />
+      ),
     );
   }
 
   if (card.kind === 'custom-meal' && card.customMeal) {
-    return (
-      <div className="rounded-xl border border-vermillion/20 bg-surface p-4 shadow-sm sm:p-5">
-        {mode === 'edit' && onUpdateMeal ? (
-          <CustomMealEditor data={card.customMeal} onChange={onUpdateMeal} />
-        ) : (
-          <CustomMealDisplay data={card.customMeal} />
-        )}
-      </div>
+    return frame(
+      'rounded-xl border border-vermillion/20 bg-surface p-4 shadow-sm sm:p-5',
+      mode === 'edit' && onUpdateMeal ? (
+        <CustomMealEditor data={card.customMeal} onChange={onUpdateMeal} />
+      ) : (
+        <CustomMealDisplay data={card.customMeal} />
+      ),
     );
   }
 

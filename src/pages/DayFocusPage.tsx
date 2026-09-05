@@ -13,6 +13,7 @@ import { findDayPlan, getDefaultDayId, isValidDayId } from '../utils/tripDay';
 import { DayBoardCustomizer } from '../components/board/DayBoardCustomizer';
 import { RestorePublishedButton } from '../components/board/RestorePublishedButton';
 import { DayFocusActivityList } from '../components/focus/DayFocusActivityList';
+import { DaySectionFooter } from '../components/map/DaySectionHeader';
 import { DayFocusMap } from '../components/focus/DayFocusMap';
 import { useGeolocation } from '../components/focus/useGeolocation';
 import { PrefsToggles } from '../components/PrefsToggles';
@@ -27,14 +28,21 @@ export function DayFocusPage({ days }: DayFocusPageProps) {
   const { t } = useTranslation();
   const { dayId: routeDayId } = useParams();
   const navigate = useNavigate();
-  const { getDayCards } = useBoard();
+  const { getDayCards, getCardNote } = useBoard();
 
   const defaultDayId = getDefaultDayId(days);
   const activeDayId = isValidDayId(days, routeDayId) ? routeDayId : defaultDayId;
   const day = findDayPlan(days, activeDayId)!;
   const cards = getDayCards(activeDayId);
   const pins = useMemo(() => extractMapPins(cards), [cards]);
-  const activities = useMemo(() => extractCollapsedActivities(cards), [cards]);
+  const activities = useMemo(
+    () =>
+      extractCollapsedActivities(cards).map((item) => {
+        const note = getCardNote(activeDayId, item.id)?.text.trim();
+        return note ? { ...item, note } : item;
+      }),
+    [cards, activeDayId, getCardNote],
+  );
 
   const [mode, setMode] = useState<FocusMode>('navigate');
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -172,9 +180,11 @@ export function DayFocusPage({ days }: DayFocusPageProps) {
             </h2>
             <DayFocusActivityList
               items={activities}
+              cards={cards}
               selectedId={selectedId}
               onSelect={setSelectedId}
             />
+            <DaySectionFooter day={day} />
             <p className="mt-4 text-[11px] leading-relaxed text-ink-light/50">
               {t('focus.tapHint')}
             </p>

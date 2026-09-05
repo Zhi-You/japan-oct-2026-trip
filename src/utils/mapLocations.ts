@@ -140,8 +140,10 @@ export interface CollapsedActivityItem {
   timeLabel: string;
   durationLabel: string;
   isMeal?: boolean;
+  mealType?: 'breakfast' | 'lunch' | 'dinner' | 'snack';
   isPokemonCenter?: boolean;
   hasCoordinates: boolean;
+  note?: string;
 }
 
 export function extractCollapsedActivities(cards: TimelineCard[]): CollapsedActivityItem[] {
@@ -155,6 +157,12 @@ export function extractCollapsedActivities(cards: TimelineCard[]): CollapsedActi
       timeLabel: getCardTimeLabel(card),
       durationLabel,
       isMeal: card.kind === 'meal' || card.kind === 'custom-meal',
+      mealType:
+        card.kind === 'meal'
+          ? card.meal?.meal
+          : card.kind === 'custom-meal'
+            ? card.customMeal?.meal
+            : undefined,
       isPokemonCenter: card.kind === 'pokemon-center',
       hasCoordinates: resolveCardCoordinates(card) !== null,
     };

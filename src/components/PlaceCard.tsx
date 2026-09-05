@@ -8,15 +8,20 @@ interface PlaceCardProps {
   place: Place;
   index: number;
   schedule: CardSchedule;
+  embedded?: boolean;
 }
 
-export function PlaceCard({ place, index, schedule }: PlaceCardProps) {
+export function PlaceCard({ place, index, schedule, embedded = false }: PlaceCardProps) {
   const { t } = useTranslation();
 
   return (
     <article
-      className="animate-fade-up rounded-xl border border-washi-dark bg-surface p-4 shadow-sm sm:p-5"
-      style={{ animationDelay: `${index * 60}ms` }}
+      className={
+        embedded
+          ? ''
+          : 'animate-fade-up rounded-xl border border-washi-dark bg-surface p-4 shadow-sm sm:p-5'
+      }
+      style={embedded ? undefined : { animationDelay: `${index * 60}ms` }}
     >
       <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
         <div className="min-w-0">
