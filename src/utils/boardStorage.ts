@@ -24,7 +24,7 @@ export function loadBoardState(): BoardState | null {
 
 export async function loadBundledBoardState(): Promise<BoardState | null> {
   try {
-    const response = await fetch(BUNDLED_BOARD_PATH);
+    const response = await fetch(BUNDLED_BOARD_PATH, { cache: 'no-store' });
     if (!response.ok) return null;
     const parsed = (await response.json()) as unknown;
     if (!isValidBoardState(parsed)) return null;
