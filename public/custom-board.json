@@ -8,13 +8,14 @@
         "haneda-touchdown",
         "flight-inbound-hx606",
         "narita-touchdown-hx",
+        "meal-1788605318275-61slo1m",
         "day-1-pokemon-center",
         "ameyoko",
         "day-1-meal-0",
         "ueno-park-lite",
-        "day-1-meal-1",
-        "day-1-meal-2",
-        "day-1-meal-3"
+        "day-1-meal-3",
+        "meal-1788605395690-o5g0d1r",
+        "meal-1788605453621-2lgbmxp"
       ],
       "cards": {
         "flight-inbound": {
@@ -171,32 +172,6 @@
             "note": "After Pokemon Center Tokyo Station / Tokyo DX. Founded 1931 — the Tampopo omurice from the film is the comfort-Japanese starter meal. 1F is walk-in (no booking); expect a queue. Closed Mondays — Thu 1 Oct is open. ~8 min walk from Mitsukoshimae / Tokyo DX. Official: taimeiken.co.jp"
           }
         },
-        "day-1-meal-1": {
-          "id": "day-1-meal-1",
-          "kind": "meal",
-          "meal": {
-            "name": "Ningyocho Imahan — Nihombashi Takashimaya",
-            "area": "Nihombashi",
-            "cuisine": "Sukiyaki / wagyu",
-            "priceRange": "¥5,000–12,000",
-            "rating": "4.3★",
-            "meal": "lunch",
-            "note": "Same building as Pokemon Center Tokyo DX (Takashimaya Shinkan 6F) — the classic sukiyaki first lunch. Reservation only, at least 3 days ahead via imahan-tokyo.com. Lunch 11:00–15:00; lunch sets from ~¥5,280. Best “welcome to Japan” sit-down if you book; otherwise use Taimeiken."
-          }
-        },
-        "day-1-meal-2": {
-          "id": "day-1-meal-2",
-          "kind": "meal",
-          "meal": {
-            "name": "Uogashi Nihon-Ichi Ueno Okachimachi",
-            "area": "Ueno",
-            "cuisine": "Standing sushi / sashimi",
-            "priceRange": "¥800–1,500",
-            "rating": "4.3★",
-            "meal": "lunch",
-            "note": "Backup if you skip the Nihombashi lunch and go straight to Ameyoko — standing sushi, no reservation. Order piece-by-piece (¥100–300)."
-          }
-        },
         "day-1-meal-3": {
           "id": "day-1-meal-3",
           "kind": "meal",
@@ -209,11 +184,48 @@
             "meal": "dinner",
             "note": "From your saved list. Deep-fried beef you finish on a hot stone — hearty after travel. Expect 20–40 min queue at peak; go early (~17:30)."
           }
+        },
+        "meal-1788605318275-61slo1m": {
+          "id": "meal-1788605318275-61slo1m",
+          "kind": "custom-meal",
+          "customMeal": {
+            "name": "Ichiryu Ramen",
+            "location": "2 Chome-35-16 Asakusa, Taito City, Tokyo 111-0032, Japan",
+            "price": "",
+            "description": "If already late or hungry, can choose this for lunch",
+            "meal": "lunch"
+          }
+        },
+        "meal-1788605395690-o5g0d1r": {
+          "id": "meal-1788605395690-o5g0d1r",
+          "kind": "custom-meal",
+          "customMeal": {
+            "name": "izumo unagi rice",
+            "location": "Asakusa",
+            "price": "2000-3000",
+            "description": "",
+            "meal": "dinner"
+          }
+        },
+        "meal-1788605453621-2lgbmxp": {
+          "id": "meal-1788605453621-2lgbmxp",
+          "kind": "custom-meal",
+          "customMeal": {
+            "name": "Sasaya Asakusa",
+            "location": "Asakusa",
+            "price": "3000-7000",
+            "description": "Sukiyaki. More expensive",
+            "meal": "dinner"
+          }
         }
       },
       "notes": {
         "flight-inbound-hx606": {
           "text": "Hotel booking has free taxi transport for us from NRT airport to our hotel. It tracks the airplane timing. \nBooking ref: 700609353",
+          "isOpen": false
+        },
+        "narita-touchdown-hx": {
+          "text": "Pick up Suica/Pasmo at the airport for seamless transit",
           "isOpen": false
         }
       }
@@ -334,6 +346,7 @@
         "skytree-exterior",
         "day-3-meal-1",
         "day-3-meal-2",
+        "meal-1788605619124-17msdzp",
         "day-3-meal-4"
       ],
       "cards": {
@@ -505,6 +518,17 @@
             "meal": "dinner",
             "note": "From your saved list. Solid backup dinner near Asakusa station."
           }
+        },
+        "meal-1788605619124-17msdzp": {
+          "id": "meal-1788605619124-17msdzp",
+          "kind": "custom-meal",
+          "customMeal": {
+            "name": "Sugimoto",
+            "location": "Skytree",
+            "price": "2000-5000",
+            "description": "Sukiyaki",
+            "meal": "dinner"
+          }
         }
       },
       "notes": {
@@ -515,6 +539,18 @@
         "day-3-meal-1": {
           "text": "Optional - alr chosen ichiran",
           "isOpen": false
+        },
+        "sensoji": {
+          "text": "Combini for breakfast",
+          "isOpen": false
+        },
+        "day-3-meal-0": {
+          "text": "optional\n",
+          "isOpen": false
+        },
+        "meal-1788605619124-17msdzp": {
+          "text": "Can have some desert at sky tree, then go back asakusa for dinner or have the sukiyaki at sky tree F6 Sugimoto",
+          "isOpen": false
         }
       }
     },
@@ -523,13 +559,15 @@
       "cardIds": [
         "nezu-shrine",
         "yanaka",
-        "day-4-meal-1",
         "day-4-meal-0",
+        "meal-1788605669521-skjp02p",
+        "meal-1788605721231-omlcdjo",
         "tnm",
         "ueno-park-full",
-        "day-4-meal-2",
         "day-4-meal-3",
-        "day-4-meal-4"
+        "day-4-meal-4",
+        "day-4-meal-1",
+        "day-4-meal-2"
       ],
       "cards": {
         "nezu-shrine": {
@@ -720,6 +758,28 @@
             "meal": "dinner",
             "note": "Many options near Asakusa Station / the hotel after you return from Ueno — or Gyukatsu Motomura Ueno if you stay in the area for dinner."
           }
+        },
+        "meal-1788605669521-skjp02p": {
+          "id": "meal-1788605669521-skjp02p",
+          "kind": "custom-meal",
+          "customMeal": {
+            "name": "Kitsune sushi",
+            "location": "Sendagi",
+            "price": "2000-6000",
+            "description": "Sushi",
+            "meal": "lunch"
+          }
+        },
+        "meal-1788605721231-omlcdjo": {
+          "id": "meal-1788605721231-omlcdjo",
+          "kind": "custom-meal",
+          "customMeal": {
+            "name": "Kiri Yanaka",
+            "location": "Sendagi",
+            "price": "4000-9000",
+            "description": "Unagi rice",
+            "meal": "lunch"
+          }
         }
       },
       "notes": {
@@ -729,6 +789,14 @@
         },
         "nezu-shrine": {
           "text": "",
+          "isOpen": false
+        },
+        "meal-1788605669521-skjp02p": {
+          "text": "For lunch, can see if there are nice options on road as well, dont have to follow these strictly",
+          "isOpen": false
+        },
+        "day-4-meal-4": {
+          "text": "Dinner can be somewhere near Ueno or Asakusa",
           "isOpen": false
         }
       }
@@ -981,6 +1049,14 @@
         "meiji": {
           "text": "OPTIONAL if tired. Otherwise maybe before pokemon center or after pokemon center. \nOtherwise just shop around shibuya!",
           "isOpen": false
+        },
+        "day-5-meal-3": {
+          "text": "Unagi! Might be preferred by bobbimenz",
+          "isOpen": false
+        },
+        "day-5-meal-0": {
+          "text": "Lunch either sushi or red rock harajuku or afuri ramen or wagyu ramen",
+          "isOpen": false
         }
       }
     },
@@ -1099,7 +1175,12 @@
           }
         }
       },
-      "notes": {}
+      "notes": {
+        "toshogu": {
+          "text": "Pack rain jacket",
+          "isOpen": true
+        }
+      }
     },
     "day-7": {
       "dayId": "day-7",
