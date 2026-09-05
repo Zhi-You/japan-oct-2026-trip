@@ -15,7 +15,9 @@
         "ueno-park-lite",
         "day-1-meal-3",
         "meal-1788605395690-o5g0d1r",
-        "meal-1788605453621-2lgbmxp"
+        "meal-1788605453621-2lgbmxp",
+        "day-1-meal-1",
+        "day-1-meal-2"
       ],
       "cards": {
         "flight-inbound": {
@@ -172,8 +174,8 @@
             "note": "After Pokemon Center Tokyo Station / Tokyo DX. Founded 1931 — the Tampopo omurice from the film is the comfort-Japanese starter meal. 1F is walk-in (no booking); expect a queue. Closed Mondays — Thu 1 Oct is open. ~8 min walk from Mitsukoshimae / Tokyo DX. Official: taimeiken.co.jp"
           }
         },
-        "day-1-meal-3": {
-          "id": "day-1-meal-3",
+        "day-1-meal-1": {
+          "id": "day-1-meal-1",
           "kind": "meal",
           "meal": {
             "name": "Gyukatsu Motomura Ueno",
